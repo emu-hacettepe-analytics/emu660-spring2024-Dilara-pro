@@ -1,7 +1,11 @@
 ---
 title: "Welcome to My Analytics Lab"
 ---
+![](assets/images/fighting-stance-po.gif){fig-align="center" width="200"}
 
 Welcome to my webpage!
 
 *I am a Ph.D. student and a research assistant in the Department of Industrial Engineering at Hacettepe University. I am extremely passionate about the fields of statistics, data science and machine learning.*
+
+
+
