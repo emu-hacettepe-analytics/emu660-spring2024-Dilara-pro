@@ -40,4 +40,4 @@ I enjoy researching, reading and dancing.
 
 # Links
 
-[CV](CV_Dilara Akkus_)
+[CV](assets/images/CV_Dilara Akkus_.pdf)
