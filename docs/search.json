@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Welcome to My Analytics Lab",
     "section": "",
-    "text": "Hello!! My name is xxx xxxx.\nThis is my personal webpage.\nPlease stay tuned to follow my works on data analytics, blog posts, and more.\n\n\n\n Back to top"
+    "text": "Welcome to my webpage!\nI am a Ph.D. student and a research assistant in the Department of Industrial Engineering at Hacettepe University. I am extremely passionate about the fields of data science, statistical learning, and machine learning.\n\n\n\n\n Back to top"
   },
   {
     "objectID": "project.html",
@@ -84,14 +84,14 @@
     "href": "about.html#employements",
     "title": "About Me",
     "section": "Employements",
-    "text": "Employements\n\nFirm xxx, position xx, year xxx\nFirm yyy, position yyy, year yyy"
+    "text": "Employements\n\nHacettepe University, Research Assistant, 2020 - ongoing."
   },
   {
     "objectID": "about.html#internships",
     "href": "about.html#internships",
     "title": "About Me",
     "section": "Internships",
-    "text": "Internships\n\nFirm aaa, position xx, year xxx\nFirm bbb, position yyy, year yyy"
+    "text": "Internships\n\nLazzoni Furniture, Intern in Quality Department, August 2017\nAselsan, Intern in Production Planning and Control Department, July 2018\nTAI, Candidate Industrial Engineer, November 2018 - May 2019"
   },
   {
     "objectID": "posts.html",

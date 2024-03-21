@@ -2,8 +2,6 @@
 title: "Welcome to My Analytics Lab"
 ---
 
-Hello!! My name is xxx xxxx.
+# Welcome to my webpage!
 
-This is my personal webpage.
-
-Please stay tuned to follow my works on data analytics, blog posts, and more.
+*I am a Ph.D. student and a research assistant in the Department of Industrial Engineering at Hacettepe University. I am extremely passionate about the fields of data science, statistical learning, and machine learning.*

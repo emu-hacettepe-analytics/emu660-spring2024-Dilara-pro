@@ -3,38 +3,41 @@ title: "About Me"
 sidebar: false 
 ---
 
-![](assets/images/vesikalik.jpeg){fig-align="center"}
+![](assets/images/Vesikalık.jpeg){fig-align="center"}
 
 # Education
 
--   B.S., ................................., ....................................University, Turkey, 20xx - 20xx.
--   M.S., Industrial Engineering, Hacettepe University, Turkey, 20xx - ongoing.
--   Ph.D.., Industrial Engineering, Hacettepe University, Turkey, 20xx - ongoing.
+-   B.S., Industrial Engineering, Gazi University, Turkey, 2014 - 2019.
+-   M.S., Industrial Engineering, Hacettepe University, Turkey, 2021 - 2023.
+-   Ph.D., Industrial Engineering, Hacettepe University, Turkey, 2023 - ongoing.
 
 # Work Experience
 
 ## Employements
 
-1.  Firm xxx, position xx, year xxx
-
-2.  Firm yyy, position yyy, year yyy
+1.  Hacettepe University, Research Assistant, 2020 - ongoing.
 
 ## Internships
 
-1.  Firm aaa, position xx, year xxx
+1.  Lazzoni Furniture, Intern in Quality Department, August 2017
 
-2.  Firm bbb, position yyy, year yyy
+2.  Aselsan, Intern in Production Planning and Control Department, July 2018
 
-# Projects
+3.  TAI, Candidate Industrial Engineer, November 2018 - May 2019
 
-1.  TUBİTAK 1001..........................
 
 # Publications
 
-1.  Dasdemir, E., Batta, R., Koksalan, M., Tezcaner Ozturk, D. (2022) “UAV Routing for Reconnaissance Mission: A Multi-Objective Orienteering Problem with Time-Dependent Prizes and Multiple Connections”, Computers & Operations Research, 145: 105882.
+1.  Akkus, D., Testik, O. M. (2024) "A novel method for weighting decision makers for failure mode and effect analysis under intuitionistic fuzzy environment", Quality and Reliability Engineering International.
 
 # Competencies
 
-R, Quarto, Git, Python
+R, Quarto, Git, Github, Python, Gurobi, Latex, Minitab
 
 # Hobbies
+
+I enjoy researching, reading and dancing.
+
+# Links
+
+[CV](CV_Dilara Akkus_)
