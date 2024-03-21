@@ -4,4 +4,4 @@ title: "Welcome to My Analytics Lab"
 
 Welcome to my webpage!
 
-*I am a Ph.D. student and a research assistant in the Department of Industrial Engineering at Hacettepe University. I am extremely passionate about the fields of data science, statistical learning, and machine learning.*
+*I am a Ph.D. student and a research assistant in the Department of Industrial Engineering at Hacettepe University. I am extremely passionate about the fields of statistics, data science and machine learning.*
