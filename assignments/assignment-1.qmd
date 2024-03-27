@@ -2,14 +2,77 @@
 title: "Assignment 1"
 ---
 
-# Assignment 1
+My first assignment has three parts.
 
-```{r}
-1 + 1
-```
+## (a) 
 
-My first assignment has two parts.
+### [A brief summary of Mr. Vardar’s speech](https://www.youtube.com/watch?v=Fi8-phj1X1A)
 
-## (a)
+In my opinion, Mr. Cem Vardar's speech can be categorized into three main segments.
+
+Firstly, Mr Cem Vardar emphasises that Industrial Engineers have the necessary skills to use data science tools effectively and underlines the synergy between Industrial Engineering and data science applications. According to him, data analytics is a tool for problem-solving for Industrial Engineers.
+
+Secondly, Mr. Vardar highlights that the most effective designs in complex systems require simple solutions, even if complex solutions are necessary, they should start with simple beginnings.
+
+Finally, he discusses the Pareto Principle (80-20 principle), specifically mentioning that learning just 20% of skills related to data analytics, such as programming languages, data mining methods, or the use of cloud environments, will actually meet 80% of an Industrial Engineer's needs.
 
 ## (b)
+### Exploring Statistical Summaries of 'mtcars' dataset
+
+```{r}
+data(mtcars)
+custom_summary <- function(x) {
+  list(mean = mean(x), median = median(x), stdev = sd(x), min = min(x), 
+       max = max(x))
+}
+for (i in names(mtcars)) {
+  cat("Column name:", i,"\n")
+  print(custom_summary(mtcars[[i]]))    #[i] returns a data frame; [[i]] returns the vector of that column
+}
+
+print(apply(mtcars, 2, custom_summary))
+```
+
+```{r}
+# To be able to see the results in a dataframe:
+summary_stats <- sapply(mtcars, custom_summary)
+print(summary_stats)
+```
+
+## (c)
+
+### Displaying and Manipulating the 'na_example' Dataset
+```{r}
+library(dslabs)
+data(na_example)
+na_example
+str(na_example)
+```
+
+```{r}
+data(na_example)
+
+number_NA <- sum(is.na(na_example))
+cat("Number of NAs in the dataset: ", number_NA)
+```
+
+```{r}
+data(na_example)
+
+new_NA_example <- replace(na_example, is.na(na_example), 660)
+cat("The new version of the dataset: ", new_NA_example)
+```
+
+```{r}
+new_NA_example <- replace(na_example, is.na(na_example), 660)
+
+number_NA <- sum(is.na(new_NA_example))
+cat("The number of NAs in the new version: ", number_NA)
+```
+
+```{r}
+new_NA_example <- replace(na_example, is.na(na_example), 660)
+
+number_660 <- sum(new_NA_example == 660)
+cat("The number of 660s in the new version: ", number_660)
+```

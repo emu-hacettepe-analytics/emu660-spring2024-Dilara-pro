@@ -3,7 +3,7 @@ title: "About Me"
 sidebar: false 
 ---
 
-![](assets/images/Vesikalık.jpeg){fig-align="left" width="290"}
+![](assets/images/Vesikalık.jpeg){fig-align="left" width="150"}
 
 # Education
 
@@ -25,19 +25,18 @@ sidebar: false
 
 3.  TAI, Candidate Industrial Engineer, November 2018 - May 2019
 
-
 # Publications
 
 1.  Akkus, D., Testik, O. M. (2024) "A novel method for weighting decision makers for failure mode and effect analysis under intuitionistic fuzzy environment", Quality and Reliability Engineering International.
 
 # Competencies
 
-R, Quarto, Git, Github, Python, Gurobi, Latex, Minitab
+Minitab, R, Python, Gurobi, Latex, Quarto, Git, Github
 
-# Hobbies
+# I Enjoy
 
-I enjoy researching, reading and dancing.
+![](assets/images/giphy.gif){fig-align="left" width="100" height="80"} Researching <br> ![](assets/images/book.gif){fig-align="left" width="100" height="80"} Reading <br/> ![](assets/images/dance.gif){fig-align="left" width="100" height="80"} Dancing
 
 # Links
 
-[CV](assets/CV/CV_Dilara Akkus_.pdf)
+[CV](assets/CV/CV_Dilara%20Akkus_.pdf)

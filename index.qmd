@@ -1,11 +1,7 @@
 ---
-title: "Welcome to My Analytics Lab"
+title: "Welcome to my web page!"
 ---
-![](assets/images/fighting-stance-po.gif){fig-align="center" width="200"}
 
-Welcome to my webpage!
+![](assets/images/fighting-stance-po.gif){fig-align="center" width="500"}
 
-*I am a Ph.D. student and a research assistant in the Department of Industrial Engineering at Hacettepe University. I am extremely passionate about the fields of statistics, data science and machine learning.*
-
-
-
+*My name is Dilara Akkus. I am a Ph.D. student and a research assistant in the Department of Industrial Engineering at Hacettepe University. I am extremely passionate about the fields of statistics, data science and machine learning.*
