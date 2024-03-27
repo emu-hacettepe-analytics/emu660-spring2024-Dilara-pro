@@ -35,7 +35,7 @@ Minitab, R, Python, Gurobi, Latex, Quarto, Git, Github
 
 # I Enjoy
 
-![](assets/images/giphy.gif){fig-align="left" width="100" height="80"} Researching <br> ![](assets/images/book.gif){fig-align="left" width="100" height="80"} Reading <br/> ![](assets/images/dance.gif){fig-align="left" width="100" height="80"} Dancing
+![](assets/images/giphy.gif){fig-align="left" width="80" height="60"} Researching <br> ![](assets/images/book.gif){fig-align="left" width="80" height="60"} Reading <br/> ![](assets/images/dance.gif){fig-align="left" width="80" height="60"} Dancing
 
 # Links
 
