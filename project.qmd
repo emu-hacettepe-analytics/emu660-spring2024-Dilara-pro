@@ -82,7 +82,7 @@ This topic was chosen because it was realized that **waste management is not giv
 
 -   **For "municipal_waste" dataset:**
 
-[Downloadable dataset in .RData version](https://github.com/emu-hacettepe-analytics/emu660-spring2024-Dilara-pro/project/data/municipal_waste.RData)
+[Downloadable dataset in .RData version](https://github.com/emu-hacettepe-analytics/emu660-spring2024-Dilara-pro/project/data)
 
 ```{r}
 library(tidyverse)
@@ -117,7 +117,7 @@ summary(municipal_waste)
 
 -   **For "where_to_municipal_waste" dataset:**
 
-[Downloadable dataset in .RData version](https://github.com/emu-hacettepe-analytics/emu660-spring2024-Dilara-pro/project/data/where_to_municipal_waste.RData)
+[Downloadable dataset in .RData version](https://github.com/emu-hacettepe-analytics/emu660-spring2024-Dilara-pro/project/data)
 
 ```{r}
 library(tidyverse)
@@ -152,7 +152,7 @@ summary(where_to_municipal_waste)
 
 -   **For "time_series_municipal_waste" dataset:**
 
-[Downloadable dataset in .RData version](https://github.com/emu-hacettepe-analytics/emu660-spring2024-Dilara-pro/project/data/time_series_municipal_waste.RData)
+[Downloadable dataset in .RData version](https://github.com/emu-hacettepe-analytics/emu660-spring2024-Dilara-pro/project/data)
 
 ```{r}
 library(tidyverse)
@@ -178,7 +178,7 @@ head(time_series_municipal_waste)
 
 -   **For "Ankara_waste_type_year" dataset:** There is no need to preprocess the data
 
-[Downloadable dataset in .RData version](https://github.com/emu-hacettepe-analytics/emu660-spring2024-Dilara-pro/project/data/Ankara_waste_type_year.RData)
+[Downloadable dataset in .RData version](https://github.com/emu-hacettepe-analytics/emu660-spring2024-Dilara-pro/project/data)
 
 # [3. Analysis]{style="color:darkgreen"} ![](assets/images/analysis.jpg){width="36" height="29"}
 
