@@ -1,10 +1,14 @@
 ---
 title: "Assignment 1"
+format:
+  html:
+    code-fold: true
+    code-summary: "Show the code"
 ---
 
 My first assignment has three parts.
 
-## (a) 
+## (a)
 
 ### [A brief summary of Mr. Vardar’s speech](https://www.youtube.com/watch?v=Fi8-phj1X1A)
 
@@ -17,6 +21,7 @@ Secondly, Mr. Vardar highlights that the most effective designs in complex syste
 Finally, he discusses the Pareto Principle (80-20 principle), specifically mentioning that learning just 20% of skills related to data analytics, such as programming languages, data mining methods, or the use of cloud environments, will actually meet 80% of an Industrial Engineer's needs.
 
 ## (b)
+
 ### Exploring Statistical Summaries of 'mtcars' dataset
 
 ```{r}
@@ -42,6 +47,7 @@ print(summary_stats)
 ## (c)
 
 ### Displaying and Manipulating the 'na_example' Dataset
+
 ```{r}
 library(dslabs)
 data(na_example)

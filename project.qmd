@@ -1,57 +1,247 @@
 ---
-title: "Project X"
+title: "STOP COMPLAINING, IT SOLVES NOTHING."
+format:
+  html:
+    code-fold: true
+    code-summary: "Show the code"
+    code-copy: true
+  pdf:
+    colorlinks: true
+    papersize: a4
+    fontsize: 11pt
+    margin-left: 2cm
+    margin-right: 2cm
+    margin-top: 2cm
+    margin-bottom: 2cm
 ---
 
-Welcome to my project page.
+My project will provide insights about **waste management**, which is of vital importance to the world and humanity. I hope to convey the awareness and perspective I wish to share with you, since change begins with awareness, and **we have to change our way** so that our children can live in the world they deserve! ![](assets/images/waste.png){fig-align="center" width="500"}
 
-Keep an eye on this space to stay updated with my project activities.
+# [1. Are we aware?]{style="color:darkgreen"} ![](assets/images/trash.jpg){width="109" height="27"}
 
-(The titles below are provided as examples; please feel free to adjust them as necessary.)
+***Important fact:*** Are we aware that when we do not recycle waste or use it for energy consumption, it pollutes our groundwater, our soil, and the air through greenhouse gases emitted by the waste, ultimately reducing the quality of the food produced in our soil and our overall life quality?
 
-# 1. Project Overview and Scope
+We just complain, don't we? Strawberries used to smell like strawberries, tomatoes used to taste different... right?
 
-xxxxxx
+Unfortunately, complaining doesn't fix anything, and it won't. If we want to deserve to live in this world, we must work hard for our generation. The effort we do not put into our waste will heavily come back to haunt us and our children in this universe created with karma. **Let's quit complaining and start acting!**
 
-# 2. Data
+![](assets/images/landfill-scaled.jpg){fig-align="center" width="300"}
 
-xxxxxx
+***The scope:*** In my project, I will attempt to extract insights from several data collections on waste management in Turkiye. I will particularly focus on municipal waste statistics. Initially, I will analyze data on a national level, then move on to a provincial basis. Later, I will use time series methods to forecast future waste amount trends in Turkiye. Additionally, using clustering methods, I will group provinces based on their waste amounts behaviors.
 
-## 2.1 Data Source
+***The aim:*** In this project, my main goals are to increase awareness about waste issues, determine future waste quantities, investigate the waste levels of the provinces, and discuss both prevention strategies and proper disposal and recycling methods for unavoidable waste.
 
-xxxxxx
+# [2. Data]{style="color:darkgreen"} ![](assets/images/data_symbol.jpg){width="43" height="29"}
 
-## 2.2 General Information About Data
+I plan to use multiple data sources for analysis. The data I will utilize include waste quantities, waste types and population figures for Turkiye and its provinces.
 
-xxxxxx
+## [2.1 Data Source]{style="color:darkblue"} ![](assets/images/database.jpg){width="71" height="29"}
 
-## 2.3 Reason of Choice
+The references from which I have gathered the data may include:
 
-xxxxxx
+-   [Waste Statistics, TURKSTAT](https://data.tuik.gov.tr/Bulten/Index?p=Waste-Statistics-2022-49570)
+-   [Environment Regional Data, Biruni TURKSTAT](https://biruni.tuik.gov.tr/bolgeselistatistik/degiskenlerUzerindenSorgula.do#)
+-   [Waste Data, Ankara Municipality](https://seffaf.ankara.bel.tr/)
 
-## 2.4 Preprocessing
+## [2.2 General Information About Data]{style="color:darkblue"} ![](assets/images/info.jpg){width="26" height="23"}
 
-xxxxxx
+-   The municipal waste amount data of Turkiye, which includes information such as the population of Turkiye and its 81 provinces' municipalities, total waste amounts for the year 2022, the average waste amount per person, etc.:
 
-# 3. Analysis
+```{r}
+library(openxlsx)
+municipal_waste <- read.xlsx("project/data/municipal_wasteamount_2022.xlsx")
+str(municipal_waste)
+```
 
-xxxxxx
+-   Data including the amounts of collected municipal waste that are sent to municipal landfills, waste processing facilities (the waste sent to landfill sites, incineration plants and all the waste recovery facilities), and disposed of using other methods (disposals by burning in an open area, dumping into river/onto land and burying.):
 
-## 3.1 Exploratory Data Analysis
+```{r}
+where_to_municipal_waste <- read.xlsx("project/data/municipal_waste_stat.xlsx")
+str(where_to_municipal_waste)
+```
 
-xxxxxx
+-   Time series data including municipal waste amounts, waste per capita, waste sent to processing facilities, etc., for the years 1994-2022:
 
-## 3.2 Trend Analysis
+```{r}
+time_series_municipal_waste <- read.xlsx("project/data/municipal_waste_timeseries.xlsx", colNames = TRUE)
+str(time_series_municipal_waste)
+```
 
-xxxxxx
+-   Data on the types and amounts of waste collected annually in Ankara:
 
-## 3.3 Model Fitting
+```{r}
+Ankara_waste_type_year <- read.xlsx("project/data/Ankara_wastetype_year.xlsx")
+str(Ankara_waste_type_year)
+```
 
-xxxxxx
+## [2.3 Reason of Choice]{style="color:darkblue"} ![](assets/images/reason.jpg){width="25" height="21"}
 
-## 3.4 Results
+This topic was chosen because it was realized that **waste management is not given enough importance** in Turkiye, and it is believed that carelessness should not continue in this matter. The importance of the subject is **indisputable**. By using the data sets mentioned above, it is aimed to reveal and analyze the current situation of waste management, to derive knowledge, and to contribute to the literature and our country.
 
-xxxxxx
+## [2.4 Preprocessing]{style="color:darkblue"} ![](assets/images/preprocess.jpg){width="29" height="24"}
 
-# 4. Results and Key Takeaways
+-   **For "municipal_waste" dataset:**
 
-xxxxxx
+[Downloadable dataset in .RData version](https://github.com/emu-hacettepe-analytics/emu660-spring2024-Dilara-pro/project/data/municipal_waste.RData)
+
+```{r}
+library(tidyverse)
+# remove unnecessary columns
+municipal_waste <- select(municipal_waste, -X5)    
+municipal_waste <- select(municipal_waste, -X6)
+# rename columns
+municipal_waste <- rename(municipal_waste, "Provinces" ="Belediye.atık.hizmeti.istatistikleri,.2022.Municipal.waste.services.statistics,.2022")
+municipal_waste <- rename(municipal_waste, "Total municipal population" = "X2")
+municipal_waste <- rename(municipal_waste, "Total number of municipalities" ="X3")
+municipal_waste <- rename(municipal_waste, "Number of municipalities providing waste services" ="X4")
+municipal_waste <- rename(municipal_waste, "Amount of waste collected (Tonnes) 
+" ="X7")
+municipal_waste <- rename(municipal_waste, "Amount of waste per capita (Kg/capita-day) 
+" ="X8")
+# remove unnecessary rows
+municipal_waste <- municipal_waste[-c(1, 2, 85, 86, 87, 88), ]
+# reorder row names that is disordered
+row.names(municipal_waste) <- NULL
+municipal_waste <- municipal_waste %>%
+  mutate(row_id = row_number())  
+municipal_waste <- municipal_waste %>%
+  select(row_id, everything()) 
+municipal_waste <- municipal_waste[,-c(1)]
+# adjust necessary columns as numbers
+municipal_waste <- municipal_waste %>%
+  mutate(across(-Provinces, ~as.numeric(as.character(.))))
+sapply(municipal_waste,class)
+head(municipal_waste)
+summary(municipal_waste)
+```
+
+-   **For "where_to_municipal_waste" dataset:**
+
+[Downloadable dataset in .RData version](https://github.com/emu-hacettepe-analytics/emu660-spring2024-Dilara-pro/project/data/where_to_municipal_waste.RData)
+
+```{r}
+library(tidyverse)
+# remove unnecessary columns
+where_to_municipal_waste <- select(where_to_municipal_waste, -X2)    
+where_to_municipal_waste <- select(where_to_municipal_waste, -X4)
+where_to_municipal_waste <- select(where_to_municipal_waste, -X6)
+where_to_municipal_waste <- select(where_to_municipal_waste, -X8)
+where_to_municipal_waste <- select(where_to_municipal_waste, -X9)
+# rename columns
+where_to_municipal_waste <- rename(where_to_municipal_waste, "Provinces" = `Belediye.atık.yönetimi.istatistikleri,.2022.Municipal.waste.management.statistics,.2022`)
+where_to_municipal_waste <- rename(where_to_municipal_waste, "Total amount of waste collected  (Tonnes)" = "X3")
+where_to_municipal_waste <- rename(where_to_municipal_waste, "Municipality's dumping sites" ="X5")
+where_to_municipal_waste <- rename(where_to_municipal_waste, "Waste treatment facilities"= "X7")
+where_to_municipal_waste <- rename(where_to_municipal_waste, "Other disposal methods"= "X10")
+# remove unnecessary rows
+where_to_municipal_waste <- where_to_municipal_waste[-c(1, 2, 85:94), ]
+# reorder row names that is disordered
+row.names(where_to_municipal_waste) <- NULL
+where_to_municipal_waste <- where_to_municipal_waste %>%
+  mutate(row_id = row_number())  
+where_to_municipal_waste <- where_to_municipal_waste %>%
+  select(row_id, everything()) 
+where_to_municipal_waste <- where_to_municipal_waste[,-c(1)]
+# adjust necessary columns as numbers
+where_to_municipal_waste <- where_to_municipal_waste %>%
+  mutate(across(-Provinces, ~as.numeric(as.character(.))))
+sapply(where_to_municipal_waste,class)
+head(where_to_municipal_waste)
+summary(where_to_municipal_waste)
+```
+
+-   **For "time_series_municipal_waste" dataset:**
+
+[Downloadable dataset in .RData version](https://github.com/emu-hacettepe-analytics/emu660-spring2024-Dilara-pro/project/data/time_series_municipal_waste.RData)
+
+```{r}
+library(tidyverse)
+# remove unnecessary rows
+time_series_municipal_waste <- time_series_municipal_waste[-c(2:6,10,14:43), ]
+time_series_municipal_waste <- rename(time_series_municipal_waste, "Waste/Year" = "X1")
+# rename rows
+time_series_municipal_waste[1,1] <- "Turkey population"
+time_series_municipal_waste[2,1] <- "Amount of municipal waste generated (Thousand tonnes/year)"
+time_series_municipal_waste[3,1] <- "Amount of municipal waste collected (Thousand tonnes/year)"
+time_series_municipal_waste[4,1] <- "Average amount of municipal waste per capita (Kg/capita-day)"
+time_series_municipal_waste[5,1] <- "Waste treatment facilities"
+time_series_municipal_waste[6,1] <- "Municipality's dumping sites"
+time_series_municipal_waste[7,1] <- "Other disposal methods"
+# reorder row names that is disordered
+row.names(time_series_municipal_waste) <- NULL
+# adjust necessary columns as numbers
+time_series_municipal_waste <- time_series_municipal_waste %>%
+  mutate(across(-`Waste/Year`, ~as.numeric(as.character(.))))
+sapply(time_series_municipal_waste,class)
+head(time_series_municipal_waste)
+```
+
+-   **For "Ankara_waste_type_year" dataset:** There is no need to preprocess the data
+
+[Downloadable dataset in .RData version](https://github.com/emu-hacettepe-analytics/emu660-spring2024-Dilara-pro/project/data/Ankara_waste_type_year.RData)
+
+# [3. Analysis]{style="color:darkgreen"} ![](assets/images/analysis.jpg){width="36" height="29"}
+
+In the first phase of this section, *Exploratory Data Analysis (EDA)*, the data prepared for analysis is visualized to enable discoveries that are not immediately apparent at first glance. Later, relationships will be determined through *regression analysis*, future predictions will be made using *time series methods*, and provinces will be clustered according to their patterns using *clustering methods*.
+
+## [3.1 Exploratory Data Analysis]{style="color:darkblue"} ![](assets/images/EDA.jpg){width="23" height="21"}
+
+##### ["The greatest value of a picture is when it forces us to notice what we never expected to see." John W. Tukey]{style="color:darkred"}
+
+-   **For "municipal_waste" dataset:**
+
+```{r}
+library(tidyverse)
+library(ggthemes)
+library(ggrepel)
+municipal_waste <- municipal_waste[-c(1), ]
+
+p <- municipal_waste |> ggplot(aes(`Total municipal population`/10^5, 
+`Amount of waste collected (Tonnes) 
+`/10^4)) 
+p + geom_point(color = "darkgreen") + 
+scale_x_continuous(trans = "log10") +
+scale_y_continuous(trans = "log10") +
+xlab("Total municipal population (log scale)") +
+ylab("Amount of waste collected (log scale)") +
+ggtitle("Amount of waste in Turkiye's provinces")+ 
+ theme(line = element_blank(), rect = element_blank())
+
+p <- ggplot(municipal_waste, aes(x = reorder(Provinces, `Total number of municipalities`, FUN = sum), y = `Total number of municipalities`)) 
+p + geom_bar(stat = "identity", fill= "purple") + 
+  xlab("Provinces") +
+  theme_calc() +
+  ggtitle("Number of municipalities in provinces") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 6)) 
+
+# The provinces that produce largest amount of waste
+The_largest <- municipal_waste |> arrange(desc(`Amount of waste per capita (Kg/capita-day) 
+`)) |> head(n = 20)
+p <- ggplot(The_largest, aes(x = reorder(Provinces, `Amount of waste per capita (Kg/capita-day) 
+`, FUN = sum),
+                             y = `Amount of waste per capita (Kg/capita-day) 
+`))
+ggplot(The_largest, aes(x =`Amount of waste per capita (Kg/capita-day) 
+`, y = reorder(Provinces, `Amount of waste per capita (Kg/capita-day) 
+`, FUN = sum), color = `Amount of waste per capita (Kg/capita-day) 
+`)) +
+  geom_point(size = 4) +
+  geom_segment(aes(xend = 1, yend = Provinces), size = 1) +
+  ylab("Provinces") +
+  ggtitle("Provinces with the largest waste amount")+
+  geom_text_repel(aes(label =`Total municipal population`), color = "black", size = 3)
+```
+
+-   **For "where_to_municipal_waste" dataset:**
+
+-   **For "time_series_municipal_waste" dataset:**
+
+-   **For "Ankara_waste_type_year" dataset:**
+
+## [3.2 Trend Analysis]{style="color:darkblue"} ![](assets/images/tredn.jpg){width="26" height="23"}
+
+## [3.3 Model Fitting]{style="color:darkblue"} ![](assets/images/model.jpg){width="36" height="28"}
+
+## [3.4 Results]{style="color:darkblue"} ![](assets/images/result.jpg){width="30" height="29"}
+
+# [4. Discussion and Key Takeaways]{style="color:darkgreen"} ![](assets/images/discussion.png){width="27"}

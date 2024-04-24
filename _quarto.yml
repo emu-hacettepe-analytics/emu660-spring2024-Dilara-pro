@@ -44,8 +44,8 @@ format:
     toc: true
     toc-location: left
     theme: 
-      light: lux 
-      dark: darkly
+      light: minty
+      dark: superhero
     css: styles.css
 
 

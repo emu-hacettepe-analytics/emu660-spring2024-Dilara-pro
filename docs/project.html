@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>[Student xxxx]’s Analytics Lab - Project X</title>
+<title>Dilara’s Analytics Lab - STOP COMPLAINING, IT SOLVES NOTHING.</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -47,7 +81,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,6 +96,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -66,15 +107,15 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed">
+<body class="docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">[Student xxxx]’s Analytics Lab</span>
+    <span class="navbar-title">Dilara’s Analytics Lab</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -84,111 +125,70 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
- <span class="menu-text">About Me</span></a>
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About Me</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./posts.html" rel="" target="">
- <span class="menu-text">My Posts</span></a>
+    <a class="nav-link" href="./posts.html"> 
+<span class="menu-text">My Posts</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-emu660-coursework" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-emu660-coursework" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">EMU660 Coursework</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-emu660-coursework">    
         <li>
-    <a class="dropdown-item" href="./assignments.html" rel="" target="">
+    <a class="dropdown-item" href="./assignments.html">
  <span class="dropdown-text">Assignments</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./project.html" rel="" target="">
+    <a class="dropdown-item" href="./project.html">
  <span class="dropdown-text">Project</span></a>
   </li>  
     </ul>
   </li>
 </ul>
-            <div class="quarto-navbar-tools ms-auto tools-wide">
-    <a href="https://twitter.com" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
-    <a href="https://twitter.com" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
-    <a href="https://linkedin.com" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-linkedin"></i></a>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools tools-wide">
+    <a href="https://github.com/Dilara-pro" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://www.linkedin.com/in/dilara-akkus/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-linkedin"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Project X</li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./assignments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">My Assignments</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./assignments/assignment-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Assignment 1</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./assignments/assignment-2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Assignment 2</span></a>
-  </div>
-</li>
-    </ul>
-    </div>
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#project-overview-and-scope" id="toc-project-overview-and-scope" class="nav-link active" data-scroll-target="#project-overview-and-scope">1. Project Overview and Scope</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">2. Data</a>
+  <li><a href="#are-we-aware" id="toc-are-we-aware" class="nav-link active" data-scroll-target="#are-we-aware"><span style="color:darkgreen">1. Are we aware?</span> <img src="assets/images/trash.jpg" width="109" height="27"></a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span style="color:darkgreen">2. Data</span> <img src="assets/images/data_symbol.jpg" width="43" height="29"></a>
   <ul class="collapse">
-  <li><a href="#data-source" id="toc-data-source" class="nav-link" data-scroll-target="#data-source">2.1 Data Source</a></li>
-  <li><a href="#general-information-about-data" id="toc-general-information-about-data" class="nav-link" data-scroll-target="#general-information-about-data">2.2 General Information About Data</a></li>
-  <li><a href="#reason-of-choice" id="toc-reason-of-choice" class="nav-link" data-scroll-target="#reason-of-choice">2.3 Reason of Choice</a></li>
-  <li><a href="#preprocessing" id="toc-preprocessing" class="nav-link" data-scroll-target="#preprocessing">2.4 Preprocessing</a></li>
+  <li><a href="#data-source" id="toc-data-source" class="nav-link" data-scroll-target="#data-source"><span style="color:darkblue">2.1 Data Source</span> <img src="assets/images/database.jpg" width="71" height="29"></a></li>
+  <li><a href="#general-information-about-data" id="toc-general-information-about-data" class="nav-link" data-scroll-target="#general-information-about-data"><span style="color:darkblue">2.2 General Information About Data</span> <img src="assets/images/info.jpg" width="26" height="23"></a></li>
+  <li><a href="#reason-of-choice" id="toc-reason-of-choice" class="nav-link" data-scroll-target="#reason-of-choice"><span style="color:darkblue">2.3 Reason of Choice</span> <img src="assets/images/reason.jpg" width="25" height="21"></a></li>
+  <li><a href="#preprocessing" id="toc-preprocessing" class="nav-link" data-scroll-target="#preprocessing"><span style="color:darkblue">2.4 Preprocessing</span> <img src="assets/images/preprocess.jpg" width="29" height="24"></a></li>
   </ul></li>
-  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis">3. Analysis</a>
+  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis"><span style="color:darkgreen">3. Analysis</span> <img src="assets/images/analysis.jpg" width="36" height="29"></a>
   <ul class="collapse">
-  <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis">3.1 Exploratory Data Analysis</a></li>
-  <li><a href="#trend-analysis" id="toc-trend-analysis" class="nav-link" data-scroll-target="#trend-analysis">3.2 Trend Analysis</a></li>
-  <li><a href="#model-fitting" id="toc-model-fitting" class="nav-link" data-scroll-target="#model-fitting">3.3 Model Fitting</a></li>
-  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">3.4 Results</a></li>
+  <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis"><span style="color:darkblue">3.1 Exploratory Data Analysis</span> <img src="assets/images/EDA.jpg" width="23" height="21"></a></li>
+  <li><a href="#trend-analysis" id="toc-trend-analysis" class="nav-link" data-scroll-target="#trend-analysis"><span style="color:darkblue">3.2 Trend Analysis</span> <img src="assets/images/tredn.jpg" width="26" height="23"></a></li>
+  <li><a href="#model-fitting" id="toc-model-fitting" class="nav-link" data-scroll-target="#model-fitting"><span style="color:darkblue">3.3 Model Fitting</span> <img src="assets/images/model.jpg" width="36" height="28"></a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span style="color:darkblue">3.4 Results</span> <img src="assets/images/result.jpg" width="30" height="29"></a></li>
   </ul></li>
-  <li><a href="#results-and-key-takeaways" id="toc-results-and-key-takeaways" class="nav-link" data-scroll-target="#results-and-key-takeaways">4. Results and Key Takeaways</a></li>
+  <li><a href="#discussion-and-key-takeaways" id="toc-discussion-and-key-takeaways" class="nav-link" data-scroll-target="#discussion-and-key-takeaways"><span style="color:darkgreen">4. Discussion and Key Takeaways</span> <img src="assets/images/discussion.png" class="img-fluid" width="27"></a></li>
   </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="project.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </nav>
-</nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
     </div>
@@ -197,7 +197,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Project X</h1>
+<h1 class="title">STOP COMPLAINING, IT SOLVES NOTHING.</h1>
 </div>
 
 
@@ -210,58 +210,566 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
 
-<p>Welcome to my project page.</p>
-<p>Keep an eye on this space to stay updated with my project activities.</p>
-<p>(The titles below are provided as examples; please feel free to adjust them as necessary.)</p>
-<section id="project-overview-and-scope" class="level1">
-<h1>1. Project Overview and Scope</h1>
-<p>xxxxxx</p>
+
+<p>My project will provide insights about <strong>waste management</strong>, which is of vital importance to the world and humanity. I hope to convey the awareness and perspective I wish to share with you, since change begins with awareness, and <strong>we have to change our way</strong> so that our children can live in the world they deserve! <img src="assets/images/waste.png" class="img-fluid quarto-figure quarto-figure-center" width="500"></p>
+<section id="are-we-aware" class="level1">
+<h1><span style="color:darkgreen">1. Are we aware?</span> <img src="assets/images/trash.jpg" width="109" height="27"></h1>
+<p><strong><em>Important fact:</em></strong> Are we aware that when we do not recycle waste or use it for energy consumption, it pollutes our groundwater, our soil, and the air through greenhouse gases emitted by the waste, ultimately reducing the quality of the food produced in our soil and our overall life quality?</p>
+<p>We just complain, don’t we? Strawberries used to smell like strawberries, tomatoes used to taste different… right?</p>
+<p>Unfortunately, complaining doesn’t fix anything, and it won’t. If we want to deserve to live in this world, we must work hard for our generation. The effort we do not put into our waste will heavily come back to haunt us and our children in this universe created with karma. <strong>Let’s quit complaining and start acting!</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/images/landfill-scaled.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="300"></p>
+</figure>
+</div>
+<p><strong><em>The scope:</em></strong> In my project, I will attempt to extract insights from several data collections on waste management in Turkiye. I will particularly focus on municipal waste statistics. Initially, I will analyze data on a national level, then move on to a provincial basis. Later, I will use time series methods to forecast future waste amount trends in Turkiye. Additionally, using clustering methods, I will group provinces based on their waste amounts behaviors.</p>
+<p><strong><em>The aim:</em></strong> In this project, my main goals are to increase awareness about waste issues, determine future waste quantities, investigate the waste levels of the provinces, and discuss both prevention strategies and proper disposal and recycling methods for unavoidable waste.</p>
 </section>
 <section id="data" class="level1">
-<h1>2. Data</h1>
-<p>xxxxxx</p>
+<h1><span style="color:darkgreen">2. Data</span> <img src="assets/images/data_symbol.jpg" width="43" height="29"></h1>
+<p>I plan to use multiple data sources for analysis. The data I will utilize include waste quantities, waste types and population figures for Turkiye and its provinces.</p>
 <section id="data-source" class="level2">
-<h2 class="anchored" data-anchor-id="data-source">2.1 Data Source</h2>
-<p>xxxxxx</p>
+<h2 class="anchored" data-anchor-id="data-source"><span style="color:darkblue">2.1 Data Source</span> <img src="assets/images/database.jpg" width="71" height="29"></h2>
+<p>The references from which I have gathered the data may include:</p>
+<ul>
+<li><a href="https://data.tuik.gov.tr/Bulten/Index?p=Waste-Statistics-2022-49570">Waste Statistics, TURKSTAT</a></li>
+<li><a href="https://biruni.tuik.gov.tr/bolgeselistatistik/degiskenlerUzerindenSorgula.do#">Environment Regional Data, Biruni TURKSTAT</a></li>
+<li><a href="https://seffaf.ankara.bel.tr/">Waste Data, Ankara Municipality</a></li>
+</ul>
 </section>
 <section id="general-information-about-data" class="level2">
-<h2 class="anchored" data-anchor-id="general-information-about-data">2.2 General Information About Data</h2>
-<p>xxxxxx</p>
+<h2 class="anchored" data-anchor-id="general-information-about-data"><span style="color:darkblue">2.2 General Information About Data</span> <img src="assets/images/info.jpg" width="26" height="23"></h2>
+<ul>
+<li>The municipal waste amount data of Turkiye, which includes information such as the population of Turkiye and its 81 provinces’ municipalities, total waste amounts for the year 2022, the average waste amount per person, etc.:</li>
+</ul>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'openxlsx' was built under R version 4.3.3</code></pre>
+</div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>municipal_waste <span class="ot">&lt;-</span> <span class="fu">read.xlsx</span>(<span class="st">"project/data/municipal_wasteamount_2022.xlsx"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(municipal_waste)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   88 obs. of  8 variables:
+ $ Belediye.atık.hizmeti.istatistikleri,.2022.Municipal.waste.services.statistics,.2022: chr  NA "İl\nProvince" "Türkiye" "Adana" ...
+ $ X2                                                                                  : chr  "Toplam belediye nüfusu\nTotal municipal population" NA "80785141" "2274106" ...
+ $ X3                                                                                  : chr  "Toplam belediye sayısı \nTotal \nnumber of municipalities  " NA "1391" "16" ...
+ $ X4                                                                                  : chr  "Atık hizmeti veren belediye \nsayısı\nNumber of municipalities providing waste services " NA "1389" "16" ...
+ $ X5                                                                                  : chr  "Atık hizmeti verilen belediye nüfusu\nPopulation of municipalities served by waste services " NA "80319403.100000009" "2260333.2000000002" ...
+ $ X6                                                                                  : chr  "Atık hizmeti\nverilen belediye\nnüfusunun\ntoplam belediye\nnüfusuna oranı (%)\nRate of municipal population se"| __truncated__ NA "99.423485687794994" "99.394364202899965" ...
+ $ X7                                                                                  : chr  " Toplanan \natık miktarı\n (Ton) \nAmount of\nwaste collected (Tonnes) " NA "30283756.564639971" "665694.61099999992" ...
+ $ X8                                                                                  : chr  "Kişi başı toplanan ortalama\n atık miktarı (Kg/kişi-gün)\nAmount of waste per capita (Kg/capita-day)" NA "1.0329906954638057" "0.80688141556067661" ...</code></pre>
+</div>
+</div>
+<ul>
+<li>Data including the amounts of collected municipal waste that are sent to municipal landfills, waste processing facilities (the waste sent to landfill sites, incineration plants and all the waste recovery facilities), and disposed of using other methods (disposals by burning in an open area, dumping into river/onto land and burying.):</li>
+</ul>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>where_to_municipal_waste <span class="ot">&lt;-</span> <span class="fu">read.xlsx</span>(<span class="st">"project/data/municipal_waste_stat.xlsx"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(where_to_municipal_waste)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   94 obs. of  10 variables:
+ $ Belediye.atık.yönetimi.istatistikleri,.2022.Municipal.waste.management.statistics,.2022: chr  "İl\nProvince" NA "Türkiye" "Adana" ...
+ $ X2                                                                                     : chr  "Atık hizmeti \nveren toplam \nbelediye sayısı \nTotal number of\nmunicipalities providing\nwaste services " NA "1389" "16" ...
+ $ X3                                                                                     : chr  "Toplanan atık\nmiktarı \n(Ton)\nTotal amount of waste collected \n(Tonnes)" NA "30283756.564639971" "665694.61099999992" ...
+ $ X4                                                                                     : chr  "Belediye çöplüğüne gönderilen\nMunicipality's dumping sites " "Belediye sayısı \nNumber of municipalities" "553" "0" ...
+ $ X5                                                                                     : chr  NA "Atık\nmiktarı (Ton)\nAmount of\n waste (Tonnes)" "4092721.2120000003" "0" ...
+ $ X6                                                                                     : chr  "Atık işleme tesislerine\n gönderilen(1)\nWaste treatment facilities(1)" "Belediye sayısı \nNumber of municipalities" "1002" "16" ...
+ $ X7                                                                                     : chr  NA "Atık\nmiktarı (Ton)\nAmount of\n waste (Tonnes)" "26016987.698640008" "663894.61100000003" ...
+ $ X8                                                                                     : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ X9                                                                                     : chr  "Diğer bertaraf \nyöntemleri(2)\nOther disposal \nmethods(2)" "Belediye sayısı\nNumber of municipalities" "49" "1" ...
+ $ X10                                                                                    : chr  NA "Atık\nmiktarı (Ton)\nAmount of\n waste (Tonnes)" "174047.65400000001" "1800" ...</code></pre>
+</div>
+</div>
+<ul>
+<li>Time series data including municipal waste amounts, waste per capita, waste sent to processing facilities, etc., for the years 1994-2022:</li>
+</ul>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>time_series_municipal_waste <span class="ot">&lt;-</span> <span class="fu">read.xlsx</span>(<span class="st">"project/data/municipal_waste_timeseries.xlsx"</span>, <span class="at">colNames =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(time_series_municipal_waste)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   43 obs. of  19 variables:
+ $ X1  : chr  "Türkiye nüfusu\nTurkey population" "Toplam belediye sayısı\nTotal number of municipalities" "Toplam belediye nüfusu\nTotal municipal population" "Atık hizmeti veren belediye sayısı\nNumber of municipalities provided waste services" ...
+ $ 1994: chr  "62810111" "2740" "47597657" "1985" ...
+ $ 1995: chr  "62810111" "2801" "47774543" "2126" ...
+ $ 1996: chr  "62810111" "2827" "47843698" "2172" ...
+ $ 1997: chr  "62810111" "2835" "47865511" "2275" ...
+ $ 1998: chr  "62810111" "2834" "47862511" "2579" ...
+ $ 2001: chr  "67803927" "3227" "53407613" "2921" ...
+ $ 2002: chr  "67803927" "3227" "53421379" "2984" ...
+ $ 2003: chr  "67803927" "3227" "53430733" "3018" ...
+ $ 2004: chr  "67803927" "3225" "53935050" "3028" ...
+ $ 2006: num  70586256 3225 58581515 3115 57451562 ...
+ $ 2008: num  70586256 3225 58581515 3129 57800347 ...
+ $ 2010: num  73722988 2950 61571332 2879 60946131 ...
+ $ 2012: num  75627384 2950 63743047 2894 63105474 ...
+ $ 2014: num  77695904 1396 72505107 1391 70843913 ...
+ $ 2016: num  79814871 1397 74911343 1390 73854880 ...
+ $ 2018: num  82003882 1399 76888607 1395 75952539 ...
+ $ 2020: num  83614362 1389 78920614 1387 78204213 ...
+ $ 2022: num  85279553 1391 80785141 1389 80319403 ...</code></pre>
+</div>
+</div>
+<ul>
+<li>Data on the types and amounts of waste collected annually in Ankara:</li>
+</ul>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Ankara_waste_type_year <span class="ot">&lt;-</span> <span class="fu">read.xlsx</span>(<span class="st">"project/data/Ankara_wastetype_year.xlsx"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(Ankara_waste_type_year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   6 obs. of  5 variables:
+ $ kg./.yıl: chr  "20 01 34 Atık Pil " "08 03 17 Kartuş Toner atıkları " "Kağıt Karton Ambalaj" "Plastik Ambalaj" ...
+ $ 2019    : num  125 2631 19040 8710 5985 ...
+ $ 2020    : num  52 2420 16040 7386 13763 ...
+ $ 2021    : num  53 1860 23405 13794 8455 ...
+ $ 2022    : num  0 250 1300 1210 1010 1020</code></pre>
+</div>
+</div>
 </section>
 <section id="reason-of-choice" class="level2">
-<h2 class="anchored" data-anchor-id="reason-of-choice">2.3 Reason of Choice</h2>
-<p>xxxxxx</p>
+<h2 class="anchored" data-anchor-id="reason-of-choice"><span style="color:darkblue">2.3 Reason of Choice</span> <img src="assets/images/reason.jpg" width="25" height="21"></h2>
+<p>This topic was chosen because it was realized that <strong>waste management is not given enough importance</strong> in Turkiye, and it is believed that carelessness should not continue in this matter. The importance of the subject is <strong>indisputable</strong>. By using the data sets mentioned above, it is aimed to reveal and analyze the current situation of waste management, to derive knowledge, and to contribute to the literature and our country.</p>
 </section>
 <section id="preprocessing" class="level2">
-<h2 class="anchored" data-anchor-id="preprocessing">2.4 Preprocessing</h2>
-<p>xxxxxx</p>
+<h2 class="anchored" data-anchor-id="preprocessing"><span style="color:darkblue">2.4 Preprocessing</span> <img src="assets/images/preprocess.jpg" width="29" height="24"></h2>
+<ul>
+<li><strong>For “municipal_waste” dataset:</strong></li>
+</ul>
+<p><a href="https://github.com/emu-hacettepe-analytics/emu660-spring2024-Dilara-pro/project/data/municipal_waste.RData">Downloadable dataset in .RData version</a></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'stringr' was built under R version 4.3.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.3     ✔ readr     2.1.4
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.4.4     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.0
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># remove unnecessary columns</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>municipal_waste <span class="ot">&lt;-</span> <span class="fu">select</span>(municipal_waste, <span class="sc">-</span>X5)    </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>municipal_waste <span class="ot">&lt;-</span> <span class="fu">select</span>(municipal_waste, <span class="sc">-</span>X6)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># rename columns</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>municipal_waste <span class="ot">&lt;-</span> <span class="fu">rename</span>(municipal_waste, <span class="st">"Provinces"</span> <span class="ot">=</span><span class="st">"Belediye.atık.hizmeti.istatistikleri,.2022.Municipal.waste.services.statistics,.2022"</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>municipal_waste <span class="ot">&lt;-</span> <span class="fu">rename</span>(municipal_waste, <span class="st">"Total municipal population"</span> <span class="ot">=</span> <span class="st">"X2"</span>)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>municipal_waste <span class="ot">&lt;-</span> <span class="fu">rename</span>(municipal_waste, <span class="st">"Total number of municipalities"</span> <span class="ot">=</span><span class="st">"X3"</span>)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>municipal_waste <span class="ot">&lt;-</span> <span class="fu">rename</span>(municipal_waste, <span class="st">"Number of municipalities providing waste services"</span> <span class="ot">=</span><span class="st">"X4"</span>)</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>municipal_waste <span class="ot">&lt;-</span> <span class="fu">rename</span>(municipal_waste, <span class="st">"Amount of waste collected (Tonnes) </span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="st">"</span> <span class="ot">=</span><span class="st">"X7"</span>)</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>municipal_waste <span class="ot">&lt;-</span> <span class="fu">rename</span>(municipal_waste, <span class="st">"Amount of waste per capita (Kg/capita-day) </span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="st">"</span> <span class="ot">=</span><span class="st">"X8"</span>)</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="co"># remove unnecessary rows</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>municipal_waste <span class="ot">&lt;-</span> municipal_waste[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">85</span>, <span class="dv">86</span>, <span class="dv">87</span>, <span class="dv">88</span>), ]</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="co"># reorder row names that is disordered</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="fu">row.names</span>(municipal_waste) <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>municipal_waste <span class="ot">&lt;-</span> municipal_waste <span class="sc">%&gt;%</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">row_id =</span> <span class="fu">row_number</span>())  </span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>municipal_waste <span class="ot">&lt;-</span> municipal_waste <span class="sc">%&gt;%</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(row_id, <span class="fu">everything</span>()) </span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>municipal_waste <span class="ot">&lt;-</span> municipal_waste[,<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>)]</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="co"># adjust necessary columns as numbers</span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>municipal_waste <span class="ot">&lt;-</span> municipal_waste <span class="sc">%&gt;%</span></span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">-</span>Provinces, <span class="sc">~</span><span class="fu">as.numeric</span>(<span class="fu">as.character</span>(.))))</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(municipal_waste,class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                        Provinces 
+                                      "character" 
+                       Total municipal population 
+                                        "numeric" 
+                   Total number of municipalities 
+                                        "numeric" 
+Number of municipalities providing waste services 
+                                        "numeric" 
+            Amount of waste collected (Tonnes) \n 
+                                        "numeric" 
+    Amount of waste per capita (Kg/capita-day) \n 
+                                        "numeric" </code></pre>
+</div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(municipal_waste)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>        Provinces Total municipal population Total number of municipalities
+1         Türkiye                   80785141                           1391
+2           Adana                    2274106                             16
+3        Adıyaman                     487642                             23
+4 Afyonkarahisar                      588048                             60
+5            Ağrı                     314539                             12
+6          Amasya                     256679                              8
+  Number of municipalities providing waste services
+1                                              1389
+2                                                16
+3                                                22
+4                                                60
+5                                                12
+6                                                 8
+  Amount of waste collected (Tonnes) \n
+1                            30283756.6
+2                              665694.6
+3                              179724.1
+4                              198272.6
+5                              181116.0
+6                              111099.1
+  Amount of waste per capita (Kg/capita-day) \n
+1                                     1.0329907
+2                                     0.8068814
+3                                     1.0190094
+4                                     0.9282235
+5                                     1.5796783
+6                                     1.1915254</code></pre>
+</div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(municipal_waste)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Provinces         Total municipal population Total number of municipalities
+ Length:82          Min.   :   41120           Min.   :   4.00               
+ Class :character   1st Qu.:  242100           1st Qu.:  11.00               
+ Mode  :character   Median :  417945           Median :  16.00               
+                    Mean   : 1970369           Mean   :  33.93               
+                    3rd Qu.: 1139026           3rd Qu.:  21.00               
+                    Max.   :80785141           Max.   :1391.00               
+ Number of municipalities providing waste services
+ Min.   :   4.00                                  
+ 1st Qu.:  11.00                                  
+ Median :  16.00                                  
+ Mean   :  33.88                                  
+ 3rd Qu.:  21.00                                  
+ Max.   :1389.00                                  
+ Amount of waste collected (Tonnes) \n
+ Min.   :   21392                     
+ 1st Qu.:   81725                     
+ Median :  151235                     
+ Mean   :  738628                     
+ 3rd Qu.:  415882                     
+ Max.   :30283757                     
+ Amount of waste per capita (Kg/capita-day) \n
+ Min.   :0.6498                               
+ 1st Qu.:0.8730                               
+ Median :0.9672                               
+ Mean   :1.0679                               
+ 3rd Qu.:1.1887                               
+ Max.   :1.9962                               </code></pre>
+</div>
+</div>
+<ul>
+<li><strong>For “where_to_municipal_waste” dataset:</strong></li>
+</ul>
+<p><a href="https://github.com/emu-hacettepe-analytics/emu660-spring2024-Dilara-pro/project/data/where_to_municipal_waste.RData">Downloadable dataset in .RData version</a></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co"># remove unnecessary columns</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>where_to_municipal_waste <span class="ot">&lt;-</span> <span class="fu">select</span>(where_to_municipal_waste, <span class="sc">-</span>X2)    </span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>where_to_municipal_waste <span class="ot">&lt;-</span> <span class="fu">select</span>(where_to_municipal_waste, <span class="sc">-</span>X4)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>where_to_municipal_waste <span class="ot">&lt;-</span> <span class="fu">select</span>(where_to_municipal_waste, <span class="sc">-</span>X6)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>where_to_municipal_waste <span class="ot">&lt;-</span> <span class="fu">select</span>(where_to_municipal_waste, <span class="sc">-</span>X8)</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>where_to_municipal_waste <span class="ot">&lt;-</span> <span class="fu">select</span>(where_to_municipal_waste, <span class="sc">-</span>X9)</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="co"># rename columns</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>where_to_municipal_waste <span class="ot">&lt;-</span> <span class="fu">rename</span>(where_to_municipal_waste, <span class="st">"Provinces"</span> <span class="ot">=</span> <span class="st">`</span><span class="at">Belediye.atık.yönetimi.istatistikleri,.2022.Municipal.waste.management.statistics,.2022</span><span class="st">`</span>)</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>where_to_municipal_waste <span class="ot">&lt;-</span> <span class="fu">rename</span>(where_to_municipal_waste, <span class="st">"Total amount of waste collected  (Tonnes)"</span> <span class="ot">=</span> <span class="st">"X3"</span>)</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>where_to_municipal_waste <span class="ot">&lt;-</span> <span class="fu">rename</span>(where_to_municipal_waste, <span class="st">"Municipality's dumping sites"</span> <span class="ot">=</span><span class="st">"X5"</span>)</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>where_to_municipal_waste <span class="ot">&lt;-</span> <span class="fu">rename</span>(where_to_municipal_waste, <span class="st">"Waste treatment facilities"</span><span class="ot">=</span> <span class="st">"X7"</span>)</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>where_to_municipal_waste <span class="ot">&lt;-</span> <span class="fu">rename</span>(where_to_municipal_waste, <span class="st">"Other disposal methods"</span><span class="ot">=</span> <span class="st">"X10"</span>)</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="co"># remove unnecessary rows</span></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>where_to_municipal_waste <span class="ot">&lt;-</span> where_to_municipal_waste[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">85</span><span class="sc">:</span><span class="dv">94</span>), ]</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="co"># reorder row names that is disordered</span></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="fu">row.names</span>(where_to_municipal_waste) <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>where_to_municipal_waste <span class="ot">&lt;-</span> where_to_municipal_waste <span class="sc">%&gt;%</span></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">row_id =</span> <span class="fu">row_number</span>())  </span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>where_to_municipal_waste <span class="ot">&lt;-</span> where_to_municipal_waste <span class="sc">%&gt;%</span></span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(row_id, <span class="fu">everything</span>()) </span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>where_to_municipal_waste <span class="ot">&lt;-</span> where_to_municipal_waste[,<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>)]</span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a><span class="co"># adjust necessary columns as numbers</span></span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a>where_to_municipal_waste <span class="ot">&lt;-</span> where_to_municipal_waste <span class="sc">%&gt;%</span></span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">-</span>Provinces, <span class="sc">~</span><span class="fu">as.numeric</span>(<span class="fu">as.character</span>(.))))</span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(where_to_municipal_waste,class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                Provinces 
+                              "character" 
+Total amount of waste collected  (Tonnes) 
+                                "numeric" 
+             Municipality's dumping sites 
+                                "numeric" 
+               Waste treatment facilities 
+                                "numeric" 
+                   Other disposal methods 
+                                "numeric" </code></pre>
+</div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(where_to_municipal_waste)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>       Provinces Total amount of waste collected  (Tonnes)
+1        Türkiye                                30283756.6
+2          Adana                                  665694.6
+3       Adıyaman                                  179724.1
+4 Afyonkarahisar                                  198272.6
+5           Ağrı                                  181116.0
+6         Amasya                                  111099.1
+  Municipality's dumping sites Waste treatment facilities
+1                   4092721.21                26016987.70
+2                         0.00                  663894.61
+3                    178453.00                    1271.15
+4                     20089.93                  175951.63
+5                    131116.00                   50000.00
+6                      1200.00                  109680.14
+  Other disposal methods
+1               174047.7
+2                 1800.0
+3                    0.0
+4                 2231.0
+5                    0.0
+6                  219.0</code></pre>
+</div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(where_to_municipal_waste)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Provinces         Total amount of waste collected  (Tonnes)
+ Length:82          Min.   :   21392                         
+ Class :character   1st Qu.:   81725                         
+ Mode  :character   Median :  151235                         
+                    Mean   :  738628                         
+                    3rd Qu.:  415882                         
+                    Max.   :30283757                         
+ Municipality's dumping sites Waste treatment facilities Other disposal methods
+ Min.   :      0              Min.   :       0           Min.   :     0.0      
+ 1st Qu.:   1260              1st Qu.:   52770           1st Qu.:     0.0      
+ Median :  17376              Median :  109595           Median :     0.0      
+ Mean   :  99822              Mean   :  634561           Mean   :  4245.1      
+ 3rd Qu.:  56501              3rd Qu.:  333389           3rd Qu.:   557.5      
+ Max.   :4092721              Max.   :26016988           Max.   :174047.6      </code></pre>
+</div>
+</div>
+<ul>
+<li><strong>For “time_series_municipal_waste” dataset:</strong></li>
+</ul>
+<p><a href="https://github.com/emu-hacettepe-analytics/emu660-spring2024-Dilara-pro/project/data/time_series_municipal_waste.RData">Downloadable dataset in .RData version</a></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co"># remove unnecessary rows</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>time_series_municipal_waste <span class="ot">&lt;-</span> time_series_municipal_waste[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>,<span class="dv">10</span>,<span class="dv">14</span><span class="sc">:</span><span class="dv">43</span>), ]</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>time_series_municipal_waste <span class="ot">&lt;-</span> <span class="fu">rename</span>(time_series_municipal_waste, <span class="st">"Waste/Year"</span> <span class="ot">=</span> <span class="st">"X1"</span>)</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co"># rename rows</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>time_series_municipal_waste[<span class="dv">1</span>,<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">"Turkey population"</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>time_series_municipal_waste[<span class="dv">2</span>,<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">"Amount of municipal waste generated (Thousand tonnes/year)"</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>time_series_municipal_waste[<span class="dv">3</span>,<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">"Amount of municipal waste collected (Thousand tonnes/year)"</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>time_series_municipal_waste[<span class="dv">4</span>,<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">"Average amount of municipal waste per capita (Kg/capita-day)"</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>time_series_municipal_waste[<span class="dv">5</span>,<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">"Waste treatment facilities"</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>time_series_municipal_waste[<span class="dv">6</span>,<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">"Municipality's dumping sites"</span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>time_series_municipal_waste[<span class="dv">7</span>,<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">"Other disposal methods"</span></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a><span class="co"># reorder row names that is disordered</span></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a><span class="fu">row.names</span>(time_series_municipal_waste) <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a><span class="co"># adjust necessary columns as numbers</span></span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>time_series_municipal_waste <span class="ot">&lt;-</span> time_series_municipal_waste <span class="sc">%&gt;%</span></span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">-</span><span class="st">`</span><span class="at">Waste/Year</span><span class="st">`</span>, <span class="sc">~</span><span class="fu">as.numeric</span>(<span class="fu">as.character</span>(.))))</span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(time_series_municipal_waste,class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> Waste/Year        1994        1995        1996        1997        1998 
+"character"   "numeric"   "numeric"   "numeric"   "numeric"   "numeric" 
+       2001        2002        2003        2004        2006        2008 
+  "numeric"   "numeric"   "numeric"   "numeric"   "numeric"   "numeric" 
+       2010        2012        2014        2016        2018        2020 
+  "numeric"   "numeric"   "numeric"   "numeric"   "numeric"   "numeric" 
+       2022 
+  "numeric" </code></pre>
+</div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(time_series_municipal_waste)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                                    Waste/Year       1994
+1                                            Turkey population 62810111.0
+2   Amount of municipal waste generated (Thousand tonnes/year)    23448.0
+3   Amount of municipal waste collected (Thousand tonnes/year)    17757.0
+4 Average amount of municipal waste per capita (Kg/capita-day)        1.1
+5                                   Waste treatment facilities     1001.0
+6                                 Municipality's dumping sites    14479.0
+         1995        1996        1997        1998        2001        2002
+1 62810111.00 62810111.00 62810111.00 62810111.00 67803927.00 67803927.00
+2    27234.13    29347.98    31943.77    32972.89    31030.87    30999.26
+3    20910.00    22483.00    24180.00    24945.00    25134.00    25373.00
+4        1.27        1.37        1.46        1.51        1.35        1.34
+5     1603.00     3026.00     4544.00     5424.00     8522.00     7430.00
+6    17175.00    17520.00    16805.00    16853.00    14570.00    16310.00
+         2003        2004        2006        2008        2010        2012
+1 67803927.00 67803927.00 70586256.00 70586256.00 73722988.00 75627384.00
+2    31081.37    29736.10    30081.82    28454.00    29733.00    30786.00
+3    26118.00    25014.00    25280.00    24361.00    25277.00    25845.00
+4        1.38        1.31        1.21        1.15        1.14        1.12
+5     7758.00     7353.00     9683.00    11223.00    13941.00    15639.00
+6    16567.00    16416.00    14941.00    12678.00    11001.00     9772.00
+         2014         2016         2018         2020         2022
+1 77695904.00 7.981487e+07 8.200388e+07 8.361436e+07 8.527955e+07
+2    31230.00 3.376346e+04 3.453265e+04 3.475776e+04 3.242218e+04
+3    28011.00 3.158355e+04 3.220922e+04 3.232447e+04 3.028376e+04
+4        1.08 1.171626e+00 1.161837e+00 1.132422e+00 1.032991e+00
+5    17933.00 2.243038e+04 2.561468e+04 2.670724e+04 2.601700e+04
+6     9935.00 9.094906e+03 6.520657e+03 5.492803e+03 4.093000e+03</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>For “Ankara_waste_type_year” dataset:</strong> There is no need to preprocess the data</li>
+</ul>
+<p><a href="https://github.com/emu-hacettepe-analytics/emu660-spring2024-Dilara-pro/project/data/Ankara_waste_type_year.RData">Downloadable dataset in .RData version</a></p>
 </section>
 </section>
 <section id="analysis" class="level1">
-<h1>3. Analysis</h1>
-<p>xxxxxx</p>
+<h1><span style="color:darkgreen">3. Analysis</span> <img src="assets/images/analysis.jpg" width="36" height="29"></h1>
+<p>In the first phase of this section, <em>Exploratory Data Analysis (EDA)</em>, the data prepared for analysis is visualized to enable discoveries that are not immediately apparent at first glance. Later, relationships will be determined through <em>regression analysis</em>, future predictions will be made using <em>time series methods</em>, and provinces will be clustered according to their patterns using <em>clustering methods</em>.</p>
 <section id="exploratory-data-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="exploratory-data-analysis">3.1 Exploratory Data Analysis</h2>
-<p>xxxxxx</p>
+<h2 class="anchored" data-anchor-id="exploratory-data-analysis"><span style="color:darkblue">3.1 Exploratory Data Analysis</span> <img src="assets/images/EDA.jpg" width="23" height="21"></h2>
+<section id="the-greatest-value-of-a-picture-is-when-it-forces-us-to-notice-what-we-never-expected-to-see.-john-w.-tukey" class="level5">
+<h5 class="anchored" data-anchor-id="the-greatest-value-of-a-picture-is-when-it-forces-us-to-notice-what-we-never-expected-to-see.-john-w.-tukey"><span style="color:darkred">“The greatest value of a picture is when it forces us to notice what we never expected to see.” John W. Tukey</span></h5>
+<ul>
+<li><strong>For “municipal_waste” dataset:</strong></li>
+</ul>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggthemes' was built under R version 4.3.2</code></pre>
+</div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggrepel' was built under R version 4.3.2</code></pre>
+</div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>municipal_waste <span class="ot">&lt;-</span> municipal_waste[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>), ]</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> municipal_waste <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="st">`</span><span class="at">Total municipal population</span><span class="st">`</span><span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">5</span>, </span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="st">`</span><span class="at">Amount of waste collected (Tonnes) </span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="st">`</span><span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">4</span>)) </span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"darkgreen"</span>) <span class="sc">+</span> </span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="fu">scale_x_continuous</span>(<span class="at">trans =</span> <span class="st">"log10"</span>) <span class="sc">+</span></span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="fu">scale_y_continuous</span>(<span class="at">trans =</span> <span class="st">"log10"</span>) <span class="sc">+</span></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="fu">xlab</span>(<span class="st">"Total municipal population (log scale)"</span>) <span class="sc">+</span></span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ylab</span>(<span class="st">"Amount of waste collected (log scale)"</span>) <span class="sc">+</span></span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggtitle</span>(<span class="st">"Amount of waste in Turkiye's provinces"</span>)<span class="sc">+</span> </span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a> <span class="fu">theme</span>(<span class="at">line =</span> <span class="fu">element_blank</span>(), <span class="at">rect =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(municipal_waste, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(Provinces, <span class="st">`</span><span class="at">Total number of municipalities</span><span class="st">`</span>, <span class="at">FUN =</span> sum), <span class="at">y =</span> <span class="st">`</span><span class="at">Total number of municipalities</span><span class="st">`</span>)) </span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill=</span> <span class="st">"purple"</span>) <span class="sc">+</span> </span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Provinces"</span>) <span class="sc">+</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_calc</span>() <span class="sc">+</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Number of municipalities in provinces"</span>) <span class="sc">+</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">6</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project_files/figure-html/unnamed-chunk-8-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The provinces that produce largest amount of waste</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>The_largest <span class="ot">&lt;-</span> municipal_waste <span class="sc">|&gt;</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(<span class="st">`</span><span class="at">Amount of waste per capita (Kg/capita-day) </span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="st">`</span>)) <span class="sc">|&gt;</span> <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">20</span>)</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(The_largest, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(Provinces, <span class="st">`</span><span class="at">Amount of waste per capita (Kg/capita-day) </span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="st">`</span>, <span class="at">FUN =</span> sum),</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>                             <span class="at">y =</span> <span class="st">`</span><span class="at">Amount of waste per capita (Kg/capita-day) </span></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="st">`</span>))</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(The_largest, <span class="fu">aes</span>(<span class="at">x =</span><span class="st">`</span><span class="at">Amount of waste per capita (Kg/capita-day) </span></span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a><span class="st">`</span>, <span class="at">y =</span> <span class="fu">reorder</span>(Provinces, <span class="st">`</span><span class="at">Amount of waste per capita (Kg/capita-day) </span></span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a><span class="st">`</span>, <span class="at">FUN =</span> sum), <span class="at">color =</span> <span class="st">`</span><span class="at">Amount of waste per capita (Kg/capita-day) </span></span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">xend =</span> <span class="dv">1</span>, <span class="at">yend =</span> Provinces), <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Provinces"</span>) <span class="sc">+</span></span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Provinces with the largest waste amount"</span>)<span class="sc">+</span></span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="fu">aes</span>(<span class="at">label =</span><span class="st">`</span><span class="at">Total municipal population</span><span class="st">`</span>), <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project_files/figure-html/unnamed-chunk-8-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><p><strong>For “where_to_municipal_waste” dataset:</strong></p></li>
+<li><p><strong>For “time_series_municipal_waste” dataset:</strong></p></li>
+<li><p><strong>For “Ankara_waste_type_year” dataset:</strong></p></li>
+</ul>
+</section>
 </section>
 <section id="trend-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="trend-analysis">3.2 Trend Analysis</h2>
-<p>xxxxxx</p>
+<h2 class="anchored" data-anchor-id="trend-analysis"><span style="color:darkblue">3.2 Trend Analysis</span> <img src="assets/images/tredn.jpg" width="26" height="23"></h2>
 </section>
 <section id="model-fitting" class="level2">
-<h2 class="anchored" data-anchor-id="model-fitting">3.3 Model Fitting</h2>
-<p>xxxxxx</p>
+<h2 class="anchored" data-anchor-id="model-fitting"><span style="color:darkblue">3.3 Model Fitting</span> <img src="assets/images/model.jpg" width="36" height="28"></h2>
 </section>
 <section id="results" class="level2">
-<h2 class="anchored" data-anchor-id="results">3.4 Results</h2>
-<p>xxxxxx</p>
+<h2 class="anchored" data-anchor-id="results"><span style="color:darkblue">3.4 Results</span> <img src="assets/images/result.jpg" width="30" height="29"></h2>
 </section>
 </section>
-<section id="results-and-key-takeaways" class="level1">
-<h1>4. Results and Key Takeaways</h1>
-<p>xxxxxx</p>
+<section id="discussion-and-key-takeaways" class="level1">
+<h1><span style="color:darkgreen">4. Discussion and Key Takeaways</span> <img src="assets/images/discussion.png" class="img-fluid" width="27"></h1>
 
 
 </section>
@@ -308,6 +816,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -376,13 +911,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -461,10 +998,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -474,8 +1028,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -487,7 +1050,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -531,6 +1217,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -556,6 +1243,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -621,12 +1334,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       &nbsp;
     </div>   
-    <div class="nav-footer-center">Hacettepe IE - EMU660 - Spring 2024</div>
+    <div class="nav-footer-center">
+<p>Hacettepe IE - EMU660 - Spring 2024</p>
+</div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
   </div>
 </footer>
+
 
 
 
