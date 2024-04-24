@@ -255,7 +255,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>municipal_waste <span class="ot">&lt;-</span> <span class="fu">read.xlsx</span>(<span class="st">"project/data/municipal_wasteamount_2022.xlsx"</span>)</span>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>municipal_waste <span class="ot">&lt;-</span> <span class="fu">read.xlsx</span>(<span class="st">"project/data/municipal_waste.xlsx"</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(municipal_waste)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
@@ -276,7 +276,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>where_to_municipal_waste <span class="ot">&lt;-</span> <span class="fu">read.xlsx</span>(<span class="st">"project/data/municipal_waste_stat.xlsx"</span>)</span>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>where_to_municipal_waste <span class="ot">&lt;-</span> <span class="fu">read.xlsx</span>(<span class="st">"project/data/where_to_municipal_waste.xlsx"</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(where_to_municipal_waste)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
@@ -299,7 +299,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>time_series_municipal_waste <span class="ot">&lt;-</span> <span class="fu">read.xlsx</span>(<span class="st">"project/data/municipal_waste_timeseries.xlsx"</span>, <span class="at">colNames =</span> <span class="cn">TRUE</span>)</span>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>time_series_municipal_waste <span class="ot">&lt;-</span> <span class="fu">read.xlsx</span>(<span class="st">"project/data/time_series_municipal_waste.xlsx"</span>, <span class="at">colNames =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(time_series_municipal_waste)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
@@ -331,7 +331,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Ankara_waste_type_year <span class="ot">&lt;-</span> <span class="fu">read.xlsx</span>(<span class="st">"project/data/Ankara_wastetype_year.xlsx"</span>)</span>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Ankara_waste_type_year <span class="ot">&lt;-</span> <span class="fu">read.xlsx</span>(<span class="st">"project/data/Ankara_waste_type_year.xlsx"</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(Ankara_waste_type_year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
@@ -353,7 +353,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><strong>For “municipal_waste” dataset:</strong></li>
 </ul>
-<p><a href="https://github.com/emu-hacettepe-analytics/emu660-spring2024-Dilara-pro/project/data">Downloadable dataset in .RData version</a></p>
+<p><a href="https://github.com/emu-hacettepe-analytics/emu660-spring2024-Dilara-pro/tree/main/project/data">Downloadable dataset in .RData version</a></p>
 <div class="cell">
 <details class="code-fold">
 <summary>Show the code</summary>
@@ -488,7 +488,7 @@ Number of municipalities providing waste services
 <ul>
 <li><strong>For “where_to_municipal_waste” dataset:</strong></li>
 </ul>
-<p><a href="https://github.com/emu-hacettepe-analytics/emu660-spring2024-Dilara-pro/project/data">Downloadable dataset in .RData version</a></p>
+<p><a href="https://github.com/emu-hacettepe-analytics/emu660-spring2024-Dilara-pro/tree/main/project/data">Downloadable dataset in .RData version</a></p>
 <div class="cell">
 <details class="code-fold">
 <summary>Show the code</summary>
@@ -582,7 +582,7 @@ Total amount of waste collected  (Tonnes)
 <ul>
 <li><strong>For “time_series_municipal_waste” dataset:</strong></li>
 </ul>
-<p><a href="https://github.com/emu-hacettepe-analytics/emu660-spring2024-Dilara-pro/project/data">Downloadable dataset in .RData version</a></p>
+<p><a href="https://github.com/emu-hacettepe-analytics/emu660-spring2024-Dilara-pro/tree/main/project/data">Downloadable dataset in .RData version</a></p>
 <div class="cell">
 <details class="code-fold">
 <summary>Show the code</summary>
@@ -653,7 +653,7 @@ Total amount of waste collected  (Tonnes)
 <ul>
 <li><strong>For “Ankara_waste_type_year” dataset:</strong> There is no need to preprocess the data</li>
 </ul>
-<p><a href="https://github.com/emu-hacettepe-analytics/emu660-spring2024-Dilara-pro/project/data">Downloadable dataset in .RData version</a></p>
+<p><a href="https://github.com/emu-hacettepe-analytics/emu660-spring2024-Dilara-pro/tree/main/project/data">Downloadable dataset in .RData version</a></p>
 </section>
 </section>
 <section id="analysis" class="level1">

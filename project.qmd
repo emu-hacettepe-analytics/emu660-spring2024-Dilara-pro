@@ -49,28 +49,28 @@ The references from which I have gathered the data may include:
 
 ```{r}
 library(openxlsx)
-municipal_waste <- read.xlsx("project/data/municipal_wasteamount_2022.xlsx")
+municipal_waste <- read.xlsx("project/data/municipal_waste.xlsx")
 str(municipal_waste)
 ```
 
 -   Data including the amounts of collected municipal waste that are sent to municipal landfills, waste processing facilities (the waste sent to landfill sites, incineration plants and all the waste recovery facilities), and disposed of using other methods (disposals by burning in an open area, dumping into river/onto land and burying.):
 
 ```{r}
-where_to_municipal_waste <- read.xlsx("project/data/municipal_waste_stat.xlsx")
+where_to_municipal_waste <- read.xlsx("project/data/where_to_municipal_waste.xlsx")
 str(where_to_municipal_waste)
 ```
 
 -   Time series data including municipal waste amounts, waste per capita, waste sent to processing facilities, etc., for the years 1994-2022:
 
 ```{r}
-time_series_municipal_waste <- read.xlsx("project/data/municipal_waste_timeseries.xlsx", colNames = TRUE)
+time_series_municipal_waste <- read.xlsx("project/data/time_series_municipal_waste.xlsx", colNames = TRUE)
 str(time_series_municipal_waste)
 ```
 
 -   Data on the types and amounts of waste collected annually in Ankara:
 
 ```{r}
-Ankara_waste_type_year <- read.xlsx("project/data/Ankara_wastetype_year.xlsx")
+Ankara_waste_type_year <- read.xlsx("project/data/Ankara_waste_type_year.xlsx")
 str(Ankara_waste_type_year)
 ```
 
@@ -82,7 +82,7 @@ This topic was chosen because it was realized that **waste management is not giv
 
 -   **For "municipal_waste" dataset:**
 
-[Downloadable dataset in .RData version](https://github.com/emu-hacettepe-analytics/emu660-spring2024-Dilara-pro/project/data)
+[Downloadable dataset in .RData version](https://github.com/emu-hacettepe-analytics/emu660-spring2024-Dilara-pro/tree/main/project/data)
 
 ```{r}
 library(tidyverse)
@@ -117,7 +117,7 @@ summary(municipal_waste)
 
 -   **For "where_to_municipal_waste" dataset:**
 
-[Downloadable dataset in .RData version](https://github.com/emu-hacettepe-analytics/emu660-spring2024-Dilara-pro/project/data)
+[Downloadable dataset in .RData version](https://github.com/emu-hacettepe-analytics/emu660-spring2024-Dilara-pro/tree/main/project/data)
 
 ```{r}
 library(tidyverse)
@@ -152,7 +152,7 @@ summary(where_to_municipal_waste)
 
 -   **For "time_series_municipal_waste" dataset:**
 
-[Downloadable dataset in .RData version](https://github.com/emu-hacettepe-analytics/emu660-spring2024-Dilara-pro/project/data)
+[Downloadable dataset in .RData version](https://github.com/emu-hacettepe-analytics/emu660-spring2024-Dilara-pro/tree/main/project/data)
 
 ```{r}
 library(tidyverse)
