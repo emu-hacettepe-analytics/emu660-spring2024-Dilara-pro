@@ -178,7 +178,7 @@ head(time_series_municipal_waste)
 
 -   **For "Ankara_waste_type_year" dataset:** There is no need to preprocess the data
 
-[Downloadable dataset in .RData version](https://github.com/emu-hacettepe-analytics/emu660-spring2024-Dilara-pro/project/data)
+[Downloadable dataset in .RData version](https://github.com/emu-hacettepe-analytics/emu660-spring2024-Dilara-pro/tree/main/project/data)
 
 # [3. Analysis]{style="color:darkgreen"} ![](assets/images/analysis.jpg){width="36" height="29"}
 
