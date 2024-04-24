@@ -226,10 +226,10 @@ ggplot(The_largest, aes(x =`Amount of waste per capita (Kg/capita-day)
 `, FUN = sum), color = `Amount of waste per capita (Kg/capita-day) 
 `)) +
   geom_point(size = 4) +
-  geom_segment(aes(xend = 1, yend = Provinces), size = 1) +
+  geom_segment(aes(xend = 1, yend = Provinces), linewidth = 1) +
   ylab("Provinces") +
   ggtitle("Provinces with the largest waste amount")+
-  geom_text_repel(aes(label =`Total municipal population`), color = "black", size = 3)
+  geom_text_repel(aes(label =`Total municipal population`), color = "black", size = 2)
 ```
 
 -   **For "where_to_municipal_waste" dataset:**
