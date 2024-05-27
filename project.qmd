@@ -27,51 +27,49 @@ Unfortunately, complaining doesn't fix anything, and it won't. If we want to des
 
 ![](assets/images/landfill-scaled.jpg){fig-align="center" width="300"}
 
-***The scope:*** In my project, I will attempt to extract insights from several data collections on waste management in Turkiye. I will particularly focus on municipal waste statistics. Initially, I will analyze data on a national level, then move on to a provincial basis. Later, I will use time series methods to forecast future waste amount trends in Turkiye. Additionally, using clustering methods, I will group provinces based on their waste amounts behaviors.
+***The scope:*** The processes and activities required to handle waste from its inception to its final disposal are called ***waste management.*** These activities include the collection, transport, treatment, and disposal of waste, as well as the monitoring and organization of waste management processes \[1\]. In this project, insights are attempted to be extracted from several data collections on waste management in Turkiye, with a particular focus on municipal waste statistics. Initially, data are analyzed on a national level, then the analysis is moved to a provincial basis. Then, time series methods are used to forecast waste amount trends in Turkiye. Additionally, the variables that influence the amounts of waste and their effects by province are investigated using regression analysis.
 
-***The aim:*** In this project, my main goals are to increase awareness about waste issues, determine future waste quantities, investigate the waste levels of the provinces, and discuss both prevention strategies and proper disposal and recycling methods for unavoidable waste.
+***The aim:*** In this project, the main goals are to increase awareness about waste issues, determine future waste quantities, investigate the waste levels of the provinces, and discuss both prevention strategies and proper disposal and recycling methods for unavoidable waste.
+
+***Some information before the analysis:*** As of 2023, ***Turkiye's population is 85 million 279 thousand 553 people*** and it has a total of 81 provinces, with Istanbul, Ankara, and Izmir being the most populous \[2\]. According to the data from 2022, ***1,389*** out of 1,391 municipalities in Turkiye ***provide waste management services***, and it is amassed ***a total of 30,283,757 tons of waste***, and the amount of MSW collected per person is ***1.03 kg/day*** \[3\]. From this total, ***85.9%*** was directed towards waste treatment facilities, ***13.5%*** was allocated to municipal dumping sites, and the remaining ***0.6%*** was disposed of through alternative methods such as open burning, burial, and the dumping into rivers or onto land \[3\].
 
 # [2. Data]{style="color:darkgreen"} ![](assets/images/data_symbol.jpg){width="43" height="29"}
 
-I plan to use multiple data sources for analysis. The data I will utilize include waste quantities, waste types and population figures for Turkiye and its provinces.
+[***Municipal Solid Waste (MSW)***]{style="color:darkred"}, waste collected by the municipalities that provide waste management services, includes everyday trash from homes, businesses, and public places, along with bulky items and yard waste. It also covers street sweepings and waste from public trash bins and markets, if treated like household trash. However, it doesn't include waste from sewer systems, industrial processes or construction and demolition sites \[4\].
+
+Multiple data sources are planned to be utilized for the analysis in this area of MSW, primarily focusing on waste quantities, along with Gross Domestic Product (GDP), education, electricity consumption, population figures, and agriculture area for ***Turkiye and its provinces.***
 
 ## [2.1 Data Source]{style="color:darkblue"} ![](assets/images/database.jpg){width="71" height="29"}
 
-The references from which I have gathered the data may include:
+The references from which I have gathered the data include:
 
 -   [Waste Statistics, TURKSTAT](https://data.tuik.gov.tr/Bulten/Index?p=Waste-Statistics-2022-49570)
--   [Environment Regional Data, Biruni TURKSTAT](https://biruni.tuik.gov.tr/bolgeselistatistik/degiskenlerUzerindenSorgula.do#)
--   [Waste Data, Ankara Municipality](https://seffaf.ankara.bel.tr/)
+-   [Environment Regional Data, Biruni TURKSTAT](https://biruni.tuik.gov.tr/bolgeselistatistik/)
+-   [Agriculture area, Biruni TURKSTAT](https://biruni.tuik.gov.tr/bolgeselistatistik/)
+-   [Education, Biruni TURKSTAT](https://biruni.tuik.gov.tr/bolgeselistatistik/)
+-   [GDP, Biruni TURKSTAT](https://biruni.tuik.gov.tr/bolgeselistatistik/)
+-   [Electricity consumption, Biruni TURKSTAT](https://biruni.tuik.gov.tr/bolgeselistatistik/)
 
-## [2.2 General Information About Data]{style="color:darkblue"} ![](assets/images/info.jpg){width="26" height="23"}
+## [2.2 General Information About the Main Data]{style="color:darkblue"} ![](assets/images/info.jpg){width="26" height="23"}
 
--   The municipal waste amount data of Turkiye, which includes information such as the population of Turkiye and its 81 provinces' municipalities, total waste amounts for the year 2022, the average waste amount per person, etc.:
+-   **First data set:** The municipal waste amount data of Turkiye, which includes information such as the population of Turkiye and its 81 provinces' municipalities, total waste amounts for the year 2022, the average waste amount per person, etc.
 
 ```{r}
 library(openxlsx)
 municipal_waste <- read.xlsx("project/data/municipal_waste.xlsx")
-str(municipal_waste)
 ```
 
--   Data including the amounts of collected municipal waste that are sent to municipal landfills, waste processing facilities (the waste sent to landfill sites, incineration plants and all the waste recovery facilities), and disposed of using other methods (disposals by burning in an open area, dumping into river/onto land and burying.):
+-   **Second data set:** Data including the amounts of collected municipal waste that are sent to municipal landfills, waste processing facilities (the waste sent to landfill sites, incineration plants and all the waste recovery facilities), and disposed of using other methods (disposals by burning in an open area, dumping into river/onto land and burying).
 
 ```{r}
 where_to_municipal_waste <- read.xlsx("project/data/where_to_municipal_waste.xlsx")
-str(where_to_municipal_waste)
 ```
 
--   Time series data including municipal waste amounts, waste per capita, waste sent to processing facilities, etc., for the years 1994-2022:
+-   **Third data set:** Time series data including municipal waste amounts, waste per capita, waste sent to processing facilities, etc., and time series of waste amounts by provinces of Turkiye for the years 1994-2022.
 
 ```{r}
 time_series_municipal_waste <- read.xlsx("project/data/time_series_municipal_waste.xlsx", colNames = TRUE)
-str(time_series_municipal_waste)
-```
-
--   Data on the types and amounts of waste collected annually in Ankara:
-
-```{r}
-Ankara_waste_type_year <- read.xlsx("project/data/Ankara_waste_type_year.xlsx")
-str(Ankara_waste_type_year)
+ts_province <- read.xlsx("project/data/ts_waste_province.xlsx")
 ```
 
 ## [2.3 Reason of Choice]{style="color:darkblue"} ![](assets/images/reason.jpg){width="25" height="21"}
@@ -111,7 +109,17 @@ municipal_waste <- municipal_waste[,-c(1)]
 municipal_waste <- municipal_waste %>%
   mutate(across(-Provinces, ~as.numeric(as.character(.))))
 sapply(municipal_waste,class)
-head(municipal_waste)
+```
+
+The first six rows of the municipal waste dataset are provided below.
+
+```{r}
+str(municipal_waste)
+```
+
+The descriptive statistics for each column are provided below.
+
+```{r}
 summary(municipal_waste)
 ```
 
@@ -146,11 +154,21 @@ where_to_municipal_waste <- where_to_municipal_waste[,-c(1)]
 where_to_municipal_waste <- where_to_municipal_waste %>%
   mutate(across(-Provinces, ~as.numeric(as.character(.))))
 sapply(where_to_municipal_waste,class)
-head(where_to_municipal_waste)
+```
+
+The first six rows of the dataset showing the distribution of municipal waste disposal methods are provided below.
+
+```{r}
+str(where_to_municipal_waste)
+```
+
+The descriptive statistics for each column are provided below.
+
+```{r}
 summary(where_to_municipal_waste)
 ```
 
--   **For "time_series_municipal_waste" dataset:**
+-   **For "time_series_municipal_waste" dataset and "ts_province" dataset:**
 
 [Downloadable dataset in .RData version](https://github.com/emu-hacettepe-analytics/emu660-spring2024-Dilara-pro/tree/main/project/data)
 
@@ -173,22 +191,34 @@ row.names(time_series_municipal_waste) <- NULL
 time_series_municipal_waste <- time_series_municipal_waste %>%
   mutate(across(-`Waste/Year`, ~as.numeric(as.character(.))))
 sapply(time_series_municipal_waste,class)
-head(time_series_municipal_waste)
 ```
 
--   **For "Ankara_waste_type_year" dataset:** There is no need to preprocess the data
+The attributes of the time series dataset are provided below.
 
-[Downloadable dataset in .RData version](https://github.com/emu-hacettepe-analytics/emu660-spring2024-Dilara-pro/tree/main/project/data)
+```{r}
+str(time_series_municipal_waste)
+```
+
+The attributes of the provinces' time series dataset are provided below.
+```{r}
+ts_province  <- select(ts_province , -BÖLGE.KODU)  
+ts_province  <- rename(ts_province , "Year" = YIL)
+ts_province  <- rename(ts_province , "Province" = BÖLGE.ADI)
+ts_province  <- rename(ts_province , "Waste amount (1000 ton)" = `Belediye.atık.istatistikleri.:.Toplanan.atık.miktarı.(1000.ton)`)
+ts_province$Year <- as.numeric(ts_province$Year)
+ts_province$`Waste amount (1000 ton)` <- as.numeric(ts_province$`Waste amount (1000 ton)`)
+str(ts_province)
+```
 
 # [3. Analysis]{style="color:darkgreen"} ![](assets/images/analysis.jpg){width="36" height="29"}
 
-In the first phase of this section, *Exploratory Data Analysis (EDA)*, the data prepared for analysis is visualized to enable discoveries that are not immediately apparent at first glance. Later, relationships will be determined through *regression analysis*, future predictions will be made using *time series methods*, and provinces will be clustered according to their patterns using *clustering methods*.
+In the first phase of this section, *Exploratory Data Analysis (EDA)*, the data prepared for analysis is visualized to enable discoveries that are not immediately apparent at first glance. Later, relationships are determined through *regression analysis*, future predictions are made using *time series methods*.
 
 ## [3.1 Exploratory Data Analysis]{style="color:darkblue"} ![](assets/images/EDA.jpg){width="23" height="21"}
 
-##### ["The greatest value of a picture is when it forces us to notice what we never expected to see." John W. Tukey]{style="color:darkred"}
+[**For "municipal_waste" dataset:**]{style="color:purple"}
 
--   **For "municipal_waste" dataset:**
+The relationship between the population size of Turkiye provinces and the amount of waste generated is shown in the scatter plot below. According to the plot, a linear relationship is observed between them.
 
 ```{r}
 library(tidyverse)
@@ -196,24 +226,32 @@ library(ggthemes)
 library(ggrepel)
 municipal_waste <- municipal_waste[-c(1), ]
 
-p <- municipal_waste |> ggplot(aes(`Total municipal population`/10^5, 
+p <- municipal_waste |> ggplot(aes(`Total municipal population`/10^6, 
 `Amount of waste collected (Tonnes) 
 `/10^4)) 
-p + geom_point(color = "darkgreen") + 
+p + geom_point(color = "skyblue") + 
 scale_x_continuous(trans = "log10") +
 scale_y_continuous(trans = "log10") +
-xlab("Total municipal population (log scale)") +
-ylab("Amount of waste collected (log scale)") +
+xlab("Total municipal population (million)") +
+ylab("Amount of waste collected (kg)") +
 ggtitle("Amount of waste in Turkiye's provinces")+ 
- theme(line = element_blank(), rect = element_blank())
+theme_classic()
+```
 
+Provinces ranked according to the total number of municipalities can be seen in the below graph together with the number of municipalities.
+
+```{r}
 p <- ggplot(municipal_waste, aes(x = reorder(Provinces, `Total number of municipalities`, FUN = sum), y = `Total number of municipalities`)) 
 p + geom_bar(stat = "identity", fill= "purple") + 
   xlab("Provinces") +
   theme_calc() +
-  ggtitle("Number of municipalities in provinces") +
+  ggtitle("Number of municipalities in provinces") + 
   theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 6)) 
+```
 
+In the plot below, the first 20 provinces with the highest amount of waste per capita and their populations can be found.
+
+```{r}
 # The provinces that produce largest amount of waste
 The_largest <- municipal_waste |> arrange(desc(`Amount of waste per capita (Kg/capita-day) 
 `)) |> head(n = 20)
@@ -226,22 +264,749 @@ ggplot(The_largest, aes(x =`Amount of waste per capita (Kg/capita-day)
 `, FUN = sum), color = `Amount of waste per capita (Kg/capita-day) 
 `)) +
   geom_point(size = 4) +
-  geom_segment(aes(xend = 1, yend = Provinces), linewidth = 1) +
+  geom_segment(aes(xend = 1, yend = Provinces), linewidth = 1) + 
   ylab("Provinces") +
   ggtitle("Provinces with the largest waste amount")+
   geom_text_repel(aes(label =`Total municipal population`), color = "black", size = 2)
 ```
 
--   **For "where_to_municipal_waste" dataset:**
+[**For "where_to_municipal_waste" dataset:**]{style="color:purple"}
 
--   **For "time_series_municipal_waste" dataset:**
+The distribution of waste collected by municipalities according to three disposal methods and provinces is analysed in this section.
 
--   **For "Ankara_waste_type_year" dataset:**
+```{r}
+library(tidyverse)
+library(ggthemes)
+library(ggrepel)
+library(dplyr)
 
-## [3.2 Trend Analysis]{style="color:darkblue"} ![](assets/images/tredn.jpg){width="26" height="23"}
+dumping_site <-where_to_municipal_waste |> 
+  mutate(proportion1 = `Municipality's dumping sites`/`Total amount of waste collected  (Tonnes)`)
+treatment_facility <-where_to_municipal_waste |> 
+  mutate(proportion2 =`Waste treatment facilities`/`Total amount of waste collected  (Tonnes)`)
+other_disposal <-where_to_municipal_waste |> 
+  mutate(proportion3 =`Other disposal methods`/`Total amount of waste collected  (Tonnes)`)
+```
 
-## [3.3 Model Fitting]{style="color:darkblue"} ![](assets/images/model.jpg){width="36" height="28"}
+The amount of waste allocated for the *municipality dumping site* can be seen below, plotted by province, with circle diameters representing the total amount of waste.
 
-## [3.4 Results]{style="color:darkblue"} ![](assets/images/result.jpg){width="30" height="29"}
+```{r}
+# Dumping site proportion graph
+dumping_site <- dumping_site[-c(1), ]
+ggplot(dumping_site, aes(Provinces, proportion1, size =`Total amount of waste collected  (Tonnes)`/ 10^4)) +
+  geom_point(color = "blue", alpha = 0.6) + theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 6)) +
+  labs (x = "Provinces",y = "Proportion for dumping site", title = "Proportion of wastes sent", size = "Total waste (kg)") +  coord_cartesian(ylim = c(0, 1))
+```
 
-# [4. Discussion and Key Takeaways]{style="color:darkgreen"} ![](assets/images/discussion.png){width="27"}
+The amount of waste allocated for the *waste treatment facilities* can be seen below, plotted by province, with circle diameters representing the total amount of waste.
+
+```{r}
+# Waste treatment facility proportion graph
+treatment_facility <- treatment_facility[-c(1), ]
+ggplot(treatment_facility, aes(Provinces, proportion2, size =`Total amount of waste collected  (Tonnes)`/ 10^4)) +
+  geom_point(color = "orange", alpha = 0.6) +  theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 6)) +
+  labs (x = "Provinces",y = "Proportion for waste treatment facility", title = "Proportion of wastes sent", size = "Total waste (kg)") + coord_cartesian(ylim = c(0, 1)) 
+```
+
+The amount of waste allocated for the *other disposal methods* can be seen below, plotted by province, with circle diameters representing the total amount of waste.
+
+```{r}
+# Other disposal methods proportion graph
+other_disposal <- other_disposal[-c(1), ]
+ggplot(other_disposal, aes(Provinces, proportion3, size =`Total amount of waste collected  (Tonnes)`/ 10^4)) +
+  geom_point(color = "darkgreen", alpha = 0.6) + theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 6)) +
+  labs (x = "Provinces",y = "Pro. for other disposal methods", title = "Proportion of wastes sent", size = "Total waste (kg)") + coord_cartesian(ylim = c(0, 1))
+```
+
+The pie chart below shows a rough breakdown of the amount of waste sent to these three disposal methods.
+
+```{r}
+# Pie Chart
+waste_distr <- data.frame(Method = c("Municipality's Dumping Site", "Waste Treatment Facilities", "Other Disposal Methods"), Amount = c(where_to_municipal_waste[1,3]/where_to_municipal_waste[1,2], where_to_municipal_waste[1,4]/where_to_municipal_waste[1,2], where_to_municipal_waste[1,5]/where_to_municipal_waste[1,2]))
+ggplot(waste_distr, aes(x = "", y = Amount, fill = Method)) + 
+  geom_bar(width = 1, stat = "identity") + 
+  coord_polar(theta = "y") + 
+  theme_void() +
+  labs(title = "Waste Disposal Methods", fill = "Disposal Method")
+```
+
+[**For "time_series_municipal_waste" dataset and "ts_province" dataset:**]{style="color:purple"}
+
+According to the time series data set, Turkiye's population change over the years is given below.
+
+```{r}
+library(tidyverse)
+library(ggthemes)
+library(ggrepel)
+library(dplyr)
+
+ts_data <- time_series_municipal_waste %>%
+  pivot_longer(cols = -`Waste/Year`, names_to = "Year", values_to = "Value") %>%
+  mutate(Year = as.numeric(Year))  
+
+# Türkiye population ts
+ggplot(ts_data %>% filter(`Waste/Year` == "Turkey population"), 
+                          aes(x = Year, y = Value / 10^6)) +
+  geom_line(color = "blue") +
+  geom_point(color = "magenta") +
+  theme_bw() + coord_fixed() +
+  labs(title = "Turkiye Population Over the Years", x = "Year", y = "Population (million)")
+```
+
+The relationship between the total amount of waste generated in Turkey and the amount collected by municipalities for proper disposal can be accessed from the plot.
+
+```{r}
+# Waste graphs
+ts_data2 <- ts_data %>%
+  filter(`Waste/Year` %in% c("Amount of municipal waste generated (Thousand tonnes/year)", 
+                             "Amount of municipal waste collected (Thousand tonnes/year)")) %>%
+  mutate(Type = case_when(
+    `Waste/Year` == "Amount of municipal waste generated (Thousand tonnes/year)" ~ "Generated",
+    `Waste/Year` == "Amount of municipal waste collected (Thousand tonnes/year)" ~ "Collected"
+  ))
+
+ggplot(ts_data2, aes(x = Year, y = Value, color = Type, group = Type)) +
+  geom_line() +
+  geom_point() +
+  scale_color_manual(values = c("Generated" = "green", "Collected" = "purple")) +
+  labs(title = "Municipal Waste Generated and Collected Over the Years",
+       x = "Year", 
+       y = "Waste (Thousand tonnes)",
+       color = "Type") + 
+  theme_minimal()
+```
+
+Changes in waste amount over the years according to disposal methods are given below.
+
+```{r}
+disposal_methods_data <- ts_data %>%
+  filter(`Waste/Year` %in% c("Waste treatment facilities", 
+                             "Municipality's dumping sites", 
+                             "Other disposal methods")) %>%
+  mutate(Type = case_when(
+    `Waste/Year` == "Waste treatment facilities" ~ "Waste Treatment",
+    `Waste/Year` == "Municipality's dumping sites" ~ "Dumping Sites",
+    `Waste/Year` == "Other disposal methods" ~ "Other Methods"
+  ))
+
+ggplot(disposal_methods_data, aes(x = Year, y = Value, color = Type, group = Type)) +
+  geom_line() +
+  geom_point() +
+  scale_color_manual(values = c("Waste Treatment" = "blue", "Dumping Sites" = "red", "Other Methods" = "green")) +
+  labs(title = "Disposal Methods Over the Years",
+       x = "Year", 
+       y = "Amount (Thousand tonnes)",
+       color = "Method") +
+  theme_classic()
+```
+
+Descriptive statistics for waste amounts by province dataset: 
+
+```{r}
+summary_stats <- ts_province %>%
+  group_by(Province) %>%
+  summarise(
+    mean_waste = mean(`Waste amount (1000 ton)`, na.rm = TRUE),
+    median_waste = median(`Waste amount (1000 ton)`, na.rm = TRUE),
+    sd_waste = sd(`Waste amount (1000 ton)`, na.rm = TRUE),
+    min_waste = min(`Waste amount (1000 ton)`, na.rm = TRUE),
+    max_waste = max(`Waste amount (1000 ton)`, na.rm = TRUE)
+  ) %>%
+  arrange(desc(mean_waste)) %>%
+  top_n(10, mean_waste)
+print(summary_stats)
+```
+
+The line graph of waste amounts over the years for the top 5 cities producing the most waste based on provincial waste amount data is drawn.
+
+```{r}
+library(tidyverse)
+library(ggthemes)
+mean_waste <- ts_province %>%
+  group_by(Province) %>%
+  summarise(mean_waste = mean(`Waste amount (1000 ton)`, na.rm = TRUE)) %>%
+  arrange(desc(mean_waste))
+
+top5_provinces <- mean_waste %>%
+  top_n(5, mean_waste) %>%
+  pull(Province)
+
+top5_data <- ts_province %>%
+  filter(Province %in% top5_provinces)
+
+ggplot(top5_data, aes(x = Year, y = `Waste amount (1000 ton)`, color = Province)) +
+  geom_line() +
+  geom_point() +
+  labs(title = "Waste Amount in Top 5 Provinces with Largest Mean Waste Amount",
+       x = "Year",
+       y = "Waste Amount (1000 ton)") +
+  theme_pander()
+```
+
+The box plot for the top 10 provinces with the highest average waste amounts is provided below.
+
+```{r}
+top10_summary <- ts_province %>%
+  group_by(Province) %>%
+  summarise(mean_waste = mean(`Waste amount (1000 ton)`, na.rm = TRUE)) %>%
+  arrange(desc(mean_waste)) %>%
+  top_n(10, mean_waste)
+
+top10_provinces <- top10_summary$Province
+top10_data <- ts_province %>%
+  filter(Province %in% top10_provinces)
+
+top10_data <- top10_data %>%
+  mutate(Province = factor(Province, levels = top10_summary$Province[order(top10_summary$mean_waste)]))
+
+ggplot(top10_data, aes(x = Province, y = `Waste amount (1000 ton)`, fill = Province)) +
+  geom_boxplot() +
+  labs(title = "Waste Amounts by Province (Top 10 Provinces)",
+       x = "Province",
+       y = "Waste Amount (1000 ton)") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+When İstanbul, which was very dominant in the previous boxplot, is excluded, the results are also examined.
+
+```{r}
+ts_province_no_istanbul <- ts_province %>% filter(Province != "İstanbul")
+top10_summary_no_istanbul <- ts_province_no_istanbul %>%
+  group_by(Province) %>%
+  summarise(mean_waste = mean(`Waste amount (1000 ton)`, na.rm = TRUE)) %>%
+  arrange(desc(mean_waste)) %>%
+  top_n(10, mean_waste)
+
+top10_provinces_no_istanbul <- top10_summary_no_istanbul$Province
+top10_data_no_istanbul <- ts_province_no_istanbul %>%
+  filter(Province %in% top10_provinces_no_istanbul)
+
+top10_data_no_istanbul <- top10_data_no_istanbul %>%
+  mutate(Province = factor(Province, levels = top10_summary_no_istanbul$Province[order(top10_summary_no_istanbul$mean_waste)]))
+
+ggplot(top10_data_no_istanbul, aes(x = Province, y = `Waste amount (1000 ton)`, fill = Province)) +
+  geom_boxplot() +
+  labs(title = "Waste Amounts by Province (Top 10 Provinces, Excluding İstanbul)",
+       x = "Province",
+       y = "Waste Amount (1000 ton)") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+## [3.2 Regression Analysis]{style="color:darkblue"} ![](assets/images/tredn.jpg){width="26" height="23"}
+
+***Additional Data***
+
+The data sets needed to identify variables contributing to total waste generation and to conduct regression analysis have been preprocessed below.
+
+Data on the [agricultural area]{style="color:red"} cultivated in the provinces of Turkiye can be accessed below.
+
+```{r}
+library(openxlsx)
+library(tidyverse)
+# agriculture area
+agriculture_area <- read.xlsx("project/data/agriculture_area.xlsx", colNames = TRUE)
+agriculture_area <- select(agriculture_area, -"YIL")  
+agriculture_area <- select(agriculture_area, -"BÖLGE.KODU")  
+agriculture_area <- rename(agriculture_area, "Provinces" = "BÖLGE.ADI")
+agriculture_area <- rename(agriculture_area, "Agriculture area" =`Toplam.işlenen.tarım.alanı.(hektar)`)
+agriculture_area <- agriculture_area [-c(83:87), ]
+agriculture_area <- agriculture_area [-c(1), ]
+str(agriculture_area)
+```
+
+The data on [educational status]{style="color:red"} of Turkiye's provinces, categorized by various levels, is provided in education data set.
+
+```{r}
+# education
+education <- read.xlsx("project/data/education.xlsx", colNames = TRUE)
+education <- select(education, -"YIL")  
+education <- select(education, -"BÖLGE.KODU")
+education  <- rename(education , "Provinces" = "BÖLGE.ADI")
+education  <- rename(education , "Total number of faculty members" = `Yükseköğretim.kurumlarında.kendi.biriminde.görevli.öğretim.elemanı.sayısı.:.Toplam.öğretim.elemanı./.Toplam`)
+education  <- rename(education , "Total number of illiterate people" = `Eğitim.durumuna.göre.nüfus.(15.yaş.ve.üzeri).:.Okuma.yazma.bilmeyen./.Toplam`)
+education  <- rename(education , "Number of associate or bachelor's degree graduates" = `Yükseköğretim.kurumlarında.önlisans.ve.lisans.düzeyinde.öğrenci.sayıları.:.Mezun./.Toplam`)
+education  <- rename(education , "Number of master's degree graduates" = `Eğitim.durumuna.göre.nüfus.(15.yaş.ve.üzeri).:.Yüksek.lisans.mezunu./.Toplam`)
+education <- education [-c(1), ]
+str(education)
+```
+
+The first six rows of the [electricity consumption]{style="color:red"} data for the provinces of Turkiye are as follows.
+
+```{r}
+# electricity consumption
+electricity_consumption <- read.xlsx("project/data/electricity_consumption.xlsx", colNames = TRUE)
+electricity_consumption <- select(electricity_consumption, -"YIL")  
+electricity_consumption <- select(electricity_consumption, -"BÖLGE.KODU")  
+electricity_consumption  <- rename(electricity_consumption , "Provinces" = "BÖLGE.ADI")
+electricity_consumption  <- rename(electricity_consumption , "Total electricity consumption (MWh)" = `Toplam.tüketim.(MWh)`)
+electricity_consumption  <- rename(electricity_consumption , "Electricity consumption per capita (KWh)" = `Kişi.başına.toplam.elektrik.tüketimi.(KWh)`)
+electricity_consumption <- electricity_consumption [-c(83, 84, 85), ]
+electricity_consumption <- electricity_consumption[-c(1), ]
+str(electricity_consumption)
+```
+
+[The GDP]{style="color:red"} data for the provinces of Turkiye has been obtained.
+
+```{r}
+# GDP
+GDP <- read.xlsx("project/data/GDP.xlsx", colNames = TRUE)
+GDP <- select(GDP, -"YIL")  
+GDP <- select(GDP, -"BÖLGE.KODU")  
+GDP  <- rename(GDP , "Provinces" = "BÖLGE.ADI")
+GDP  <- rename(GDP , "GDP per capita (TL)" = `Kişi.başına.GSYH.(TL)`)
+GDP  <- rename(GDP , "GDP per capita ($)" = `Kişi.başına.GSYH.($)`)
+GDP <- GDP [-c(83, 84), ]
+str(GDP)
+```
+
+If the [response variable]{style="color:red"} is extracted from the municipal data set, the desired variable of [waste amount]{style="color:red"} by province can be obtained for the analysis.
+
+```{r}
+# Amount of waste
+response_variable <- select(municipal_waste, "Provinces")  
+response_variable <- cbind(response_variable, "Amount of waste collected (Tonnes)" = municipal_waste$`Amount of waste collected (Tonnes) 
+`)
+str(response_variable)
+```
+
+[The regression analysis]{style="color:red"} below has been conducted using the [total amount of waste collected]{style="color:red"} at the provincial level as the response variable. [The independent variables]{style="color:red"} include [GDP per capita, agricultural area, total number of faculty members, total number of illiterate people, number of associate or bachelor's degree graduates, number of master's degree graduates, and electricity consumption]{style="color:red"}. The final table prepared for regression analysis can be found below.
+
+```{r}
+regression_data <- data.frame()
+regression_data <- full_join(response_variable, agriculture_area, by = "Provinces")
+regression_data <- full_join(regression_data, education,  by = "Provinces")
+regression_data <- full_join(regression_data, electricity_consumption,  by = "Provinces")
+regression_data <- full_join(regression_data, GDP,  by = "Provinces")
+str(regression_data)
+```
+
+***Regression Analysis***
+
+In regression analysis using the forward selection method, the model begins with the variable that exhibits the highest correlation with the response variable, 'Amount of waste collected'. Subsequently, additional variables are incorporated into the model based on their partial correlations.
+
+```{r}
+library(ppcor)
+library(tidyverse)
+library(readxl)
+
+regression_data <- read_excel("regression_data.xlsx")
+numeric_cols <- c("Amount of waste collected (Tonnes)", "Agriculture area", 
+                  "Total number of faculty members", "Total number of illiterate people",
+                  "Number of associate or bachelor's degree graduates", "Total electricity consumption (MWh)",
+                  "GDP per capita (TL)", "Number of master's degree graduates")
+regression_data[numeric_cols] <- sapply(regression_data[numeric_cols], as.numeric)
+
+if(any(is.na(regression_data[numeric_cols]))) {
+  regression_data <- na.omit(regression_data)
+}
+
+constant_cols <- sapply(regression_data[numeric_cols], function(x) length(unique(x)) <= 1)
+if(any(constant_cols)) {
+  regression_data <- regression_data[, !constant_cols]
+}
+
+predictor_columns <- names(regression_data) != "Amount of waste collected (Tonnes)"
+correlation <- cor(regression_data[predictor_columns], regression_data$`Amount of waste collected (Tonnes)`)
+print(correlation)
+```
+
+The plot between the response variable and the independent variable with [highest correlation (Number of master's degree graduates)]{style="color:red"}:
+
+```{r}
+library(ggthemes)
+ggplot(regression_data, aes(`Amount of waste collected (Tonnes)`/10^4,`Number of master's degree graduates`/10^4)) + geom_point(color = "brown") + scale_x_log10() +
+scale_y_log10() + theme_classic() + labs(x = "The amount of waste collected (kg)", y = "The number of master's degree graduates (log scale)", title = "The lineer relationship") + coord_flip()
+```
+
+[Partial correlations]{style="color:red"}: between variables while controlling the variable with the highest correlation:
+
+```{r}
+library(ppcor)
+partial_cor1 <- pcor.test(regression_data$`Amount of waste collected (Tonnes)`, regression_data$`Agriculture area`, regression_data$`Number of master's degree graduates`)
+partial_cor2 <- pcor.test(regression_data$`Amount of waste collected (Tonnes)`, regression_data$`Total number of faculty members`, regression_data$`Number of master's degree graduates`)
+partial_cor3 <-pcor.test(regression_data$`Amount of waste collected (Tonnes)`, regression_data$`Total number of illiterate people`, regression_data$`Number of master's degree graduates`)
+partial_cor4 <-pcor.test(regression_data$`Amount of waste collected (Tonnes)`, regression_data$`Number of associate or bachelor's degree graduates`, regression_data$`Number of master's degree graduates`)
+partial_cor5 <-pcor.test(regression_data$`Amount of waste collected (Tonnes)`, regression_data$`Total electricity consumption (MWh)`, regression_data$`Number of master's degree graduates`)
+partial_cor6 <-pcor.test(regression_data$`Amount of waste collected (Tonnes)`, regression_data$`GDP per capita (TL)`, regression_data$`Number of master's degree graduates`)
+print(partial_cor5)
+```
+
+When examining the partial correlation values for other columns, taking into account those with significant p-values, [the variable with the highest partial correlation is 'Total electricity consumption']{style="color:red"}. Therefore, it should be the second variable added to the regression model.
+
+In the next step, partial correlations are examined while controlling for the two variables with the highest correlations this time. Those that pass the significant test from the previous step are included in this calculations.
+
+```{r}
+partial_corr1 <- pcor.test(regression_data$`Amount of waste collected (Tonnes)`, regression_data$`Total number of faculty members`, regression_data[,c(6,7)])
+partial_corr2 <-pcor.test(regression_data$`Amount of waste collected (Tonnes)`, regression_data$`Total number of illiterate people`, regression_data[,c(6,7)])
+print(partial_corr2)
+```
+
+When the partial correlations calculated by controlling for the two variables were checked, both were less than 0.5. In other words, there are no remaining variables with a strong relationship. ***In the final model, the independent variables affecting the response variable "Amount of waste collected" were selected as "Number of master's degree graduates" and "Total electricity consumption" using the forward selection method.***
+
+The results of the multiple regression analysis with the relevant columns are as follows.
+
+```{r}
+ln_version_reg_data <- log10(regression_data)
+multiple_regression <- lm(`Amount of waste collected (Tonnes)` ~ `Number of master's degree graduates` + `Total electricity consumption (MWh)`, data = ln_version_reg_data) 
+summary(multiple_regression)
+```
+
+[Since the variable representing total electricity consumption is not significant, it has been excluded from the model.]{style="color:red"} Therefore, the most suitable and effective version of our model, achieving the highest possible R-squared value, is the simple regression model that solely includes the variable "Number of master's graduates".
+
+```{r}
+regression_model <- lm(`Amount of waste collected (Tonnes)` ~ `Number of master's degree graduates`, data = ln_version_reg_data) 
+summary(regression_model)
+```
+
+```{r}
+library(broom)
+tidy(regression_model)
+```
+
+[***Model adequacy checking***]{style="color:red"} in a regression model is best achieved by thoroughly analyzing the residuals. Below are the graphs related to [residual analysis.]{style="color:red"}
+
+There seems no problem in Residual vs Fitted values plot. This means that ***the assumption of constant variance is satisfied.***
+
+```{r}
+ggplot(ln_version_reg_data, aes(x = fitted(regression_model), y = resid(regression_model))) +
+  geom_point(size = 3, shape = 18) +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(x = "Fitted Values", y = "Residuals", title = "Residuals vs Fitted Plot") +
+  theme_minimal()
+```
+
+The q-q plot to check if residuals are normally distributed is drawn, and there is no problem with that.
+
+```{r}
+library(ggthemes)
+ggplot(ln_version_reg_data, aes(sample = resid(regression_model))) +
+  stat_qq() +
+  stat_qq_line(color = "magenta") +
+  labs(title = "Normal Q-Q Plot") +
+  theme_clean()
+```
+
+In the Q-Q plot, tails are observed on both the right and left sides. To be sure, an Anderson-Darling normality test should also be conducted.
+
+```{r}
+library(nortest)
+residuals <- resid(regression_model)
+
+ad_test_results <- ad.test(residuals)
+print(ad_test_results)
+```
+
+A p-value of 0.28 in the Anderson-Darling test indicates that there is not enough evidence to reject the null hypothesis that the residuals are normally distributed. Therefore, it can be assumed that the residuals are normally distributed; ***the normality assumption for the regression model's residuals is considered to be met.***
+
+The plot below helps to check for ***homoscedasticity***. According to it, ***there is no such a problem.***
+
+```{r}
+ggplot(ln_version_reg_data, aes(x = fitted(regression_model), y = sqrt(abs(resid(regression_model))))) +
+  geom_point(size = 3, color = "turquoise")  +
+  labs(x = "Fitted Values", y = "Square Root of Absolute Residuals", title = "Scale-Location Plot") +
+  theme_calc()
+```
+
+## [3.3 Time Series Analysis]{style="color:darkblue"} ![](assets/images/model.jpg){width="36" height="28"}
+
+The MSW time series data for Turkiye lacks values for some intermediate years (e.g. 2017, 2019, 2021, etc.), which implies that time series analysis must be conducted under incomplete information. In this respect, **Grey Prediction (GP)** is a powerful forecasting approach to effectively manage the forecast analysis for MSW \[6\]. This method is particularly advantageous when data availability is limited, as it requires only a few data points to construct reliable models \[6\]. The core idea of GP involves transforming a complex data series into a more predictable one using a set of operations, such as the Accumulated Generating Operator (AGO), the Inverse Accumulating Operator (IAGO) and Grey Model (GM) \[6\].
+
+The ExoplanetX greyforecasting R package is used to apply grey prediction models to the MSW time series \[7\]. All GP models included in the package are applied to the data in the background, and the best model in terms of performance is provided along with its accuracy and 5-year forecasting results.
+
+The GP models in the package are as follows (*):
+
+1.  **gm:** Grey Model (1,1), It's a first-order differential equation model with one variable.
+
+2.  **gm_1:** GM(1,1)\_1, This variant of the GM(1,1) model includes slight modifications or improvements over the standard GM(1,1) model to enhance prediction accuracy or adapt to specific types of data.
+
+3.  **gm_2:** GM(1,1)\_2, Another variant of the GM(1,1) model, with different modifications from GM(1,1)\_1, aiming to improve forecasting performance under certain conditions.
+
+4.  **dgm:** Discrete Grey Model, This model is a discrete version of the grey prediction model, which operates on discrete data points rather than continuous data, making it suitable for time series data that are naturally discrete.
+
+5.  **verhulst:** Verhulst Model, The Verhulst model is a nonlinear grey prediction model that is particularly useful for data that follow an S-shaped growth curve, such as population growth or diffusion processes.
+
+6.  **pgm:** Grey Power Model, The Grey Power Model is another variant of grey models that incorporates power functions into the grey modeling process to handle data with certain types of nonlinearity.
+
+First, the necessary packages are installed, and libraries are called.
+
+```{r}
+# Install and load necessary packages
+#install.packages("remotes")
+#remotes::install_github("exoplanetX/greyforecasting")
+# install.packages("Metrics")
+# install.packages("readxl")
+# install.packages("ggplot2")
+
+library(greyforecasting)
+library(Metrics)
+library(readxl)
+library(tidyverse)
+```
+
+When all models are applied to the data in the background, the method that gives the best result is the **DGM (Discrete Grey Model)** method.
+
+```{r}
+file_path <- "time_series_municipal_waste.xlsx"
+waste_data <- read_excel(file_path, sheet = "Sheet 1")
+waste_collected <- as.numeric(waste_data[3, -1]) 
+
+# AutoML 
+fit_and_forecast <- function(model_func, data, forecast_steps = 5) {
+  model <- model_func(data)
+  fitted_values <- model$fitted
+  n <- length(data)
+  forecast_values <- numeric(forecast_steps)
+  
+  for (i in 1:forecast_steps) {
+    extended_data <- c(data, forecast_values[1:(i-1)])
+    forecast_model <- model_func(extended_data)
+    forecast_values[i] <- tail(forecast_model$fitted, 1)
+  }
+  
+  list(model = model, fitted = fitted_values, forecast = forecast_values)
+}
+
+# Models to evaluate
+models <- list(
+  gm = gm,
+  gm_1 = gm_1,
+  gm_2 = gm_2,
+  dgm = dgm,
+  verhulst = verhulst,
+  pgm = pgm
+)
+
+# Applying models and calculate accuracy
+results <- lapply(models, function(model_func) {
+  result <- fit_and_forecast(model_func, waste_collected, forecast_steps = 5)
+  accuracy <- rmse(waste_collected[(length(waste_collected)-4):length(waste_collected)], result$forecast)
+  list(model = result$model, fitted = result$fitted, forecast = result$forecast, accuracy = accuracy)
+})
+
+best_model_index <- which.min(sapply(results, function(x) x$accuracy))
+best_model_name <- names(results)[best_model_index]
+best_model <- results[[best_model_index]]
+
+cat("The best model is:", best_model_name, "\n")
+```
+
+Then, the accuracy metric value and forecast values for the next 5 years are provided for the DGM model.
+```{r}
+cat("Best model RMSE:", best_model$accuracy, "\n")
+print(best_model$forecast)
+```
+Finally, the original data, fitted values, and forecast points are shown in the graph below.
+```{r}
+years <- as.numeric(substr(names(waste_data)[-1], 1, 4))  
+forecast_years <- (max(years) + 1):(max(years) + length(best_model$forecast))
+plot_data <- data.frame(
+  Year = c(years, forecast_years),
+  Value = c(waste_collected, best_model$forecast),
+  Type = c(rep("Actual", length(waste_collected)), rep("Forecast", length(best_model$forecast)))
+)
+
+fitted_data <- data.frame(
+  Year = years,
+  Value = best_model$fitted,
+  Type = "Fitted"
+)
+plot_data <- rbind(plot_data, fitted_data)
+
+ggplot(plot_data, aes(x = Year, y = Value, color = Type)) +
+  geom_line() +
+  geom_point() +
+  labs(title = "Grey Model Fitting and Forecast",
+       x = "Year",
+       y = "Amount of Municipal Waste Collected (Thousand tonnes/year)") +
+  scale_color_manual(values = c("Actual" = "green", "Fitted" = "red", "Forecast" = "blue")) +
+  theme_classic()
+```
+
+In the above graph, an increasing trend over the years is observed due to the consideration of total waste amounts. However, Turkiye's population growth is also a factor that must be taken into account. When analyzing the per capita waste production instead of the total amounts, the graph below is obtained. 
+
+```{r}
+waste_collected <- as.numeric(time_series_municipal_waste[4, -1]) 
+# AutoML 
+fit_and_forecast <- function(model_func, data, forecast_steps = 5) {
+  model <- model_func(data)
+  fitted_values <- model$fitted
+  n <- length(data)
+  forecast_values <- numeric(forecast_steps)
+  
+  for (i in 1:forecast_steps) {
+    extended_data <- c(data, forecast_values[1:(i-1)])
+    forecast_model <- model_func(extended_data)
+    forecast_values[i] <- tail(forecast_model$fitted, 1)
+  }
+  
+  list(model = model, fitted = fitted_values, forecast = forecast_values)
+}
+
+# Models to evaluate
+models <- list(
+  gm = gm,
+  gm_1 = gm_1,
+  gm_2 = gm_2,
+  dgm = dgm,
+  verhulst = verhulst,
+  pgm = pgm
+)
+
+# Applying models and calculate accuracy
+results <- lapply(models, function(model_func) {
+  result <- fit_and_forecast(model_func, waste_collected, forecast_steps = 5)
+  accuracy <- rmse(waste_collected[(length(waste_collected)-4):length(waste_collected)], result$forecast)
+  list(model = result$model, fitted = result$fitted, forecast = result$forecast, accuracy = accuracy)
+})
+
+best_model_index <- which.min(sapply(results, function(x) x$accuracy))
+best_model_name <- names(results)[best_model_index]
+best_model <- results[[best_model_index]]
+
+cat("The best model is:", best_model_name, "\n")
+```
+
+Then, the accuracy metric value and forecast values for the next 5 years are provided for the DGM model.
+
+```{r}
+cat("Best model RMSE:", best_model$accuracy, "\n")
+print(best_model$forecast)
+```
+
+Finally, the original data, fitted values, and forecast points are shown in the graph below.
+
+```{r}
+years <- as.numeric(substr(names(time_series_municipal_waste)[-1], 1, 4))  
+forecast_years <- (max(years) + 1):(max(years) + length(best_model$forecast))
+plot_data <- data.frame(
+  Year = c(years, forecast_years),
+  Value = c(waste_collected, best_model$forecast),
+  Type = c(rep("Actual", length(waste_collected)), rep("Forecast", length(best_model$forecast)))
+)
+
+fitted_data <- data.frame(
+  Year = years,
+  Value = best_model$fitted,
+  Type = "Fitted"
+)
+plot_data <- rbind(plot_data, fitted_data)
+
+ggplot(plot_data, aes(x = Year, y = Value, color = Type)) +
+  geom_line() +
+  geom_point() +
+  labs(title = "Grey Model Fitting and Forecast",
+       x = "Year",
+       y = "Amount of Municipal Waste Collected (Thousand tonnes/year)") +
+  scale_color_manual(values = c("Actual" = "green", "Fitted" = "red", "Forecast" = "blue")) +
+  theme_classic()
+```
+
+In the waste per capita case, the best fit model according to RMSE is again the DGM. Unlike before, a decreasing trend over the years is noticeable in above figure, indicating that the increasing population must be considered in the analysis.
+
+
+The following are the results obtained when performing the same grey forecasting analysis for Ankara.
+```{r}
+library(greyforecasting)
+library(Metrics)
+library(readxl)
+library(tidyverse)
+ankara <- ts_province %>% filter(Province == "Ankara") %>% arrange(Year)
+ankara_waste <- ankara$`Waste amount (1000 ton)`
+
+# AutoML greyforecasting function
+fit_and_forecast <- function(model_func, data, forecast_steps = 5) {
+  model <- model_func(data)
+  fitted_values <- model$fitted
+  forecast_values <- numeric(forecast_steps)
+  
+  for (i in 1:forecast_steps) {
+    extended_data <- c(data, forecast_values[1:(i-1)])
+    forecast_model <- model_func(extended_data)
+    forecast_values[i] <- tail(forecast_model$fitted, 1)
+  }
+  
+  list(model = model, fitted = fitted_values, forecast = forecast_values)
+}
+
+models <- list(
+  gm = gm,
+  gm_1 = gm_1,
+  gm_2 = gm_2,
+  dgm = dgm,
+  verhulst = verhulst,
+  pgm = pgm
+)
+
+results <- lapply(models, function(model_func) {
+  result <- fit_and_forecast(model_func, ankara_waste, forecast_steps = 5)
+  accuracy <- rmse(tail(ankara_waste, min(5, length(ankara_waste))), result$forecast)
+  list(model = result$model, fitted = result$fitted, forecast = result$forecast, accuracy = accuracy)
+})
+
+best_model_index <- which.min(sapply(results, function(x) x$accuracy))
+best_model_name <- names(results)[best_model_index]
+best_model <- results[[best_model_index]]
+
+cat("The best model is:", best_model_name, "\n")
+cat("Best model RMSE:", best_model$accuracy, "\n")
+print(best_model$forecast)
+```
+
+The graph: 
+```{r}
+# Prepare data for plotting
+years <- ankara$Year
+forecast_years <- (max(years) + 1):(max(years) + length(best_model$forecast))
+
+plot_data <- data.frame(
+  Year = c(years, forecast_years),
+  Value = c(ankara_waste, best_model$forecast),
+  Type = c(rep("Actual", length(ankara_waste)), rep("Forecast", length(best_model$forecast)))
+)
+fitted_data <- data.frame(
+  Year = years,
+  Value = best_model$fitted,
+  Type = "Fitted"
+)
+
+plot_data <- rbind(plot_data, fitted_data)
+
+ggplot(plot_data, aes(x = Year, y = Value, color = Type)) +
+  geom_line() +
+  geom_point() +
+  labs(title = "Grey Model Fitting and Forecast for Ankara",
+       x = "Year",
+       y = "Amount of Municipal Waste Collected (Thousand tonnes/year)") +
+  scale_color_manual(values = c("Actual" = "green", "Fitted" = "red", "Forecast" = "blue")) +
+  theme_classic()
+```
+
+Based on the time series analysis, it was concluded that the DGM model is the most appropriate time series model for the data containing total MSW quantities. The fact that data is not available at irregular intervals of time already tells us that the model suitable for the data should be discrete. The DGM model forecasted the next five years with the following values: 30,271.09, 30,922.96, 30,883.69, 31,518.20, and 31,456.93 tonnes. As shown in plots above, the model closely fits the historical data and strengthens the reliability of these forecast values. It is also the best method according to the RMSE performance metric. 
+
+The observed increasing trend is consistent with Turkiye's historical waste generation patterns and highlights the increasing waste management challenge posed by urbanization and population growth. In addition, considering Turkiye's population growth, waste generation per capita was also analysed in the study. The per capita waste forecasts have shown a decreasing trend over the years.
+
+In addition, the MSW time series analysis of our city (Ankara) is also included. The DGM model was again dominant, which is logical since it is again an interval time data.
+
+# [4. Conclusion]{style="color:darkgreen"} ![](assets/images/discussion.png){width="27"}
+
+Effective planning of solid waste management systems depends on analysing and forecasting MSW flows. Accordingly, analysing waste quantity data is crucial for informed decision-making and strategic planning related to waste management in Turkiye. In this respect, the aim of this study is to analyse and forecast municipal solid waste (MSW) quantities in Turkiye by examining socio-economic factors through regression analysis and applying time series models for forecasting. 
+
+Firstly, EDA was applied to the dataset to reveal the underlying relationships and patterns in the data. Factors (economic, education, agriculture, electricity, etc.) that are thought to affect the amount of waste are added as data and a regression analysis is performed. As a result, a model using the number of master's degree graduates in relation to the amount of waste was established and proved to be accurate. 
+
+Then, time series models were evaluated to predict future MSW quantities. Since the structure of the dataset is discrete with no regular values in intermediate periods, it was decided that GP methods are appropriate. Among the GP models, the DGM model was found to be the most appropriate model for the given data due to its discrete nature and high accuracy, as indicated by the RMSE performance measure. The observed upward trend in waste generation is in line with Turkiye's historical data and emphasizes the increasing challenge of waste management in urban areas. 
+
+Strategic decision-making in waste management systems are crucial to overcome these challenges. The findings underline the necessity of sustainable waste management practices and sound policies to reduce the environmental impacts of increasing waste generation. 
+
+# [References]{style="color:darkgreen"} ![](assets/images/references.jpg){width="30" height="29"}
+
+1.  A. E. İnce, "Defining New Political Tools for Municipal Solid Waste Management of Ankara Metropolitan Municipalitiy After Revision of Metropolitan Municipality Law in 2014," Master's Thesis, Middle East Technical University, Council of Higher Education Thesis Center, 2019.
+2.  TURKSTAT. "The Results of Address Based Population Registration System, 2023." https://data.tuik.gov.tr/Bulten/Index?p=The-Results-of-Address-Based-Population-Registration-System-2023-49684&dil=2 (accessed May 5, 2024).
+3.  TURKSTAT. "Waste Statistics, 2022." https://data.tuik.gov.tr/Bulten/Index?p=Waste-Statistics-2022-49570&dil=2 (accessed May 3, 2024).
+4.  OECD. "Municipal Waste." https://data.oecd.org/waste/municipal-waste.htm (accessed April 21, 2024).
+5.  H.-W. Chen and N.-B. Chang, "Prediction analysis of solid waste generation based on grey fuzzy dynamic modeling," Resources, conservation and Recycling, vol. 29, no. 1-2, pp. 1-18, 2000.
+6.  D. Akay and M. Atak, "Grey prediction with rolling mechanism for electricity demand forecasting of Turkey," energy, vol. 32, no. 9, pp. 1670-1675, 2007.
+7.  ExoplanetX. "Greyforecasting: A package for grey systems forecasting methods." https://rdrr.io/github/exoplanetX/greyforecasting/. (accessed May 15, 2024).
+
+(*) ChatGPT
