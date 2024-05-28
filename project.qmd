@@ -27,7 +27,7 @@ Unfortunately, complaining doesn't fix anything, and it won't. If we want to des
 
 ![](assets/images/landfill-scaled.jpg){fig-align="center" width="300"}
 
-***The scope:*** The processes and activities required to handle waste from its inception to its final disposal are called ***waste management.*** These activities include the collection, transport, treatment, and disposal of waste, as well as the monitoring and organization of waste management processes \[1\]. In this project, insights are attempted to be extracted from several data collections on waste management in Turkiye, with a particular focus on municipal waste statistics. Initially, data are analyzed on a national level, then the analysis is moved to a provincial basis. Then, time series methods are used to forecast waste amount trends in Turkiye. Additionally, the variables that influence the amounts of waste and their effects by province are investigated using regression analysis.
+***The scope:*** The processes and activities required to handle waste from its inception to its final disposal are called ***waste management.*** These activities include the collection, transport, treatment, and disposal of waste, as well as the monitoring and organization of waste management processes \[1\]. In this project, insights are attempted to be extracted from several data collections on waste management in Turkiye, with a particular focus on municipal waste statistics. Initially, data are analyzed on a national level, then the analysis is moved to a provincial basis. Then, time series methods are used to forecast waste amount trends in Turkiye. Additionally, the variables that influence the amounts of waste are investigated using regression analysis.
 
 ***The aim:*** In this project, the main goals are to increase awareness about waste issues, determine future waste quantities, investigate the waste levels of the provinces, and discuss both prevention strategies and proper disposal and recycling methods for unavoidable waste.
 
@@ -354,7 +354,7 @@ ggplot(ts_data %>% filter(`Waste/Year` == "Turkey population"),
   labs(title = "Turkiye Population Over the Years", x = "Year", y = "Population (million)")
 ```
 
-The relationship between the total amount of waste generated in Turkey and the amount collected by municipalities for proper disposal can be accessed from the plot.
+The relationship between the total amount of waste generated in Turkiye and the amount collected by municipalities for proper disposal can be accessed from the plot.
 
 ```{r}
 # Waste graphs
@@ -714,7 +714,7 @@ ggplot(ln_version_reg_data, aes(x = fitted(regression_model), y = sqrt(abs(resid
 
 The MSW time series data for Turkiye lacks values for some intermediate years (e.g. 2017, 2019, 2021, etc.), which implies that time series analysis must be conducted under incomplete information. In this respect, **Grey Prediction (GP)** is a powerful forecasting approach to effectively manage the forecast analysis for MSW \[6\]. This method is particularly advantageous when data availability is limited, as it requires only a few data points to construct reliable models \[6\]. The core idea of GP involves transforming a complex data series into a more predictable one using a set of operations, such as the Accumulated Generating Operator (AGO), the Inverse Accumulating Operator (IAGO) and Grey Model (GM) \[6\].
 
-The ExoplanetX greyforecasting R package is used to apply grey prediction models to the MSW time series \[7\]. All GP models included in the package are applied to the data in the background, and the best model in terms of performance is provided along with its accuracy and 5-year forecasting results.
+The ExoplanetX greyforecasting R package is used to apply GP models to the MSW time series \[7\]. All GP models included in the package are applied to the data in the background, and the best model in terms of performance is provided along with its accuracy and 5-year forecasting results.
 
 The GP models in the package are as follows (\*):
 
@@ -996,7 +996,7 @@ In addition, the MSW time series analysis of our city (Ankara) is also included.
 
 # [4. Conclusion]{style="color:darkgreen"} ![](assets/images/discussion.png){width="27"}
 
-Effective planning of solid waste management systems depends on analysing and forecasting MSW flows. Accordingly, analysing waste quantity data is crucial for informed decision-making and strategic planning related to waste management in Turkiye. In this respect, the aim of this study is to analyse and forecast municipal solid waste (MSW) quantities in Turkiye by examining socio-economic factors through regression analysis and applying time series models for forecasting.
+Effective planning of solid waste management systems depends on analysing and forecasting MSW flows. Accordingly, analysing waste quantity data is crucial for informed decision-making and strategic planning related to waste management in Turkiye. In this respect, the aim of this study is to analyse and forecast MSW quantities in Turkiye by examining socio-economic factors through regression analysis and applying time series models for forecasting.
 
 Firstly, EDA was applied to the dataset to reveal the underlying relationships and patterns in the data. Factors (economic, education, agriculture, electricity, etc.) that are thought to affect the amount of waste are added as data and a regression analysis is performed. As a result, a model using the number of master's degree graduates in relation to the amount of waste was established and proved to be accurate.
 
