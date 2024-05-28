@@ -5,6 +5,7 @@ format:
     code-fold: true
     code-summary: "Show the code"
     code-copy: true
+    embed-resources: true
   pdf:
     colorlinks: true
     papersize: a4
@@ -14,7 +15,6 @@ format:
     margin-top: 2cm
     margin-bottom: 2cm
 ---
-
 My project will provide insights about **waste management**, which is of vital importance to the world and humanity. I hope to convey the awareness and perspective I wish to share with you, since change begins with awareness, and **we have to change our way** so that our children can live in the world they deserve! ![](assets/images/waste.png){fig-align="center" width="500"}
 
 # [1. Are we aware?]{style="color:darkgreen"} ![](assets/images/trash.jpg){width="109" height="27"}
@@ -200,6 +200,7 @@ str(time_series_municipal_waste)
 ```
 
 The attributes of the provinces' time series dataset are provided below.
+
 ```{r}
 ts_province  <- select(ts_province , -BÖLGE.KODU)  
 ts_province  <- rename(ts_province , "Year" = YIL)
@@ -400,7 +401,7 @@ ggplot(disposal_methods_data, aes(x = Year, y = Value, color = Type, group = Typ
   theme_classic()
 ```
 
-Descriptive statistics for waste amounts by province dataset: 
+Descriptive statistics for waste amounts by province dataset:
 
 ```{r}
 summary_stats <- ts_province %>%
@@ -715,7 +716,7 @@ The MSW time series data for Turkiye lacks values for some intermediate years (e
 
 The ExoplanetX greyforecasting R package is used to apply grey prediction models to the MSW time series \[7\]. All GP models included in the package are applied to the data in the background, and the best model in terms of performance is provided along with its accuracy and 5-year forecasting results.
 
-The GP models in the package are as follows (*):
+The GP models in the package are as follows (\*):
 
 1.  **gm:** Grey Model (1,1), It's a first-order differential equation model with one variable.
 
@@ -793,11 +794,14 @@ cat("The best model is:", best_model_name, "\n")
 ```
 
 Then, the accuracy metric value and forecast values for the next 5 years are provided for the DGM model.
+
 ```{r}
 cat("Best model RMSE:", best_model$accuracy, "\n")
 print(best_model$forecast)
 ```
+
 Finally, the original data, fitted values, and forecast points are shown in the graph below.
+
 ```{r}
 years <- as.numeric(substr(names(waste_data)[-1], 1, 4))  
 forecast_years <- (max(years) + 1):(max(years) + length(best_model$forecast))
@@ -824,7 +828,7 @@ ggplot(plot_data, aes(x = Year, y = Value, color = Type)) +
   theme_classic()
 ```
 
-In the above graph, an increasing trend over the years is observed due to the consideration of total waste amounts. However, Turkiye's population growth is also a factor that must be taken into account. When analyzing the per capita waste production instead of the total amounts, the graph below is obtained. 
+In the above graph, an increasing trend over the years is observed due to the consideration of total waste amounts. However, Turkiye's population growth is also a factor that must be taken into account. When analyzing the per capita waste production instead of the total amounts, the graph below is obtained.
 
 ```{r}
 waste_collected <- as.numeric(time_series_municipal_waste[4, -1]) 
@@ -905,8 +909,8 @@ ggplot(plot_data, aes(x = Year, y = Value, color = Type)) +
 
 In the waste per capita case, the best fit model according to RMSE is again the DGM. Unlike before, a decreasing trend over the years is noticeable in above figure, indicating that the increasing population must be considered in the analysis.
 
-
 The following are the results obtained when performing the same grey forecasting analysis for Ankara.
+
 ```{r}
 library(greyforecasting)
 library(Metrics)
@@ -954,7 +958,8 @@ cat("Best model RMSE:", best_model$accuracy, "\n")
 print(best_model$forecast)
 ```
 
-The graph: 
+The graph:
+
 ```{r}
 # Prepare data for plotting
 years <- ankara$Year
@@ -983,7 +988,7 @@ ggplot(plot_data, aes(x = Year, y = Value, color = Type)) +
   theme_classic()
 ```
 
-Based on the time series analysis, it was concluded that the DGM model is the most appropriate time series model for the data containing total MSW quantities. The fact that data is not available at irregular intervals of time already tells us that the model suitable for the data should be discrete. The DGM model forecasted the next five years with the following values: 30,271.09, 30,922.96, 30,883.69, 31,518.20, and 31,456.93 tonnes. As shown in plots above, the model closely fits the historical data and strengthens the reliability of these forecast values. It is also the best method according to the RMSE performance metric. 
+Based on the time series analysis, it was concluded that the DGM model is the most appropriate time series model for the data containing total MSW quantities. The fact that data is not available at irregular intervals of time already tells us that the model suitable for the data should be discrete. The DGM model forecasted the next five years with the following values: 30,271.09, 30,922.96, 30,883.69, 31,518.20, and 31,456.93 tonnes. As shown in plots above, the model closely fits the historical data and strengthens the reliability of these forecast values. It is also the best method according to the RMSE performance metric.
 
 The observed increasing trend is consistent with Turkiye's historical waste generation patterns and highlights the increasing waste management challenge posed by urbanization and population growth. In addition, considering Turkiye's population growth, waste generation per capita was also analysed in the study. The per capita waste forecasts have shown a decreasing trend over the years.
 
@@ -991,13 +996,13 @@ In addition, the MSW time series analysis of our city (Ankara) is also included.
 
 # [4. Conclusion]{style="color:darkgreen"} ![](assets/images/discussion.png){width="27"}
 
-Effective planning of solid waste management systems depends on analysing and forecasting MSW flows. Accordingly, analysing waste quantity data is crucial for informed decision-making and strategic planning related to waste management in Turkiye. In this respect, the aim of this study is to analyse and forecast municipal solid waste (MSW) quantities in Turkiye by examining socio-economic factors through regression analysis and applying time series models for forecasting. 
+Effective planning of solid waste management systems depends on analysing and forecasting MSW flows. Accordingly, analysing waste quantity data is crucial for informed decision-making and strategic planning related to waste management in Turkiye. In this respect, the aim of this study is to analyse and forecast municipal solid waste (MSW) quantities in Turkiye by examining socio-economic factors through regression analysis and applying time series models for forecasting.
 
-Firstly, EDA was applied to the dataset to reveal the underlying relationships and patterns in the data. Factors (economic, education, agriculture, electricity, etc.) that are thought to affect the amount of waste are added as data and a regression analysis is performed. As a result, a model using the number of master's degree graduates in relation to the amount of waste was established and proved to be accurate. 
+Firstly, EDA was applied to the dataset to reveal the underlying relationships and patterns in the data. Factors (economic, education, agriculture, electricity, etc.) that are thought to affect the amount of waste are added as data and a regression analysis is performed. As a result, a model using the number of master's degree graduates in relation to the amount of waste was established and proved to be accurate.
 
-Then, time series models were evaluated to predict future MSW quantities. Since the structure of the dataset is discrete with no regular values in intermediate periods, it was decided that GP methods are appropriate. Among the GP models, the DGM model was found to be the most appropriate model for the given data due to its discrete nature and high accuracy, as indicated by the RMSE performance measure. The observed upward trend in waste generation is in line with Turkiye's historical data and emphasizes the increasing challenge of waste management in urban areas. 
+Then, time series models were evaluated to predict future MSW quantities. Since the structure of the dataset is discrete with no regular values in intermediate periods, it was decided that GP methods are appropriate. Among the GP models, the DGM model was found to be the most appropriate model for the given data due to its discrete nature and high accuracy, as indicated by the RMSE performance measure. The observed upward trend in waste generation is in line with Turkiye's historical data and emphasizes the increasing challenge of waste management in urban areas.
 
-Strategic decision-making in waste management systems are crucial to overcome these challenges. The findings underline the necessity of sustainable waste management practices and sound policies to reduce the environmental impacts of increasing waste generation. 
+Strategic decision-making in waste management systems are crucial to overcome these challenges. The findings underline the necessity of sustainable waste management practices and sound policies to reduce the environmental impacts of increasing waste generation.
 
 # [References]{style="color:darkgreen"} ![](assets/images/references.jpg){width="30" height="29"}
 
@@ -1009,4 +1014,4 @@ Strategic decision-making in waste management systems are crucial to overcome th
 6.  D. Akay and M. Atak, "Grey prediction with rolling mechanism for electricity demand forecasting of Turkey," energy, vol. 32, no. 9, pp. 1670-1675, 2007.
 7.  ExoplanetX. "Greyforecasting: A package for grey systems forecasting methods." https://rdrr.io/github/exoplanetX/greyforecasting/. (accessed May 15, 2024).
 
-(*) ChatGPT
+(\*) ChatGPT
