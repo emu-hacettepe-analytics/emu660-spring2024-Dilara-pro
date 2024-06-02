@@ -1,5 +1,7 @@
 ---
 title: "STOP COMPLAINING, IT SOLVES NOTHING."
+execute:
+  echo: false
 format:
   html:
     code-fold: true

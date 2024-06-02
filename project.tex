@@ -54,46 +54,6 @@
   \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
 
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{241,243,245}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
-\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
 
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
@@ -305,21 +265,9 @@ The references from which I have gathered the data include:
   the average waste amount per person, etc.
 \end{itemize}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(openxlsx)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 Warning: package 'openxlsx' was built under R version 4.3.3
 \end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{municipal\_waste }\OtherTok{\textless{}{-}} \FunctionTok{read.xlsx}\NormalTok{(}\StringTok{"project/data/municipal\_waste.xlsx"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{itemize}
 \tightlist
@@ -332,12 +280,6 @@ Warning: package 'openxlsx' was built under R version 4.3.3
   land and burying).
 \end{itemize}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{where\_to\_municipal\_waste }\OtherTok{\textless{}{-}} \FunctionTok{read.xlsx}\NormalTok{(}\StringTok{"project/data/where\_to\_municipal\_waste.xlsx"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{itemize}
 \tightlist
 \item
@@ -346,13 +288,6 @@ Warning: package 'openxlsx' was built under R version 4.3.3
   and time series of waste amounts by provinces of Turkiye for the years
   1994-2022.
 \end{itemize}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{time\_series\_municipal\_waste }\OtherTok{\textless{}{-}} \FunctionTok{read.xlsx}\NormalTok{(}\StringTok{"project/data/time\_series\_municipal\_waste.xlsx"}\NormalTok{, }\AttributeTok{colNames =} \ConstantTok{TRUE}\NormalTok{)}
-\NormalTok{ts\_province }\OtherTok{\textless{}{-}} \FunctionTok{read.xlsx}\NormalTok{(}\StringTok{"project/data/ts\_waste\_province.xlsx"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \subsection[{2.3 Reason of Choice} ]{\texorpdfstring{{2.3 Reason of
 Choice}
@@ -378,12 +313,6 @@ the literature and our country.
 \href{https://github.com/emu-hacettepe-analytics/emu660-spring2024-Dilara-pro/tree/main/project/data}{Downloadable
 dataset in .RData version}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(tidyverse)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 Warning: package 'stringr' was built under R version 4.3.2
 \end{verbatim}
@@ -400,36 +329,6 @@ x dplyr::filter() masks stats::filter()
 x dplyr::lag()    masks stats::lag()
 i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
 \end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# remove unnecessary columns}
-\NormalTok{municipal\_waste }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{(municipal\_waste, }\SpecialCharTok{{-}}\NormalTok{X5)    }
-\NormalTok{municipal\_waste }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{(municipal\_waste, }\SpecialCharTok{{-}}\NormalTok{X6)}
-\CommentTok{\# rename columns}
-\NormalTok{municipal\_waste }\OtherTok{\textless{}{-}} \FunctionTok{rename}\NormalTok{(municipal\_waste, }\StringTok{"Provinces"} \OtherTok{=}\StringTok{"Belediye.atık.hizmeti.istatistikleri,.2022.Municipal.waste.services.statistics,.2022"}\NormalTok{)}
-\NormalTok{municipal\_waste }\OtherTok{\textless{}{-}} \FunctionTok{rename}\NormalTok{(municipal\_waste, }\StringTok{"Total municipal population"} \OtherTok{=} \StringTok{"X2"}\NormalTok{)}
-\NormalTok{municipal\_waste }\OtherTok{\textless{}{-}} \FunctionTok{rename}\NormalTok{(municipal\_waste, }\StringTok{"Total number of municipalities"} \OtherTok{=}\StringTok{"X3"}\NormalTok{)}
-\NormalTok{municipal\_waste }\OtherTok{\textless{}{-}} \FunctionTok{rename}\NormalTok{(municipal\_waste, }\StringTok{"Number of municipalities providing waste services"} \OtherTok{=}\StringTok{"X4"}\NormalTok{)}
-\NormalTok{municipal\_waste }\OtherTok{\textless{}{-}} \FunctionTok{rename}\NormalTok{(municipal\_waste, }\StringTok{"Amount of waste collected (Tonnes) }
-\StringTok{"} \OtherTok{=}\StringTok{"X7"}\NormalTok{)}
-\NormalTok{municipal\_waste }\OtherTok{\textless{}{-}} \FunctionTok{rename}\NormalTok{(municipal\_waste, }\StringTok{"Amount of waste per capita (Kg/capita{-}day) }
-\StringTok{"} \OtherTok{=}\StringTok{"X8"}\NormalTok{)}
-\CommentTok{\# remove unnecessary rows}
-\NormalTok{municipal\_waste }\OtherTok{\textless{}{-}}\NormalTok{ municipal\_waste[}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{85}\NormalTok{, }\DecValTok{86}\NormalTok{, }\DecValTok{87}\NormalTok{, }\DecValTok{88}\NormalTok{), ]}
-\CommentTok{\# reorder row names that is disordered}
-\FunctionTok{row.names}\NormalTok{(municipal\_waste) }\OtherTok{\textless{}{-}} \ConstantTok{NULL}
-\NormalTok{municipal\_waste }\OtherTok{\textless{}{-}}\NormalTok{ municipal\_waste }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{row\_id =} \FunctionTok{row\_number}\NormalTok{())  }
-\NormalTok{municipal\_waste }\OtherTok{\textless{}{-}}\NormalTok{ municipal\_waste }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{select}\NormalTok{(row\_id, }\FunctionTok{everything}\NormalTok{()) }
-\NormalTok{municipal\_waste }\OtherTok{\textless{}{-}}\NormalTok{ municipal\_waste[,}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{)]}
-\CommentTok{\# adjust necessary columns as numbers}
-\NormalTok{municipal\_waste }\OtherTok{\textless{}{-}}\NormalTok{ municipal\_waste }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{mutate}\NormalTok{(}\FunctionTok{across}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{Provinces, }\SpecialCharTok{\textasciitilde{}}\FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{as.character}\NormalTok{(.))))}
-\FunctionTok{sapply}\NormalTok{(municipal\_waste,class)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
                                         Provinces 
@@ -448,12 +347,6 @@ Number of municipalities providing waste services
 
 The first six rows of the municipal waste dataset are provided below.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{str}\NormalTok{(municipal\_waste)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 'data.frame':   82 obs. of  6 variables:
  $ Provinces                                        : chr  "Türkiye" "Adana" "Adıyaman" "Afyonkarahisar" ...
@@ -467,12 +360,6 @@ The first six rows of the municipal waste dataset are provided below.
 \end{verbatim}
 
 The descriptive statistics for each column are provided below.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{summary}\NormalTok{(municipal\_waste)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
   Provinces         Total municipal population Total number of municipalities
@@ -514,37 +401,6 @@ The descriptive statistics for each column are provided below.
 \href{https://github.com/emu-hacettepe-analytics/emu660-spring2024-Dilara-pro/tree/main/project/data}{Downloadable
 dataset in .RData version}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(tidyverse)}
-\CommentTok{\# remove unnecessary columns}
-\NormalTok{where\_to\_municipal\_waste }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{(where\_to\_municipal\_waste, }\SpecialCharTok{{-}}\NormalTok{X2)    }
-\NormalTok{where\_to\_municipal\_waste }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{(where\_to\_municipal\_waste, }\SpecialCharTok{{-}}\NormalTok{X4)}
-\NormalTok{where\_to\_municipal\_waste }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{(where\_to\_municipal\_waste, }\SpecialCharTok{{-}}\NormalTok{X6)}
-\NormalTok{where\_to\_municipal\_waste }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{(where\_to\_municipal\_waste, }\SpecialCharTok{{-}}\NormalTok{X8)}
-\NormalTok{where\_to\_municipal\_waste }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{(where\_to\_municipal\_waste, }\SpecialCharTok{{-}}\NormalTok{X9)}
-\CommentTok{\# rename columns}
-\NormalTok{where\_to\_municipal\_waste }\OtherTok{\textless{}{-}} \FunctionTok{rename}\NormalTok{(where\_to\_municipal\_waste, }\StringTok{"Provinces"} \OtherTok{=} \StringTok{\textasciigrave{}}\AttributeTok{Belediye.atık.yönetimi.istatistikleri,.2022.Municipal.waste.management.statistics,.2022}\StringTok{\textasciigrave{}}\NormalTok{)}
-\NormalTok{where\_to\_municipal\_waste }\OtherTok{\textless{}{-}} \FunctionTok{rename}\NormalTok{(where\_to\_municipal\_waste, }\StringTok{"Total amount of waste collected  (Tonnes)"} \OtherTok{=} \StringTok{"X3"}\NormalTok{)}
-\NormalTok{where\_to\_municipal\_waste }\OtherTok{\textless{}{-}} \FunctionTok{rename}\NormalTok{(where\_to\_municipal\_waste, }\StringTok{"Municipality\textquotesingle{}s dumping sites"} \OtherTok{=}\StringTok{"X5"}\NormalTok{)}
-\NormalTok{where\_to\_municipal\_waste }\OtherTok{\textless{}{-}} \FunctionTok{rename}\NormalTok{(where\_to\_municipal\_waste, }\StringTok{"Waste treatment facilities"}\OtherTok{=} \StringTok{"X7"}\NormalTok{)}
-\NormalTok{where\_to\_municipal\_waste }\OtherTok{\textless{}{-}} \FunctionTok{rename}\NormalTok{(where\_to\_municipal\_waste, }\StringTok{"Other disposal methods"}\OtherTok{=} \StringTok{"X10"}\NormalTok{)}
-\CommentTok{\# remove unnecessary rows}
-\NormalTok{where\_to\_municipal\_waste }\OtherTok{\textless{}{-}}\NormalTok{ where\_to\_municipal\_waste[}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{85}\SpecialCharTok{:}\DecValTok{94}\NormalTok{), ]}
-\CommentTok{\# reorder row names that is disordered}
-\FunctionTok{row.names}\NormalTok{(where\_to\_municipal\_waste) }\OtherTok{\textless{}{-}} \ConstantTok{NULL}
-\NormalTok{where\_to\_municipal\_waste }\OtherTok{\textless{}{-}}\NormalTok{ where\_to\_municipal\_waste }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{row\_id =} \FunctionTok{row\_number}\NormalTok{())  }
-\NormalTok{where\_to\_municipal\_waste }\OtherTok{\textless{}{-}}\NormalTok{ where\_to\_municipal\_waste }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{select}\NormalTok{(row\_id, }\FunctionTok{everything}\NormalTok{()) }
-\NormalTok{where\_to\_municipal\_waste }\OtherTok{\textless{}{-}}\NormalTok{ where\_to\_municipal\_waste[,}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{)]}
-\CommentTok{\# adjust necessary columns as numbers}
-\NormalTok{where\_to\_municipal\_waste }\OtherTok{\textless{}{-}}\NormalTok{ where\_to\_municipal\_waste }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{mutate}\NormalTok{(}\FunctionTok{across}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{Provinces, }\SpecialCharTok{\textasciitilde{}}\FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{as.character}\NormalTok{(.))))}
-\FunctionTok{sapply}\NormalTok{(where\_to\_municipal\_waste,class)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
                                 Provinces 
                               "character" 
@@ -561,12 +417,6 @@ Total amount of waste collected  (Tonnes)
 The first six rows of the dataset showing the distribution of municipal
 waste disposal methods are provided below.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{str}\NormalTok{(where\_to\_municipal\_waste)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 'data.frame':   82 obs. of  5 variables:
  $ Provinces                                : chr  "Türkiye" "Adana" "Adıyaman" "Afyonkarahisar" ...
@@ -577,12 +427,6 @@ waste disposal methods are provided below.
 \end{verbatim}
 
 The descriptive statistics for each column are provided below.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{summary}\NormalTok{(where\_to\_municipal\_waste)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
   Provinces         Total amount of waste collected  (Tonnes)
@@ -611,29 +455,6 @@ The descriptive statistics for each column are provided below.
 \href{https://github.com/emu-hacettepe-analytics/emu660-spring2024-Dilara-pro/tree/main/project/data}{Downloadable
 dataset in .RData version}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(tidyverse)}
-\CommentTok{\# remove unnecessary rows}
-\NormalTok{time\_series\_municipal\_waste }\OtherTok{\textless{}{-}}\NormalTok{ time\_series\_municipal\_waste[}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{2}\SpecialCharTok{:}\DecValTok{6}\NormalTok{,}\DecValTok{10}\NormalTok{,}\DecValTok{14}\SpecialCharTok{:}\DecValTok{43}\NormalTok{), ]}
-\NormalTok{time\_series\_municipal\_waste }\OtherTok{\textless{}{-}} \FunctionTok{rename}\NormalTok{(time\_series\_municipal\_waste, }\StringTok{"Waste/Year"} \OtherTok{=} \StringTok{"X1"}\NormalTok{)}
-\CommentTok{\# rename rows}
-\NormalTok{time\_series\_municipal\_waste[}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"Turkey population"}
-\NormalTok{time\_series\_municipal\_waste[}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"Amount of municipal waste generated (Thousand tonnes/year)"}
-\NormalTok{time\_series\_municipal\_waste[}\DecValTok{3}\NormalTok{,}\DecValTok{1}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"Amount of municipal waste collected (Thousand tonnes/year)"}
-\NormalTok{time\_series\_municipal\_waste[}\DecValTok{4}\NormalTok{,}\DecValTok{1}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"Average amount of municipal waste per capita (Kg/capita{-}day)"}
-\NormalTok{time\_series\_municipal\_waste[}\DecValTok{5}\NormalTok{,}\DecValTok{1}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"Waste treatment facilities"}
-\NormalTok{time\_series\_municipal\_waste[}\DecValTok{6}\NormalTok{,}\DecValTok{1}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"Municipality\textquotesingle{}s dumping sites"}
-\NormalTok{time\_series\_municipal\_waste[}\DecValTok{7}\NormalTok{,}\DecValTok{1}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"Other disposal methods"}
-\CommentTok{\# reorder row names that is disordered}
-\FunctionTok{row.names}\NormalTok{(time\_series\_municipal\_waste) }\OtherTok{\textless{}{-}} \ConstantTok{NULL}
-\CommentTok{\# adjust necessary columns as numbers}
-\NormalTok{time\_series\_municipal\_waste }\OtherTok{\textless{}{-}}\NormalTok{ time\_series\_municipal\_waste }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{mutate}\NormalTok{(}\FunctionTok{across}\NormalTok{(}\SpecialCharTok{{-}}\StringTok{\textasciigrave{}}\AttributeTok{Waste/Year}\StringTok{\textasciigrave{}}\NormalTok{, }\SpecialCharTok{\textasciitilde{}}\FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{as.character}\NormalTok{(.))))}
-\FunctionTok{sapply}\NormalTok{(time\_series\_municipal\_waste,class)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
  Waste/Year        1994        1995        1996        1997        1998 
 "character"   "numeric"   "numeric"   "numeric"   "numeric"   "numeric" 
@@ -646,12 +467,6 @@ dataset in .RData version}
 \end{verbatim}
 
 The attributes of the time series dataset are provided below.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{str}\NormalTok{(time\_series\_municipal\_waste)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 'data.frame':   7 obs. of  19 variables:
@@ -678,26 +493,9 @@ The attributes of the time series dataset are provided below.
 
 The attributes of the provinces' time series dataset are provided below.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{ts\_province  }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{(ts\_province , }\SpecialCharTok{{-}}\NormalTok{BÖLGE.KODU)  }
-\NormalTok{ts\_province  }\OtherTok{\textless{}{-}} \FunctionTok{rename}\NormalTok{(ts\_province , }\StringTok{"Year"} \OtherTok{=}\NormalTok{ YIL)}
-\NormalTok{ts\_province  }\OtherTok{\textless{}{-}} \FunctionTok{rename}\NormalTok{(ts\_province , }\StringTok{"Province"} \OtherTok{=}\NormalTok{ BÖLGE.ADI)}
-\NormalTok{ts\_province  }\OtherTok{\textless{}{-}} \FunctionTok{rename}\NormalTok{(ts\_province , }\StringTok{"Waste amount (1000 ton)"} \OtherTok{=} \StringTok{\textasciigrave{}}\AttributeTok{Belediye.atık.istatistikleri.:.Toplanan.atık.miktarı.(1000.ton)}\StringTok{\textasciigrave{}}\NormalTok{)}
-\NormalTok{ts\_province}\SpecialCharTok{$}\NormalTok{Year }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(ts\_province}\SpecialCharTok{$}\NormalTok{Year)}
-\NormalTok{ts\_province}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{Waste amount (1000 ton)}\StringTok{\textasciigrave{}} \OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(ts\_province}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{Waste amount (1000 ton)}\StringTok{\textasciigrave{}}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 Warning: Zorlamadan dolayı ortaya çıkan NAs
 \end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{str}\NormalTok{(ts\_province)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 'data.frame':   1134 obs. of  3 variables:
@@ -725,85 +523,23 @@ The relationship between the population size of Turkiye provinces and
 the amount of waste generated is shown in the scatter plot below.
 According to the plot, a linear relationship is observed between them.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(tidyverse)}
-\FunctionTok{library}\NormalTok{(ggthemes)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 Warning: package 'ggthemes' was built under R version 4.3.2
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(ggrepel)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 Warning: package 'ggrepel' was built under R version 4.3.2
 \end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{municipal\_waste }\OtherTok{\textless{}{-}}\NormalTok{ municipal\_waste[}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{), ]}
-
-\NormalTok{p }\OtherTok{\textless{}{-}}\NormalTok{ municipal\_waste }\SpecialCharTok{|\textgreater{}} \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Total municipal population}\StringTok{\textasciigrave{}}\SpecialCharTok{/}\DecValTok{10}\SpecialCharTok{\^{}}\DecValTok{6}\NormalTok{, }
-\StringTok{\textasciigrave{}}\AttributeTok{Amount of waste collected (Tonnes) }
-\StringTok{\textasciigrave{}}\SpecialCharTok{/}\DecValTok{10}\SpecialCharTok{\^{}}\DecValTok{4}\NormalTok{)) }
-\NormalTok{p }\SpecialCharTok{+} \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{color =} \StringTok{"skyblue"}\NormalTok{) }\SpecialCharTok{+} 
-\FunctionTok{scale\_x\_continuous}\NormalTok{(}\AttributeTok{trans =} \StringTok{"log10"}\NormalTok{) }\SpecialCharTok{+}
-\FunctionTok{scale\_y\_continuous}\NormalTok{(}\AttributeTok{trans =} \StringTok{"log10"}\NormalTok{) }\SpecialCharTok{+}
-\FunctionTok{xlab}\NormalTok{(}\StringTok{"Total municipal population (million)"}\NormalTok{) }\SpecialCharTok{+}
-\FunctionTok{ylab}\NormalTok{(}\StringTok{"Amount of waste collected (kg)"}\NormalTok{) }\SpecialCharTok{+}
-\FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Amount of waste in Turkiye\textquotesingle{}s provinces"}\NormalTok{)}\SpecialCharTok{+} 
-\FunctionTok{theme\_classic}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
 
 \includegraphics{project_files/figure-pdf/unnamed-chunk-13-1.pdf}
 
 Provinces ranked according to the total number of municipalities can be
 seen in the below graph together with the number of municipalities.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{p }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(municipal\_waste, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =} \FunctionTok{reorder}\NormalTok{(Provinces, }\StringTok{\textasciigrave{}}\AttributeTok{Total number of municipalities}\StringTok{\textasciigrave{}}\NormalTok{, }\AttributeTok{FUN =}\NormalTok{ sum), }\AttributeTok{y =} \StringTok{\textasciigrave{}}\AttributeTok{Total number of municipalities}\StringTok{\textasciigrave{}}\NormalTok{)) }
-\NormalTok{p }\SpecialCharTok{+} \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat =} \StringTok{"identity"}\NormalTok{, }\AttributeTok{fill=} \StringTok{"purple"}\NormalTok{) }\SpecialCharTok{+} 
-  \FunctionTok{xlab}\NormalTok{(}\StringTok{"Provinces"}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{theme\_calc}\NormalTok{() }\SpecialCharTok{+}
-  \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Number of municipalities in provinces"}\NormalTok{) }\SpecialCharTok{+} 
-  \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{90}\NormalTok{, }\AttributeTok{hjust =} \DecValTok{1}\NormalTok{, }\AttributeTok{size =} \DecValTok{6}\NormalTok{)) }
-\end{Highlighting}
-\end{Shaded}
-
 \includegraphics{project_files/figure-pdf/unnamed-chunk-14-1.pdf}
 
 In the plot below, the first 20 provinces with the highest amount of
 waste per capita and their populations can be found.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# The provinces that produce largest amount of waste}
-\NormalTok{The\_largest }\OtherTok{\textless{}{-}}\NormalTok{ municipal\_waste }\SpecialCharTok{|\textgreater{}} \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Amount of waste per capita (Kg/capita{-}day) }
-\StringTok{\textasciigrave{}}\NormalTok{)) }\SpecialCharTok{|\textgreater{}} \FunctionTok{head}\NormalTok{(}\AttributeTok{n =} \DecValTok{20}\NormalTok{)}
-\NormalTok{p }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(The\_largest, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =} \FunctionTok{reorder}\NormalTok{(Provinces, }\StringTok{\textasciigrave{}}\AttributeTok{Amount of waste per capita (Kg/capita{-}day) }
-\StringTok{\textasciigrave{}}\NormalTok{, }\AttributeTok{FUN =}\NormalTok{ sum),}
-                             \AttributeTok{y =} \StringTok{\textasciigrave{}}\AttributeTok{Amount of waste per capita (Kg/capita{-}day) }
-\StringTok{\textasciigrave{}}\NormalTok{))}
-\FunctionTok{ggplot}\NormalTok{(The\_largest, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\StringTok{\textasciigrave{}}\AttributeTok{Amount of waste per capita (Kg/capita{-}day) }
-\StringTok{\textasciigrave{}}\NormalTok{, }\AttributeTok{y =} \FunctionTok{reorder}\NormalTok{(Provinces, }\StringTok{\textasciigrave{}}\AttributeTok{Amount of waste per capita (Kg/capita{-}day) }
-\StringTok{\textasciigrave{}}\NormalTok{, }\AttributeTok{FUN =}\NormalTok{ sum), }\AttributeTok{color =} \StringTok{\textasciigrave{}}\AttributeTok{Amount of waste per capita (Kg/capita{-}day) }
-\StringTok{\textasciigrave{}}\NormalTok{)) }\SpecialCharTok{+}
-  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{size =} \DecValTok{4}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{geom\_segment}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{xend =} \DecValTok{1}\NormalTok{, }\AttributeTok{yend =}\NormalTok{ Provinces), }\AttributeTok{linewidth =} \DecValTok{1}\NormalTok{) }\SpecialCharTok{+} 
-  \FunctionTok{ylab}\NormalTok{(}\StringTok{"Provinces"}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Provinces with the largest waste amount"}\NormalTok{)}\SpecialCharTok{+}
-  \FunctionTok{geom\_text\_repel}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{label =}\StringTok{\textasciigrave{}}\AttributeTok{Total municipal population}\StringTok{\textasciigrave{}}\NormalTok{), }\AttributeTok{color =} \StringTok{"black"}\NormalTok{, }\AttributeTok{size =} \DecValTok{2}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \includegraphics{project_files/figure-pdf/unnamed-chunk-15-1.pdf}
 
@@ -812,35 +548,9 @@ waste per capita and their populations can be found.
 The distribution of waste collected by municipalities according to three
 disposal methods and provinces is analysed in this section.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(tidyverse)}
-\FunctionTok{library}\NormalTok{(ggthemes)}
-\FunctionTok{library}\NormalTok{(ggrepel)}
-\FunctionTok{library}\NormalTok{(dplyr)}
-
-\NormalTok{dumping\_site }\OtherTok{\textless{}{-}}\NormalTok{where\_to\_municipal\_waste }\SpecialCharTok{|\textgreater{}} 
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{proportion1 =} \StringTok{\textasciigrave{}}\AttributeTok{Municipality\textquotesingle{}s dumping sites}\StringTok{\textasciigrave{}}\SpecialCharTok{/}\StringTok{\textasciigrave{}}\AttributeTok{Total amount of waste collected  (Tonnes)}\StringTok{\textasciigrave{}}\NormalTok{)}
-\NormalTok{treatment\_facility }\OtherTok{\textless{}{-}}\NormalTok{where\_to\_municipal\_waste }\SpecialCharTok{|\textgreater{}} 
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{proportion2 =}\StringTok{\textasciigrave{}}\AttributeTok{Waste treatment facilities}\StringTok{\textasciigrave{}}\SpecialCharTok{/}\StringTok{\textasciigrave{}}\AttributeTok{Total amount of waste collected  (Tonnes)}\StringTok{\textasciigrave{}}\NormalTok{)}
-\NormalTok{other\_disposal }\OtherTok{\textless{}{-}}\NormalTok{where\_to\_municipal\_waste }\SpecialCharTok{|\textgreater{}} 
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{proportion3 =}\StringTok{\textasciigrave{}}\AttributeTok{Other disposal methods}\StringTok{\textasciigrave{}}\SpecialCharTok{/}\StringTok{\textasciigrave{}}\AttributeTok{Total amount of waste collected  (Tonnes)}\StringTok{\textasciigrave{}}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 The amount of waste allocated for the \emph{municipality dumping site}
 can be seen below, plotted by province, with circle diameters
 representing the total amount of waste.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Dumping site proportion graph}
-\NormalTok{dumping\_site }\OtherTok{\textless{}{-}}\NormalTok{ dumping\_site[}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{), ]}
-\FunctionTok{ggplot}\NormalTok{(dumping\_site, }\FunctionTok{aes}\NormalTok{(Provinces, proportion1, }\AttributeTok{size =}\StringTok{\textasciigrave{}}\AttributeTok{Total amount of waste collected  (Tonnes)}\StringTok{\textasciigrave{}}\SpecialCharTok{/} \DecValTok{10}\SpecialCharTok{\^{}}\DecValTok{4}\NormalTok{)) }\SpecialCharTok{+}
-  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{color =} \StringTok{"blue"}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.6}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{90}\NormalTok{, }\AttributeTok{hjust =} \DecValTok{1}\NormalTok{, }\AttributeTok{size =} \DecValTok{6}\NormalTok{)) }\SpecialCharTok{+}
-  \FunctionTok{labs}\NormalTok{ (}\AttributeTok{x =} \StringTok{"Provinces"}\NormalTok{,}\AttributeTok{y =} \StringTok{"Proportion for dumping site"}\NormalTok{, }\AttributeTok{title =} \StringTok{"Proportion of wastes sent"}\NormalTok{, }\AttributeTok{size =} \StringTok{"Total waste (kg)"}\NormalTok{) }\SpecialCharTok{+}  \FunctionTok{coord\_cartesian}\NormalTok{(}\AttributeTok{ylim =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
 
 \includegraphics{project_files/figure-pdf/unnamed-chunk-17-1.pdf}
 
@@ -848,48 +558,16 @@ The amount of waste allocated for the \emph{waste treatment facilities}
 can be seen below, plotted by province, with circle diameters
 representing the total amount of waste.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Waste treatment facility proportion graph}
-\NormalTok{treatment\_facility }\OtherTok{\textless{}{-}}\NormalTok{ treatment\_facility[}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{), ]}
-\FunctionTok{ggplot}\NormalTok{(treatment\_facility, }\FunctionTok{aes}\NormalTok{(Provinces, proportion2, }\AttributeTok{size =}\StringTok{\textasciigrave{}}\AttributeTok{Total amount of waste collected  (Tonnes)}\StringTok{\textasciigrave{}}\SpecialCharTok{/} \DecValTok{10}\SpecialCharTok{\^{}}\DecValTok{4}\NormalTok{)) }\SpecialCharTok{+}
-  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{color =} \StringTok{"orange"}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.6}\NormalTok{) }\SpecialCharTok{+}  \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{90}\NormalTok{, }\AttributeTok{hjust =} \DecValTok{1}\NormalTok{, }\AttributeTok{size =} \DecValTok{6}\NormalTok{)) }\SpecialCharTok{+}
-  \FunctionTok{labs}\NormalTok{ (}\AttributeTok{x =} \StringTok{"Provinces"}\NormalTok{,}\AttributeTok{y =} \StringTok{"Proportion for waste treatment facility"}\NormalTok{, }\AttributeTok{title =} \StringTok{"Proportion of wastes sent"}\NormalTok{, }\AttributeTok{size =} \StringTok{"Total waste (kg)"}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{coord\_cartesian}\NormalTok{(}\AttributeTok{ylim =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{)) }
-\end{Highlighting}
-\end{Shaded}
-
 \includegraphics{project_files/figure-pdf/unnamed-chunk-18-1.pdf}
 
 The amount of waste allocated for the \emph{other disposal methods} can
 be seen below, plotted by province, with circle diameters representing
 the total amount of waste.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Other disposal methods proportion graph}
-\NormalTok{other\_disposal }\OtherTok{\textless{}{-}}\NormalTok{ other\_disposal[}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{), ]}
-\FunctionTok{ggplot}\NormalTok{(other\_disposal, }\FunctionTok{aes}\NormalTok{(Provinces, proportion3, }\AttributeTok{size =}\StringTok{\textasciigrave{}}\AttributeTok{Total amount of waste collected  (Tonnes)}\StringTok{\textasciigrave{}}\SpecialCharTok{/} \DecValTok{10}\SpecialCharTok{\^{}}\DecValTok{4}\NormalTok{)) }\SpecialCharTok{+}
-  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{color =} \StringTok{"darkgreen"}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.6}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{90}\NormalTok{, }\AttributeTok{hjust =} \DecValTok{1}\NormalTok{, }\AttributeTok{size =} \DecValTok{6}\NormalTok{)) }\SpecialCharTok{+}
-  \FunctionTok{labs}\NormalTok{ (}\AttributeTok{x =} \StringTok{"Provinces"}\NormalTok{,}\AttributeTok{y =} \StringTok{"Pro. for other disposal methods"}\NormalTok{, }\AttributeTok{title =} \StringTok{"Proportion of wastes sent"}\NormalTok{, }\AttributeTok{size =} \StringTok{"Total waste (kg)"}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{coord\_cartesian}\NormalTok{(}\AttributeTok{ylim =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
 \includegraphics{project_files/figure-pdf/unnamed-chunk-19-1.pdf}
 
 The pie chart below shows a rough breakdown of the amount of waste sent
 to these three disposal methods.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Pie Chart}
-\NormalTok{waste\_distr }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{Method =} \FunctionTok{c}\NormalTok{(}\StringTok{"Municipality\textquotesingle{}s Dumping Site"}\NormalTok{, }\StringTok{"Waste Treatment Facilities"}\NormalTok{, }\StringTok{"Other Disposal Methods"}\NormalTok{), }\AttributeTok{Amount =} \FunctionTok{c}\NormalTok{(where\_to\_municipal\_waste[}\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{]}\SpecialCharTok{/}\NormalTok{where\_to\_municipal\_waste[}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{], where\_to\_municipal\_waste[}\DecValTok{1}\NormalTok{,}\DecValTok{4}\NormalTok{]}\SpecialCharTok{/}\NormalTok{where\_to\_municipal\_waste[}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{], where\_to\_municipal\_waste[}\DecValTok{1}\NormalTok{,}\DecValTok{5}\NormalTok{]}\SpecialCharTok{/}\NormalTok{where\_to\_municipal\_waste[}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{]))}
-\FunctionTok{ggplot}\NormalTok{(waste\_distr, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =} \StringTok{""}\NormalTok{, }\AttributeTok{y =}\NormalTok{ Amount, }\AttributeTok{fill =}\NormalTok{ Method)) }\SpecialCharTok{+} 
-  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{width =} \DecValTok{1}\NormalTok{, }\AttributeTok{stat =} \StringTok{"identity"}\NormalTok{) }\SpecialCharTok{+} 
-  \FunctionTok{coord\_polar}\NormalTok{(}\AttributeTok{theta =} \StringTok{"y"}\NormalTok{) }\SpecialCharTok{+} 
-  \FunctionTok{theme\_void}\NormalTok{() }\SpecialCharTok{+}
-  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Waste Disposal Methods"}\NormalTok{, }\AttributeTok{fill =} \StringTok{"Disposal Method"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \includegraphics{project_files/figure-pdf/unnamed-chunk-20-1.pdf}
 
@@ -899,105 +577,20 @@ to these three disposal methods.
 According to the time series data set, Turkiye's population change over
 the years is given below.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(tidyverse)}
-\FunctionTok{library}\NormalTok{(ggthemes)}
-\FunctionTok{library}\NormalTok{(ggrepel)}
-\FunctionTok{library}\NormalTok{(dplyr)}
-
-\NormalTok{ts\_data }\OtherTok{\textless{}{-}}\NormalTok{ time\_series\_municipal\_waste }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{pivot\_longer}\NormalTok{(}\AttributeTok{cols =} \SpecialCharTok{{-}}\StringTok{\textasciigrave{}}\AttributeTok{Waste/Year}\StringTok{\textasciigrave{}}\NormalTok{, }\AttributeTok{names\_to =} \StringTok{"Year"}\NormalTok{, }\AttributeTok{values\_to =} \StringTok{"Value"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Year =} \FunctionTok{as.numeric}\NormalTok{(Year))  }
-
-\CommentTok{\# Türkiye population ts}
-\FunctionTok{ggplot}\NormalTok{(ts\_data }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Waste/Year}\StringTok{\textasciigrave{}} \SpecialCharTok{==} \StringTok{"Turkey population"}\NormalTok{), }
-                          \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Year, }\AttributeTok{y =}\NormalTok{ Value }\SpecialCharTok{/} \DecValTok{10}\SpecialCharTok{\^{}}\DecValTok{6}\NormalTok{)) }\SpecialCharTok{+}
-  \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{color =} \StringTok{"blue"}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{color =} \StringTok{"magenta"}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{theme\_bw}\NormalTok{() }\SpecialCharTok{+} \FunctionTok{coord\_fixed}\NormalTok{() }\SpecialCharTok{+}
-  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Turkiye Population Over the Years"}\NormalTok{, }\AttributeTok{x =} \StringTok{"Year"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Population (million)"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \includegraphics{project_files/figure-pdf/unnamed-chunk-21-1.pdf}
 
 The relationship between the total amount of waste generated in Turkiye
 and the amount collected by municipalities for proper disposal can be
 accessed from the plot.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Waste graphs}
-\NormalTok{ts\_data2 }\OtherTok{\textless{}{-}}\NormalTok{ ts\_data }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{filter}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Waste/Year}\StringTok{\textasciigrave{}} \SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\StringTok{"Amount of municipal waste generated (Thousand tonnes/year)"}\NormalTok{, }
-                             \StringTok{"Amount of municipal waste collected (Thousand tonnes/year)"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Type =} \FunctionTok{case\_when}\NormalTok{(}
-    \StringTok{\textasciigrave{}}\AttributeTok{Waste/Year}\StringTok{\textasciigrave{}} \SpecialCharTok{==} \StringTok{"Amount of municipal waste generated (Thousand tonnes/year)"} \SpecialCharTok{\textasciitilde{}} \StringTok{"Generated"}\NormalTok{,}
-    \StringTok{\textasciigrave{}}\AttributeTok{Waste/Year}\StringTok{\textasciigrave{}} \SpecialCharTok{==} \StringTok{"Amount of municipal waste collected (Thousand tonnes/year)"} \SpecialCharTok{\textasciitilde{}} \StringTok{"Collected"}
-\NormalTok{  ))}
-
-\FunctionTok{ggplot}\NormalTok{(ts\_data2, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Year, }\AttributeTok{y =}\NormalTok{ Value, }\AttributeTok{color =}\NormalTok{ Type, }\AttributeTok{group =}\NormalTok{ Type)) }\SpecialCharTok{+}
-  \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+}
-  \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+}
-  \FunctionTok{scale\_color\_manual}\NormalTok{(}\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\StringTok{"Generated"} \OtherTok{=} \StringTok{"green"}\NormalTok{, }\StringTok{"Collected"} \OtherTok{=} \StringTok{"purple"}\NormalTok{)) }\SpecialCharTok{+}
-  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Municipal Waste Generated and Collected Over the Years"}\NormalTok{,}
-       \AttributeTok{x =} \StringTok{"Year"}\NormalTok{, }
-       \AttributeTok{y =} \StringTok{"Waste (Thousand tonnes)"}\NormalTok{,}
-       \AttributeTok{color =} \StringTok{"Type"}\NormalTok{) }\SpecialCharTok{+} 
-  \FunctionTok{theme\_minimal}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
 \includegraphics{project_files/figure-pdf/unnamed-chunk-22-1.pdf}
 
 Changes in waste amount over the years according to disposal methods are
 given below.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{disposal\_methods\_data }\OtherTok{\textless{}{-}}\NormalTok{ ts\_data }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{filter}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Waste/Year}\StringTok{\textasciigrave{}} \SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\StringTok{"Waste treatment facilities"}\NormalTok{, }
-                             \StringTok{"Municipality\textquotesingle{}s dumping sites"}\NormalTok{, }
-                             \StringTok{"Other disposal methods"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Type =} \FunctionTok{case\_when}\NormalTok{(}
-    \StringTok{\textasciigrave{}}\AttributeTok{Waste/Year}\StringTok{\textasciigrave{}} \SpecialCharTok{==} \StringTok{"Waste treatment facilities"} \SpecialCharTok{\textasciitilde{}} \StringTok{"Waste Treatment"}\NormalTok{,}
-    \StringTok{\textasciigrave{}}\AttributeTok{Waste/Year}\StringTok{\textasciigrave{}} \SpecialCharTok{==} \StringTok{"Municipality\textquotesingle{}s dumping sites"} \SpecialCharTok{\textasciitilde{}} \StringTok{"Dumping Sites"}\NormalTok{,}
-    \StringTok{\textasciigrave{}}\AttributeTok{Waste/Year}\StringTok{\textasciigrave{}} \SpecialCharTok{==} \StringTok{"Other disposal methods"} \SpecialCharTok{\textasciitilde{}} \StringTok{"Other Methods"}
-\NormalTok{  ))}
-
-\FunctionTok{ggplot}\NormalTok{(disposal\_methods\_data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Year, }\AttributeTok{y =}\NormalTok{ Value, }\AttributeTok{color =}\NormalTok{ Type, }\AttributeTok{group =}\NormalTok{ Type)) }\SpecialCharTok{+}
-  \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+}
-  \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+}
-  \FunctionTok{scale\_color\_manual}\NormalTok{(}\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\StringTok{"Waste Treatment"} \OtherTok{=} \StringTok{"blue"}\NormalTok{, }\StringTok{"Dumping Sites"} \OtherTok{=} \StringTok{"red"}\NormalTok{, }\StringTok{"Other Methods"} \OtherTok{=} \StringTok{"green"}\NormalTok{)) }\SpecialCharTok{+}
-  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Disposal Methods Over the Years"}\NormalTok{,}
-       \AttributeTok{x =} \StringTok{"Year"}\NormalTok{, }
-       \AttributeTok{y =} \StringTok{"Amount (Thousand tonnes)"}\NormalTok{,}
-       \AttributeTok{color =} \StringTok{"Method"}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{theme\_classic}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
 \includegraphics{project_files/figure-pdf/unnamed-chunk-23-1.pdf}
 
 Descriptive statistics for waste amounts by province dataset:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{summary\_stats }\OtherTok{\textless{}{-}}\NormalTok{ ts\_province }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{group\_by}\NormalTok{(Province) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{summarise}\NormalTok{(}
-    \AttributeTok{mean\_waste =} \FunctionTok{mean}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Waste amount (1000 ton)}\StringTok{\textasciigrave{}}\NormalTok{, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
-    \AttributeTok{median\_waste =} \FunctionTok{median}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Waste amount (1000 ton)}\StringTok{\textasciigrave{}}\NormalTok{, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
-    \AttributeTok{sd\_waste =} \FunctionTok{sd}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Waste amount (1000 ton)}\StringTok{\textasciigrave{}}\NormalTok{, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
-    \AttributeTok{min\_waste =} \FunctionTok{min}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Waste amount (1000 ton)}\StringTok{\textasciigrave{}}\NormalTok{, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
-    \AttributeTok{max\_waste =} \FunctionTok{max}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Waste amount (1000 ton)}\StringTok{\textasciigrave{}}\NormalTok{, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
-\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(mean\_waste)) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{top\_n}\NormalTok{(}\DecValTok{10}\NormalTok{, mean\_waste)}
-\FunctionTok{print}\NormalTok{(summary\_stats)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 # A tibble: 10 x 6
@@ -1018,92 +611,15 @@ Descriptive statistics for waste amounts by province dataset:
 The line graph of waste amounts over the years for the top 5 cities
 producing the most waste based on provincial waste amount data is drawn.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(tidyverse)}
-\FunctionTok{library}\NormalTok{(ggthemes)}
-\NormalTok{mean\_waste }\OtherTok{\textless{}{-}}\NormalTok{ ts\_province }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{group\_by}\NormalTok{(Province) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{mean\_waste =} \FunctionTok{mean}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Waste amount (1000 ton)}\StringTok{\textasciigrave{}}\NormalTok{, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(mean\_waste))}
-
-\NormalTok{top5\_provinces }\OtherTok{\textless{}{-}}\NormalTok{ mean\_waste }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{top\_n}\NormalTok{(}\DecValTok{5}\NormalTok{, mean\_waste) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{pull}\NormalTok{(Province)}
-
-\NormalTok{top5\_data }\OtherTok{\textless{}{-}}\NormalTok{ ts\_province }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{filter}\NormalTok{(Province }\SpecialCharTok{\%in\%}\NormalTok{ top5\_provinces)}
-
-\FunctionTok{ggplot}\NormalTok{(top5\_data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Year, }\AttributeTok{y =} \StringTok{\textasciigrave{}}\AttributeTok{Waste amount (1000 ton)}\StringTok{\textasciigrave{}}\NormalTok{, }\AttributeTok{color =}\NormalTok{ Province)) }\SpecialCharTok{+}
-  \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+}
-  \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+}
-  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Waste Amount in Top 5 Provinces with Largest Mean Waste Amount"}\NormalTok{,}
-       \AttributeTok{x =} \StringTok{"Year"}\NormalTok{,}
-       \AttributeTok{y =} \StringTok{"Waste Amount (1000 ton)"}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{theme\_pander}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
 \includegraphics{project_files/figure-pdf/unnamed-chunk-25-1.pdf}
 
 The box plot for the top 10 provinces with the highest average waste
 amounts is provided below.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{top10\_summary }\OtherTok{\textless{}{-}}\NormalTok{ ts\_province }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{group\_by}\NormalTok{(Province) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{mean\_waste =} \FunctionTok{mean}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Waste amount (1000 ton)}\StringTok{\textasciigrave{}}\NormalTok{, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(mean\_waste)) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{top\_n}\NormalTok{(}\DecValTok{10}\NormalTok{, mean\_waste)}
-
-\NormalTok{top10\_provinces }\OtherTok{\textless{}{-}}\NormalTok{ top10\_summary}\SpecialCharTok{$}\NormalTok{Province}
-\NormalTok{top10\_data }\OtherTok{\textless{}{-}}\NormalTok{ ts\_province }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{filter}\NormalTok{(Province }\SpecialCharTok{\%in\%}\NormalTok{ top10\_provinces)}
-
-\NormalTok{top10\_data }\OtherTok{\textless{}{-}}\NormalTok{ top10\_data }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Province =} \FunctionTok{factor}\NormalTok{(Province, }\AttributeTok{levels =}\NormalTok{ top10\_summary}\SpecialCharTok{$}\NormalTok{Province[}\FunctionTok{order}\NormalTok{(top10\_summary}\SpecialCharTok{$}\NormalTok{mean\_waste)]))}
-
-\FunctionTok{ggplot}\NormalTok{(top10\_data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Province, }\AttributeTok{y =} \StringTok{\textasciigrave{}}\AttributeTok{Waste amount (1000 ton)}\StringTok{\textasciigrave{}}\NormalTok{, }\AttributeTok{fill =}\NormalTok{ Province)) }\SpecialCharTok{+}
-  \FunctionTok{geom\_boxplot}\NormalTok{() }\SpecialCharTok{+}
-  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Waste Amounts by Province (Top 10 Provinces)"}\NormalTok{,}
-       \AttributeTok{x =} \StringTok{"Province"}\NormalTok{,}
-       \AttributeTok{y =} \StringTok{"Waste Amount (1000 ton)"}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{theme\_minimal}\NormalTok{() }\SpecialCharTok{+}
-  \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{90}\NormalTok{, }\AttributeTok{hjust =} \DecValTok{1}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
 \includegraphics{project_files/figure-pdf/unnamed-chunk-26-1.pdf}
 
 When İstanbul, which was very dominant in the previous boxplot, is
 excluded, the results are also examined.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{ts\_province\_no\_istanbul }\OtherTok{\textless{}{-}}\NormalTok{ ts\_province }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(Province }\SpecialCharTok{!=} \StringTok{"İstanbul"}\NormalTok{)}
-\NormalTok{top10\_summary\_no\_istanbul }\OtherTok{\textless{}{-}}\NormalTok{ ts\_province\_no\_istanbul }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{group\_by}\NormalTok{(Province) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{mean\_waste =} \FunctionTok{mean}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Waste amount (1000 ton)}\StringTok{\textasciigrave{}}\NormalTok{, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(mean\_waste)) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{top\_n}\NormalTok{(}\DecValTok{10}\NormalTok{, mean\_waste)}
-
-\NormalTok{top10\_provinces\_no\_istanbul }\OtherTok{\textless{}{-}}\NormalTok{ top10\_summary\_no\_istanbul}\SpecialCharTok{$}\NormalTok{Province}
-\NormalTok{top10\_data\_no\_istanbul }\OtherTok{\textless{}{-}}\NormalTok{ ts\_province\_no\_istanbul }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{filter}\NormalTok{(Province }\SpecialCharTok{\%in\%}\NormalTok{ top10\_provinces\_no\_istanbul)}
-
-\NormalTok{top10\_data\_no\_istanbul }\OtherTok{\textless{}{-}}\NormalTok{ top10\_data\_no\_istanbul }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Province =} \FunctionTok{factor}\NormalTok{(Province, }\AttributeTok{levels =}\NormalTok{ top10\_summary\_no\_istanbul}\SpecialCharTok{$}\NormalTok{Province[}\FunctionTok{order}\NormalTok{(top10\_summary\_no\_istanbul}\SpecialCharTok{$}\NormalTok{mean\_waste)]))}
-
-\FunctionTok{ggplot}\NormalTok{(top10\_data\_no\_istanbul, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Province, }\AttributeTok{y =} \StringTok{\textasciigrave{}}\AttributeTok{Waste amount (1000 ton)}\StringTok{\textasciigrave{}}\NormalTok{, }\AttributeTok{fill =}\NormalTok{ Province)) }\SpecialCharTok{+}
-  \FunctionTok{geom\_boxplot}\NormalTok{() }\SpecialCharTok{+}
-  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Waste Amounts by Province (Top 10 Provinces, Excluding İstanbul)"}\NormalTok{,}
-       \AttributeTok{x =} \StringTok{"Province"}\NormalTok{,}
-       \AttributeTok{y =} \StringTok{"Waste Amount (1000 ton)"}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{theme\_minimal}\NormalTok{() }\SpecialCharTok{+}
-  \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{90}\NormalTok{, }\AttributeTok{hjust =} \DecValTok{1}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
 
 \includegraphics{project_files/figure-pdf/unnamed-chunk-27-1.pdf}
 
@@ -1120,22 +636,6 @@ below.
 Data on the {agricultural area} cultivated in the provinces of Turkiye
 can be accessed below.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(openxlsx)}
-\FunctionTok{library}\NormalTok{(tidyverse)}
-\CommentTok{\# agriculture area}
-\NormalTok{agriculture\_area }\OtherTok{\textless{}{-}} \FunctionTok{read.xlsx}\NormalTok{(}\StringTok{"project/data/agriculture\_area.xlsx"}\NormalTok{, }\AttributeTok{colNames =} \ConstantTok{TRUE}\NormalTok{)}
-\NormalTok{agriculture\_area }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{(agriculture\_area, }\SpecialCharTok{{-}}\StringTok{"YIL"}\NormalTok{)  }
-\NormalTok{agriculture\_area }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{(agriculture\_area, }\SpecialCharTok{{-}}\StringTok{"BÖLGE.KODU"}\NormalTok{)  }
-\NormalTok{agriculture\_area }\OtherTok{\textless{}{-}} \FunctionTok{rename}\NormalTok{(agriculture\_area, }\StringTok{"Provinces"} \OtherTok{=} \StringTok{"BÖLGE.ADI"}\NormalTok{)}
-\NormalTok{agriculture\_area }\OtherTok{\textless{}{-}} \FunctionTok{rename}\NormalTok{(agriculture\_area, }\StringTok{"Agriculture area"} \OtherTok{=}\StringTok{\textasciigrave{}}\AttributeTok{Toplam.işlenen.tarım.alanı.(hektar)}\StringTok{\textasciigrave{}}\NormalTok{)}
-\NormalTok{agriculture\_area }\OtherTok{\textless{}{-}}\NormalTok{ agriculture\_area [}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{83}\SpecialCharTok{:}\DecValTok{87}\NormalTok{), ]}
-\NormalTok{agriculture\_area }\OtherTok{\textless{}{-}}\NormalTok{ agriculture\_area [}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{), ]}
-\FunctionTok{str}\NormalTok{(agriculture\_area)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 'data.frame':   81 obs. of  2 variables:
  $ Provinces       : chr  "İstanbul" "Tekirdağ" "Edirne" "Kırklareli" ...
@@ -1144,22 +644,6 @@ can be accessed below.
 
 The data on {educational status} of Turkiye's provinces, categorized by
 various levels, is provided in education data set.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# education}
-\NormalTok{education }\OtherTok{\textless{}{-}} \FunctionTok{read.xlsx}\NormalTok{(}\StringTok{"project/data/education.xlsx"}\NormalTok{, }\AttributeTok{colNames =} \ConstantTok{TRUE}\NormalTok{)}
-\NormalTok{education }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{(education, }\SpecialCharTok{{-}}\StringTok{"YIL"}\NormalTok{)  }
-\NormalTok{education }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{(education, }\SpecialCharTok{{-}}\StringTok{"BÖLGE.KODU"}\NormalTok{)}
-\NormalTok{education  }\OtherTok{\textless{}{-}} \FunctionTok{rename}\NormalTok{(education , }\StringTok{"Provinces"} \OtherTok{=} \StringTok{"BÖLGE.ADI"}\NormalTok{)}
-\NormalTok{education  }\OtherTok{\textless{}{-}} \FunctionTok{rename}\NormalTok{(education , }\StringTok{"Total number of faculty members"} \OtherTok{=} \StringTok{\textasciigrave{}}\AttributeTok{Yükseköğretim.kurumlarında.kendi.biriminde.görevli.öğretim.elemanı.sayısı.:.Toplam.öğretim.elemanı./.Toplam}\StringTok{\textasciigrave{}}\NormalTok{)}
-\NormalTok{education  }\OtherTok{\textless{}{-}} \FunctionTok{rename}\NormalTok{(education , }\StringTok{"Total number of illiterate people"} \OtherTok{=} \StringTok{\textasciigrave{}}\AttributeTok{Eğitim.durumuna.göre.nüfus.(15.yaş.ve.üzeri).:.Okuma.yazma.bilmeyen./.Toplam}\StringTok{\textasciigrave{}}\NormalTok{)}
-\NormalTok{education  }\OtherTok{\textless{}{-}} \FunctionTok{rename}\NormalTok{(education , }\StringTok{"Number of associate or bachelor\textquotesingle{}s degree graduates"} \OtherTok{=} \StringTok{\textasciigrave{}}\AttributeTok{Yükseköğretim.kurumlarında.önlisans.ve.lisans.düzeyinde.öğrenci.sayıları.:.Mezun./.Toplam}\StringTok{\textasciigrave{}}\NormalTok{)}
-\NormalTok{education  }\OtherTok{\textless{}{-}} \FunctionTok{rename}\NormalTok{(education , }\StringTok{"Number of master\textquotesingle{}s degree graduates"} \OtherTok{=} \StringTok{\textasciigrave{}}\AttributeTok{Eğitim.durumuna.göre.nüfus.(15.yaş.ve.üzeri).:.Yüksek.lisans.mezunu./.Toplam}\StringTok{\textasciigrave{}}\NormalTok{)}
-\NormalTok{education }\OtherTok{\textless{}{-}}\NormalTok{ education [}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{), ]}
-\FunctionTok{str}\NormalTok{(education)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 'data.frame':   81 obs. of  5 variables:
@@ -1173,21 +657,6 @@ various levels, is provided in education data set.
 The first six rows of the {electricity consumption} data for the
 provinces of Turkiye are as follows.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# electricity consumption}
-\NormalTok{electricity\_consumption }\OtherTok{\textless{}{-}} \FunctionTok{read.xlsx}\NormalTok{(}\StringTok{"project/data/electricity\_consumption.xlsx"}\NormalTok{, }\AttributeTok{colNames =} \ConstantTok{TRUE}\NormalTok{)}
-\NormalTok{electricity\_consumption }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{(electricity\_consumption, }\SpecialCharTok{{-}}\StringTok{"YIL"}\NormalTok{)  }
-\NormalTok{electricity\_consumption }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{(electricity\_consumption, }\SpecialCharTok{{-}}\StringTok{"BÖLGE.KODU"}\NormalTok{)  }
-\NormalTok{electricity\_consumption  }\OtherTok{\textless{}{-}} \FunctionTok{rename}\NormalTok{(electricity\_consumption , }\StringTok{"Provinces"} \OtherTok{=} \StringTok{"BÖLGE.ADI"}\NormalTok{)}
-\NormalTok{electricity\_consumption  }\OtherTok{\textless{}{-}} \FunctionTok{rename}\NormalTok{(electricity\_consumption , }\StringTok{"Total electricity consumption (MWh)"} \OtherTok{=} \StringTok{\textasciigrave{}}\AttributeTok{Toplam.tüketim.(MWh)}\StringTok{\textasciigrave{}}\NormalTok{)}
-\NormalTok{electricity\_consumption  }\OtherTok{\textless{}{-}} \FunctionTok{rename}\NormalTok{(electricity\_consumption , }\StringTok{"Electricity consumption per capita (KWh)"} \OtherTok{=} \StringTok{\textasciigrave{}}\AttributeTok{Kişi.başına.toplam.elektrik.tüketimi.(KWh)}\StringTok{\textasciigrave{}}\NormalTok{)}
-\NormalTok{electricity\_consumption }\OtherTok{\textless{}{-}}\NormalTok{ electricity\_consumption [}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{83}\NormalTok{, }\DecValTok{84}\NormalTok{, }\DecValTok{85}\NormalTok{), ]}
-\NormalTok{electricity\_consumption }\OtherTok{\textless{}{-}}\NormalTok{ electricity\_consumption[}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{), ]}
-\FunctionTok{str}\NormalTok{(electricity\_consumption)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 'data.frame':   81 obs. of  3 variables:
  $ Provinces                               : chr  "İstanbul" "Tekirdağ" "Edirne" "Kırklareli" ...
@@ -1196,20 +665,6 @@ provinces of Turkiye are as follows.
 \end{verbatim}
 
 {The GDP} data for the provinces of Turkiye has been obtained.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# GDP}
-\NormalTok{GDP }\OtherTok{\textless{}{-}} \FunctionTok{read.xlsx}\NormalTok{(}\StringTok{"project/data/GDP.xlsx"}\NormalTok{, }\AttributeTok{colNames =} \ConstantTok{TRUE}\NormalTok{)}
-\NormalTok{GDP }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{(GDP, }\SpecialCharTok{{-}}\StringTok{"YIL"}\NormalTok{)  }
-\NormalTok{GDP }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{(GDP, }\SpecialCharTok{{-}}\StringTok{"BÖLGE.KODU"}\NormalTok{)  }
-\NormalTok{GDP  }\OtherTok{\textless{}{-}} \FunctionTok{rename}\NormalTok{(GDP , }\StringTok{"Provinces"} \OtherTok{=} \StringTok{"BÖLGE.ADI"}\NormalTok{)}
-\NormalTok{GDP  }\OtherTok{\textless{}{-}} \FunctionTok{rename}\NormalTok{(GDP , }\StringTok{"GDP per capita (TL)"} \OtherTok{=} \StringTok{\textasciigrave{}}\AttributeTok{Kişi.başına.GSYH.(TL)}\StringTok{\textasciigrave{}}\NormalTok{)}
-\NormalTok{GDP  }\OtherTok{\textless{}{-}} \FunctionTok{rename}\NormalTok{(GDP , }\StringTok{"GDP per capita ($)"} \OtherTok{=} \StringTok{\textasciigrave{}}\AttributeTok{Kişi.başına.GSYH.($)}\StringTok{\textasciigrave{}}\NormalTok{)}
-\NormalTok{GDP }\OtherTok{\textless{}{-}}\NormalTok{ GDP [}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{83}\NormalTok{, }\DecValTok{84}\NormalTok{), ]}
-\FunctionTok{str}\NormalTok{(GDP)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 'data.frame':   82 obs. of  3 variables:
@@ -1221,16 +676,6 @@ provinces of Turkiye are as follows.
 If the {response variable} is extracted from the municipal data set, the
 desired variable of {waste amount} by province can be obtained for the
 analysis.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Amount of waste}
-\NormalTok{response\_variable }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{(municipal\_waste, }\StringTok{"Provinces"}\NormalTok{)  }
-\NormalTok{response\_variable }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(response\_variable, }\StringTok{"Amount of waste collected (Tonnes)"} \OtherTok{=}\NormalTok{ municipal\_waste}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{Amount of waste collected (Tonnes) }
-\StringTok{\textasciigrave{}}\NormalTok{)}
-\FunctionTok{str}\NormalTok{(response\_variable)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 'data.frame':   81 obs. of  2 variables:
@@ -1245,17 +690,6 @@ agricultural area, total number of faculty members, total number of
 illiterate people, number of associate or bachelor's degree graduates,
 number of master's degree graduates, and electricity consumption}. The
 final table prepared for regression analysis can be found below.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{regression\_data }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{()}
-\NormalTok{regression\_data }\OtherTok{\textless{}{-}} \FunctionTok{full\_join}\NormalTok{(response\_variable, agriculture\_area, }\AttributeTok{by =} \StringTok{"Provinces"}\NormalTok{)}
-\NormalTok{regression\_data }\OtherTok{\textless{}{-}} \FunctionTok{full\_join}\NormalTok{(regression\_data, education,  }\AttributeTok{by =} \StringTok{"Provinces"}\NormalTok{)}
-\NormalTok{regression\_data }\OtherTok{\textless{}{-}} \FunctionTok{full\_join}\NormalTok{(regression\_data, electricity\_consumption,  }\AttributeTok{by =} \StringTok{"Provinces"}\NormalTok{)}
-\NormalTok{regression\_data }\OtherTok{\textless{}{-}} \FunctionTok{full\_join}\NormalTok{(regression\_data, GDP,  }\AttributeTok{by =} \StringTok{"Provinces"}\NormalTok{)}
-\FunctionTok{str}\NormalTok{(regression\_data)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 'data.frame':   82 obs. of  11 variables:
@@ -1280,12 +714,6 @@ response variable, `Amount of waste collected'. Subsequently, additional
 variables are incorporated into the model based on their partial
 correlations.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(ppcor)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 Warning: package 'ppcor' was built under R version 4.3.3
 \end{verbatim}
@@ -1305,40 +733,9 @@ The following object is masked from 'package:dplyr':
     select
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(tidyverse)}
-\FunctionTok{library}\NormalTok{(readxl)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 Warning: package 'readxl' was built under R version 4.3.3
 \end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{regression\_data }\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"regression\_data.xlsx"}\NormalTok{)}
-\NormalTok{numeric\_cols }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Amount of waste collected (Tonnes)"}\NormalTok{, }\StringTok{"Agriculture area"}\NormalTok{, }
-                  \StringTok{"Total number of faculty members"}\NormalTok{, }\StringTok{"Total number of illiterate people"}\NormalTok{,}
-                  \StringTok{"Number of associate or bachelor\textquotesingle{}s degree graduates"}\NormalTok{, }\StringTok{"Total electricity consumption (MWh)"}\NormalTok{,}
-                  \StringTok{"GDP per capita (TL)"}\NormalTok{, }\StringTok{"Number of master\textquotesingle{}s degree graduates"}\NormalTok{)}
-\NormalTok{regression\_data[numeric\_cols] }\OtherTok{\textless{}{-}} \FunctionTok{sapply}\NormalTok{(regression\_data[numeric\_cols], as.numeric)}
-
-\ControlFlowTok{if}\NormalTok{(}\FunctionTok{any}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(regression\_data[numeric\_cols]))) \{}
-\NormalTok{  regression\_data }\OtherTok{\textless{}{-}} \FunctionTok{na.omit}\NormalTok{(regression\_data)}
-\NormalTok{\}}
-
-\NormalTok{constant\_cols }\OtherTok{\textless{}{-}} \FunctionTok{sapply}\NormalTok{(regression\_data[numeric\_cols], }\ControlFlowTok{function}\NormalTok{(x) }\FunctionTok{length}\NormalTok{(}\FunctionTok{unique}\NormalTok{(x)) }\SpecialCharTok{\textless{}=} \DecValTok{1}\NormalTok{)}
-\ControlFlowTok{if}\NormalTok{(}\FunctionTok{any}\NormalTok{(constant\_cols)) \{}
-\NormalTok{  regression\_data }\OtherTok{\textless{}{-}}\NormalTok{ regression\_data[, }\SpecialCharTok{!}\NormalTok{constant\_cols]}
-\NormalTok{\}}
-
-\NormalTok{predictor\_columns }\OtherTok{\textless{}{-}} \FunctionTok{names}\NormalTok{(regression\_data) }\SpecialCharTok{!=} \StringTok{"Amount of waste collected (Tonnes)"}
-\NormalTok{correlation }\OtherTok{\textless{}{-}} \FunctionTok{cor}\NormalTok{(regression\_data[predictor\_columns], regression\_data}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{Amount of waste collected (Tonnes)}\StringTok{\textasciigrave{}}\NormalTok{)}
-\FunctionTok{print}\NormalTok{(correlation)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
                                                         [,1]
@@ -1354,31 +751,10 @@ GDP per capita (TL)                                0.5047206
 The plot between the response variable and the independent variable with
 {highest correlation (Number of master's degree graduates)}:
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(ggthemes)}
-\FunctionTok{ggplot}\NormalTok{(regression\_data, }\FunctionTok{aes}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Amount of waste collected (Tonnes)}\StringTok{\textasciigrave{}}\SpecialCharTok{/}\DecValTok{10}\SpecialCharTok{\^{}}\DecValTok{4}\NormalTok{,}\StringTok{\textasciigrave{}}\AttributeTok{Number of master\textquotesingle{}s degree graduates}\StringTok{\textasciigrave{}}\SpecialCharTok{/}\DecValTok{10}\SpecialCharTok{\^{}}\DecValTok{4}\NormalTok{)) }\SpecialCharTok{+} \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{color =} \StringTok{"brown"}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{scale\_x\_log10}\NormalTok{() }\SpecialCharTok{+}
-\FunctionTok{scale\_y\_log10}\NormalTok{() }\SpecialCharTok{+} \FunctionTok{theme\_classic}\NormalTok{() }\SpecialCharTok{+} \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{"The amount of waste collected (kg)"}\NormalTok{, }\AttributeTok{y =} \StringTok{"The number of master\textquotesingle{}s degree graduates (log scale)"}\NormalTok{, }\AttributeTok{title =} \StringTok{"The lineer relationship"}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{coord\_flip}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
 \includegraphics{project_files/figure-pdf/unnamed-chunk-35-1.pdf}
 
 {Partial correlations}: between variables while controlling the variable
 with the highest correlation:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(ppcor)}
-\NormalTok{partial\_cor1 }\OtherTok{\textless{}{-}} \FunctionTok{pcor.test}\NormalTok{(regression\_data}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{Amount of waste collected (Tonnes)}\StringTok{\textasciigrave{}}\NormalTok{, regression\_data}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{Agriculture area}\StringTok{\textasciigrave{}}\NormalTok{, regression\_data}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{Number of master\textquotesingle{}s degree graduates}\StringTok{\textasciigrave{}}\NormalTok{)}
-\NormalTok{partial\_cor2 }\OtherTok{\textless{}{-}} \FunctionTok{pcor.test}\NormalTok{(regression\_data}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{Amount of waste collected (Tonnes)}\StringTok{\textasciigrave{}}\NormalTok{, regression\_data}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{Total number of faculty members}\StringTok{\textasciigrave{}}\NormalTok{, regression\_data}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{Number of master\textquotesingle{}s degree graduates}\StringTok{\textasciigrave{}}\NormalTok{)}
-\NormalTok{partial\_cor3 }\OtherTok{\textless{}{-}}\FunctionTok{pcor.test}\NormalTok{(regression\_data}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{Amount of waste collected (Tonnes)}\StringTok{\textasciigrave{}}\NormalTok{, regression\_data}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{Total number of illiterate people}\StringTok{\textasciigrave{}}\NormalTok{, regression\_data}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{Number of master\textquotesingle{}s degree graduates}\StringTok{\textasciigrave{}}\NormalTok{)}
-\NormalTok{partial\_cor4 }\OtherTok{\textless{}{-}}\FunctionTok{pcor.test}\NormalTok{(regression\_data}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{Amount of waste collected (Tonnes)}\StringTok{\textasciigrave{}}\NormalTok{, regression\_data}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{Number of associate or bachelor\textquotesingle{}s degree graduates}\StringTok{\textasciigrave{}}\NormalTok{, regression\_data}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{Number of master\textquotesingle{}s degree graduates}\StringTok{\textasciigrave{}}\NormalTok{)}
-\NormalTok{partial\_cor5 }\OtherTok{\textless{}{-}}\FunctionTok{pcor.test}\NormalTok{(regression\_data}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{Amount of waste collected (Tonnes)}\StringTok{\textasciigrave{}}\NormalTok{, regression\_data}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{Total electricity consumption (MWh)}\StringTok{\textasciigrave{}}\NormalTok{, regression\_data}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{Number of master\textquotesingle{}s degree graduates}\StringTok{\textasciigrave{}}\NormalTok{)}
-\NormalTok{partial\_cor6 }\OtherTok{\textless{}{-}}\FunctionTok{pcor.test}\NormalTok{(regression\_data}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{Amount of waste collected (Tonnes)}\StringTok{\textasciigrave{}}\NormalTok{, regression\_data}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{GDP per capita (TL)}\StringTok{\textasciigrave{}}\NormalTok{, regression\_data}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{Number of master\textquotesingle{}s degree graduates}\StringTok{\textasciigrave{}}\NormalTok{)}
-\FunctionTok{print}\NormalTok{(partial\_cor5)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
    estimate      p.value statistic  n gp  Method
@@ -1396,14 +772,6 @@ for the two variables with the highest correlations this time. Those
 that pass the significant test from the previous step are included in
 this calculations.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{partial\_corr1 }\OtherTok{\textless{}{-}} \FunctionTok{pcor.test}\NormalTok{(regression\_data}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{Amount of waste collected (Tonnes)}\StringTok{\textasciigrave{}}\NormalTok{, regression\_data}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{Total number of faculty members}\StringTok{\textasciigrave{}}\NormalTok{, regression\_data[,}\FunctionTok{c}\NormalTok{(}\DecValTok{6}\NormalTok{,}\DecValTok{7}\NormalTok{)])}
-\NormalTok{partial\_corr2 }\OtherTok{\textless{}{-}}\FunctionTok{pcor.test}\NormalTok{(regression\_data}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{Amount of waste collected (Tonnes)}\StringTok{\textasciigrave{}}\NormalTok{, regression\_data}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{Total number of illiterate people}\StringTok{\textasciigrave{}}\NormalTok{, regression\_data[,}\FunctionTok{c}\NormalTok{(}\DecValTok{6}\NormalTok{,}\DecValTok{7}\NormalTok{)])}
-\FunctionTok{print}\NormalTok{(partial\_corr2)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
   estimate     p.value statistic  n gp  Method
 1 0.334597 0.002578755  3.115659 81  2 pearson
@@ -1419,14 +787,6 @@ the forward selection method.}}
 
 The results of the multiple regression analysis with the relevant
 columns are as follows.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{ln\_version\_reg\_data }\OtherTok{\textless{}{-}} \FunctionTok{log10}\NormalTok{(regression\_data)}
-\NormalTok{multiple\_regression }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Amount of waste collected (Tonnes)}\StringTok{\textasciigrave{}} \SpecialCharTok{\textasciitilde{}} \StringTok{\textasciigrave{}}\AttributeTok{Number of master\textquotesingle{}s degree graduates}\StringTok{\textasciigrave{}} \SpecialCharTok{+} \StringTok{\textasciigrave{}}\AttributeTok{Total electricity consumption (MWh)}\StringTok{\textasciigrave{}}\NormalTok{, }\AttributeTok{data =}\NormalTok{ ln\_version\_reg\_data) }
-\FunctionTok{summary}\NormalTok{(multiple\_regression)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 
@@ -1457,13 +817,6 @@ suitable and effective version of our model, achieving the highest
 possible R-squared value, is the simple regression model that solely
 includes the variable ``Number of master's graduates''.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{regression\_model }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Amount of waste collected (Tonnes)}\StringTok{\textasciigrave{}} \SpecialCharTok{\textasciitilde{}} \StringTok{\textasciigrave{}}\AttributeTok{Number of master\textquotesingle{}s degree graduates}\StringTok{\textasciigrave{}}\NormalTok{, }\AttributeTok{data =}\NormalTok{ ln\_version\_reg\_data) }
-\FunctionTok{summary}\NormalTok{(regression\_model)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 
 Call:
@@ -1486,13 +839,6 @@ Multiple R-squared:  0.9233,    Adjusted R-squared:  0.9224
 F-statistic: 951.3 on 1 and 79 DF,  p-value: < 2.2e-16
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(broom)}
-\FunctionTok{tidy}\NormalTok{(regression\_model)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 # A tibble: 2 x 5
   term                                  estimate std.error statistic  p.value
@@ -1508,16 +854,6 @@ related to {residual analysis.}
 There seems no problem in Residual vs Fitted values plot. This means
 that \textbf{\emph{the assumption of constant variance is satisfied.}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{ggplot}\NormalTok{(ln\_version\_reg\_data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =} \FunctionTok{fitted}\NormalTok{(regression\_model), }\AttributeTok{y =} \FunctionTok{resid}\NormalTok{(regression\_model))) }\SpecialCharTok{+}
-  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{size =} \DecValTok{3}\NormalTok{, }\AttributeTok{shape =} \DecValTok{18}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =} \StringTok{"lm"}\NormalTok{, }\AttributeTok{se =} \ConstantTok{FALSE}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{"Fitted Values"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Residuals"}\NormalTok{, }\AttributeTok{title =} \StringTok{"Residuals vs Fitted Plot"}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{theme\_minimal}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 `geom_smooth()` using formula = 'y ~ x'
 \end{verbatim}
@@ -1527,31 +863,10 @@ that \textbf{\emph{the assumption of constant variance is satisfied.}}
 The q-q plot to check if residuals are normally distributed is drawn,
 and there is no problem with that.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(ggthemes)}
-\FunctionTok{ggplot}\NormalTok{(ln\_version\_reg\_data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{sample =} \FunctionTok{resid}\NormalTok{(regression\_model))) }\SpecialCharTok{+}
-  \FunctionTok{stat\_qq}\NormalTok{() }\SpecialCharTok{+}
-  \FunctionTok{stat\_qq\_line}\NormalTok{(}\AttributeTok{color =} \StringTok{"magenta"}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Normal Q{-}Q Plot"}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{theme\_clean}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
 \includegraphics{project_files/figure-pdf/unnamed-chunk-42-1.pdf}
 
 In the Q-Q plot, tails are observed on both the right and left sides. To
 be sure, an Anderson-Darling normality test should also be conducted.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(nortest)}
-\NormalTok{residuals }\OtherTok{\textless{}{-}} \FunctionTok{resid}\NormalTok{(regression\_model)}
-
-\NormalTok{ad\_test\_results }\OtherTok{\textless{}{-}} \FunctionTok{ad.test}\NormalTok{(residuals)}
-\FunctionTok{print}\NormalTok{(ad\_test\_results)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 
@@ -1569,15 +884,6 @@ regression model's residuals is considered to be met.}}
 
 The plot below helps to check for \textbf{\emph{homoscedasticity}}.
 According to it, \textbf{\emph{there is no such a problem.}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{ggplot}\NormalTok{(ln\_version\_reg\_data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =} \FunctionTok{fitted}\NormalTok{(regression\_model), }\AttributeTok{y =} \FunctionTok{sqrt}\NormalTok{(}\FunctionTok{abs}\NormalTok{(}\FunctionTok{resid}\NormalTok{(regression\_model))))) }\SpecialCharTok{+}
-  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{size =} \DecValTok{3}\NormalTok{, }\AttributeTok{color =} \StringTok{"turquoise"}\NormalTok{)  }\SpecialCharTok{+}
-  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{"Fitted Values"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Square Root of Absolute Residuals"}\NormalTok{, }\AttributeTok{title =} \StringTok{"Scale{-}Location Plot"}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{theme\_calc}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
 
 \includegraphics{project_files/figure-pdf/unnamed-chunk-44-1.pdf}
 
@@ -1636,19 +942,6 @@ The GP models in the package are as follows (*):
 
 First, the necessary packages are installed, and libraries are called.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Install and load necessary packages}
-\CommentTok{\#install.packages("remotes")}
-\CommentTok{\#remotes::install\_github("exoplanetX/greyforecasting")}
-\CommentTok{\# install.packages("Metrics")}
-\CommentTok{\# install.packages("readxl")}
-\CommentTok{\# install.packages("ggplot2")}
-
-\FunctionTok{library}\NormalTok{(greyforecasting)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 
 Attaching package: 'greyforecasting'
@@ -1659,12 +952,6 @@ The following object is masked from 'package:dplyr':
 
     combine
 \end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(Metrics)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 Warning: package 'Metrics' was built under R version 4.3.3
@@ -1681,63 +968,9 @@ The following objects are masked from 'package:greyforecasting':
     ape, mape
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(readxl)}
-\FunctionTok{library}\NormalTok{(tidyverse)}
-\end{Highlighting}
-\end{Shaded}
-
 When all models are applied to the data in the background, the method
 that gives the best result is the \textbf{DGM (Discrete Grey Model)}
 method.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{file\_path }\OtherTok{\textless{}{-}} \StringTok{"time\_series\_municipal\_waste.xlsx"}
-\NormalTok{waste\_data }\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(file\_path, }\AttributeTok{sheet =} \StringTok{"Sheet 1"}\NormalTok{)}
-\NormalTok{waste\_collected }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(waste\_data[}\DecValTok{3}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{]) }
-
-\CommentTok{\# AutoML }
-\NormalTok{fit\_and\_forecast }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(model\_func, data, }\AttributeTok{forecast\_steps =} \DecValTok{5}\NormalTok{) \{}
-\NormalTok{  model }\OtherTok{\textless{}{-}} \FunctionTok{model\_func}\NormalTok{(data)}
-\NormalTok{  fitted\_values }\OtherTok{\textless{}{-}}\NormalTok{ model}\SpecialCharTok{$}\NormalTok{fitted}
-\NormalTok{  n }\OtherTok{\textless{}{-}} \FunctionTok{length}\NormalTok{(data)}
-\NormalTok{  forecast\_values }\OtherTok{\textless{}{-}} \FunctionTok{numeric}\NormalTok{(forecast\_steps)}
-  
-  \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{forecast\_steps) \{}
-\NormalTok{    extended\_data }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(data, forecast\_values[}\DecValTok{1}\SpecialCharTok{:}\NormalTok{(i}\DecValTok{{-}1}\NormalTok{)])}
-\NormalTok{    forecast\_model }\OtherTok{\textless{}{-}} \FunctionTok{model\_func}\NormalTok{(extended\_data)}
-\NormalTok{    forecast\_values[i] }\OtherTok{\textless{}{-}} \FunctionTok{tail}\NormalTok{(forecast\_model}\SpecialCharTok{$}\NormalTok{fitted, }\DecValTok{1}\NormalTok{)}
-\NormalTok{  \}}
-  
-  \FunctionTok{list}\NormalTok{(}\AttributeTok{model =}\NormalTok{ model, }\AttributeTok{fitted =}\NormalTok{ fitted\_values, }\AttributeTok{forecast =}\NormalTok{ forecast\_values)}
-\NormalTok{\}}
-
-\CommentTok{\# Models to evaluate}
-\NormalTok{models }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(}
-  \AttributeTok{gm =}\NormalTok{ gm,}
-  \AttributeTok{gm\_1 =}\NormalTok{ gm\_1,}
-  \AttributeTok{gm\_2 =}\NormalTok{ gm\_2,}
-  \AttributeTok{dgm =}\NormalTok{ dgm,}
-  \AttributeTok{verhulst =}\NormalTok{ verhulst,}
-  \AttributeTok{pgm =}\NormalTok{ pgm}
-\NormalTok{)}
-
-\CommentTok{\# Applying models and calculate accuracy}
-\NormalTok{results }\OtherTok{\textless{}{-}} \FunctionTok{lapply}\NormalTok{(models, }\ControlFlowTok{function}\NormalTok{(model\_func) \{}
-\NormalTok{  result }\OtherTok{\textless{}{-}} \FunctionTok{fit\_and\_forecast}\NormalTok{(model\_func, waste\_collected, }\AttributeTok{forecast\_steps =} \DecValTok{5}\NormalTok{)}
-\NormalTok{  accuracy }\OtherTok{\textless{}{-}} \FunctionTok{rmse}\NormalTok{(waste\_collected[(}\FunctionTok{length}\NormalTok{(waste\_collected)}\SpecialCharTok{{-}}\DecValTok{4}\NormalTok{)}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(waste\_collected)], result}\SpecialCharTok{$}\NormalTok{forecast)}
-  \FunctionTok{list}\NormalTok{(}\AttributeTok{model =}\NormalTok{ result}\SpecialCharTok{$}\NormalTok{model, }\AttributeTok{fitted =}\NormalTok{ result}\SpecialCharTok{$}\NormalTok{fitted, }\AttributeTok{forecast =}\NormalTok{ result}\SpecialCharTok{$}\NormalTok{forecast, }\AttributeTok{accuracy =}\NormalTok{ accuracy)}
-\NormalTok{\})}
-
-\NormalTok{best\_model\_index }\OtherTok{\textless{}{-}} \FunctionTok{which.min}\NormalTok{(}\FunctionTok{sapply}\NormalTok{(results, }\ControlFlowTok{function}\NormalTok{(x) x}\SpecialCharTok{$}\NormalTok{accuracy))}
-\NormalTok{best\_model\_name }\OtherTok{\textless{}{-}} \FunctionTok{names}\NormalTok{(results)[best\_model\_index]}
-\NormalTok{best\_model }\OtherTok{\textless{}{-}}\NormalTok{ results[[best\_model\_index]]}
-
-\FunctionTok{cat}\NormalTok{(}\StringTok{"The best model is:"}\NormalTok{, best\_model\_name, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 The best model is: dgm 
@@ -1746,21 +979,9 @@ The best model is: dgm
 Then, the accuracy metric value and forecast values for the next 5 years
 are provided for the DGM model.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{cat}\NormalTok{(}\StringTok{"Best model RMSE:"}\NormalTok{, best\_model}\SpecialCharTok{$}\NormalTok{accuracy, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 Best model RMSE: 1365.859 
 \end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{print}\NormalTok{(best\_model}\SpecialCharTok{$}\NormalTok{forecast)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 [1] 30271.09 30922.96 30883.69 31518.20 31456.93
@@ -1768,34 +989,6 @@ Best model RMSE: 1365.859
 
 Finally, the original data, fitted values, and forecast points are shown
 in the graph below.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{years }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{substr}\NormalTok{(}\FunctionTok{names}\NormalTok{(waste\_data)[}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{], }\DecValTok{1}\NormalTok{, }\DecValTok{4}\NormalTok{))  }
-\NormalTok{forecast\_years }\OtherTok{\textless{}{-}}\NormalTok{ (}\FunctionTok{max}\NormalTok{(years) }\SpecialCharTok{+} \DecValTok{1}\NormalTok{)}\SpecialCharTok{:}\NormalTok{(}\FunctionTok{max}\NormalTok{(years) }\SpecialCharTok{+} \FunctionTok{length}\NormalTok{(best\_model}\SpecialCharTok{$}\NormalTok{forecast))}
-\NormalTok{plot\_data }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
-  \AttributeTok{Year =} \FunctionTok{c}\NormalTok{(years, forecast\_years),}
-  \AttributeTok{Value =} \FunctionTok{c}\NormalTok{(waste\_collected, best\_model}\SpecialCharTok{$}\NormalTok{forecast),}
-  \AttributeTok{Type =} \FunctionTok{c}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\StringTok{"Actual"}\NormalTok{, }\FunctionTok{length}\NormalTok{(waste\_collected)), }\FunctionTok{rep}\NormalTok{(}\StringTok{"Forecast"}\NormalTok{, }\FunctionTok{length}\NormalTok{(best\_model}\SpecialCharTok{$}\NormalTok{forecast)))}
-\NormalTok{)}
-
-\NormalTok{fitted\_data }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
-  \AttributeTok{Year =}\NormalTok{ years,}
-  \AttributeTok{Value =}\NormalTok{ best\_model}\SpecialCharTok{$}\NormalTok{fitted,}
-  \AttributeTok{Type =} \StringTok{"Fitted"}
-\NormalTok{)}
-\NormalTok{plot\_data }\OtherTok{\textless{}{-}} \FunctionTok{rbind}\NormalTok{(plot\_data, fitted\_data)}
-
-\FunctionTok{ggplot}\NormalTok{(plot\_data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Year, }\AttributeTok{y =}\NormalTok{ Value, }\AttributeTok{color =}\NormalTok{ Type)) }\SpecialCharTok{+}
-  \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+}
-  \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+}
-  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Grey Model Fitting and Forecast"}\NormalTok{,}
-       \AttributeTok{x =} \StringTok{"Year"}\NormalTok{,}
-       \AttributeTok{y =} \StringTok{"Amount of Municipal Waste Collected (Thousand tonnes/year)"}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{scale\_color\_manual}\NormalTok{(}\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\StringTok{"Actual"} \OtherTok{=} \StringTok{"green"}\NormalTok{, }\StringTok{"Fitted"} \OtherTok{=} \StringTok{"red"}\NormalTok{, }\StringTok{"Forecast"} \OtherTok{=} \StringTok{"blue"}\NormalTok{)) }\SpecialCharTok{+}
-  \FunctionTok{theme\_classic}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
 
 \includegraphics{project_files/figure-pdf/unnamed-chunk-48-1.pdf}
 
@@ -1805,50 +998,6 @@ population growth is also a factor that must be taken into account. When
 analyzing the per capita waste production instead of the total amounts,
 the graph below is obtained.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{waste\_collected }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(time\_series\_municipal\_waste[}\DecValTok{4}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{]) }
-\CommentTok{\# AutoML }
-\NormalTok{fit\_and\_forecast }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(model\_func, data, }\AttributeTok{forecast\_steps =} \DecValTok{5}\NormalTok{) \{}
-\NormalTok{  model }\OtherTok{\textless{}{-}} \FunctionTok{model\_func}\NormalTok{(data)}
-\NormalTok{  fitted\_values }\OtherTok{\textless{}{-}}\NormalTok{ model}\SpecialCharTok{$}\NormalTok{fitted}
-\NormalTok{  n }\OtherTok{\textless{}{-}} \FunctionTok{length}\NormalTok{(data)}
-\NormalTok{  forecast\_values }\OtherTok{\textless{}{-}} \FunctionTok{numeric}\NormalTok{(forecast\_steps)}
-  
-  \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{forecast\_steps) \{}
-\NormalTok{    extended\_data }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(data, forecast\_values[}\DecValTok{1}\SpecialCharTok{:}\NormalTok{(i}\DecValTok{{-}1}\NormalTok{)])}
-\NormalTok{    forecast\_model }\OtherTok{\textless{}{-}} \FunctionTok{model\_func}\NormalTok{(extended\_data)}
-\NormalTok{    forecast\_values[i] }\OtherTok{\textless{}{-}} \FunctionTok{tail}\NormalTok{(forecast\_model}\SpecialCharTok{$}\NormalTok{fitted, }\DecValTok{1}\NormalTok{)}
-\NormalTok{  \}}
-  
-  \FunctionTok{list}\NormalTok{(}\AttributeTok{model =}\NormalTok{ model, }\AttributeTok{fitted =}\NormalTok{ fitted\_values, }\AttributeTok{forecast =}\NormalTok{ forecast\_values)}
-\NormalTok{\}}
-
-\CommentTok{\# Models to evaluate}
-\NormalTok{models }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(}
-  \AttributeTok{gm =}\NormalTok{ gm,}
-  \AttributeTok{gm\_1 =}\NormalTok{ gm\_1,}
-  \AttributeTok{gm\_2 =}\NormalTok{ gm\_2,}
-  \AttributeTok{dgm =}\NormalTok{ dgm,}
-  \AttributeTok{verhulst =}\NormalTok{ verhulst,}
-  \AttributeTok{pgm =}\NormalTok{ pgm}
-\NormalTok{)}
-
-\CommentTok{\# Applying models and calculate accuracy}
-\NormalTok{results }\OtherTok{\textless{}{-}} \FunctionTok{lapply}\NormalTok{(models, }\ControlFlowTok{function}\NormalTok{(model\_func) \{}
-\NormalTok{  result }\OtherTok{\textless{}{-}} \FunctionTok{fit\_and\_forecast}\NormalTok{(model\_func, waste\_collected, }\AttributeTok{forecast\_steps =} \DecValTok{5}\NormalTok{)}
-\NormalTok{  accuracy }\OtherTok{\textless{}{-}} \FunctionTok{rmse}\NormalTok{(waste\_collected[(}\FunctionTok{length}\NormalTok{(waste\_collected)}\SpecialCharTok{{-}}\DecValTok{4}\NormalTok{)}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(waste\_collected)], result}\SpecialCharTok{$}\NormalTok{forecast)}
-  \FunctionTok{list}\NormalTok{(}\AttributeTok{model =}\NormalTok{ result}\SpecialCharTok{$}\NormalTok{model, }\AttributeTok{fitted =}\NormalTok{ result}\SpecialCharTok{$}\NormalTok{fitted, }\AttributeTok{forecast =}\NormalTok{ result}\SpecialCharTok{$}\NormalTok{forecast, }\AttributeTok{accuracy =}\NormalTok{ accuracy)}
-\NormalTok{\})}
-
-\NormalTok{best\_model\_index }\OtherTok{\textless{}{-}} \FunctionTok{which.min}\NormalTok{(}\FunctionTok{sapply}\NormalTok{(results, }\ControlFlowTok{function}\NormalTok{(x) x}\SpecialCharTok{$}\NormalTok{accuracy))}
-\NormalTok{best\_model\_name }\OtherTok{\textless{}{-}} \FunctionTok{names}\NormalTok{(results)[best\_model\_index]}
-\NormalTok{best\_model }\OtherTok{\textless{}{-}}\NormalTok{ results[[best\_model\_index]]}
-
-\FunctionTok{cat}\NormalTok{(}\StringTok{"The best model is:"}\NormalTok{, best\_model\_name, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 The best model is: dgm 
 \end{verbatim}
@@ -1856,21 +1005,9 @@ The best model is: dgm
 Then, the accuracy metric value and forecast values for the next 5 years
 are provided for the DGM model.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{cat}\NormalTok{(}\StringTok{"Best model RMSE:"}\NormalTok{, best\_model}\SpecialCharTok{$}\NormalTok{accuracy, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 Best model RMSE: 0.1330711 
 \end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{print}\NormalTok{(best\_model}\SpecialCharTok{$}\NormalTok{forecast)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 [1] 0.9997255 1.0134248 0.9806750 0.9938774 0.9619003
@@ -1878,34 +1015,6 @@ Best model RMSE: 0.1330711
 
 Finally, the original data, fitted values, and forecast points are shown
 in the graph below.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{years }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{substr}\NormalTok{(}\FunctionTok{names}\NormalTok{(time\_series\_municipal\_waste)[}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{], }\DecValTok{1}\NormalTok{, }\DecValTok{4}\NormalTok{))  }
-\NormalTok{forecast\_years }\OtherTok{\textless{}{-}}\NormalTok{ (}\FunctionTok{max}\NormalTok{(years) }\SpecialCharTok{+} \DecValTok{1}\NormalTok{)}\SpecialCharTok{:}\NormalTok{(}\FunctionTok{max}\NormalTok{(years) }\SpecialCharTok{+} \FunctionTok{length}\NormalTok{(best\_model}\SpecialCharTok{$}\NormalTok{forecast))}
-\NormalTok{plot\_data }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
-  \AttributeTok{Year =} \FunctionTok{c}\NormalTok{(years, forecast\_years),}
-  \AttributeTok{Value =} \FunctionTok{c}\NormalTok{(waste\_collected, best\_model}\SpecialCharTok{$}\NormalTok{forecast),}
-  \AttributeTok{Type =} \FunctionTok{c}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\StringTok{"Actual"}\NormalTok{, }\FunctionTok{length}\NormalTok{(waste\_collected)), }\FunctionTok{rep}\NormalTok{(}\StringTok{"Forecast"}\NormalTok{, }\FunctionTok{length}\NormalTok{(best\_model}\SpecialCharTok{$}\NormalTok{forecast)))}
-\NormalTok{)}
-
-\NormalTok{fitted\_data }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
-  \AttributeTok{Year =}\NormalTok{ years,}
-  \AttributeTok{Value =}\NormalTok{ best\_model}\SpecialCharTok{$}\NormalTok{fitted,}
-  \AttributeTok{Type =} \StringTok{"Fitted"}
-\NormalTok{)}
-\NormalTok{plot\_data }\OtherTok{\textless{}{-}} \FunctionTok{rbind}\NormalTok{(plot\_data, fitted\_data)}
-
-\FunctionTok{ggplot}\NormalTok{(plot\_data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Year, }\AttributeTok{y =}\NormalTok{ Value, }\AttributeTok{color =}\NormalTok{ Type)) }\SpecialCharTok{+}
-  \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+}
-  \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+}
-  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Grey Model Fitting and Forecast"}\NormalTok{,}
-       \AttributeTok{x =} \StringTok{"Year"}\NormalTok{,}
-       \AttributeTok{y =} \StringTok{"Amount of Municipal Waste Collected (Thousand tonnes/year)"}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{scale\_color\_manual}\NormalTok{(}\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\StringTok{"Actual"} \OtherTok{=} \StringTok{"green"}\NormalTok{, }\StringTok{"Fitted"} \OtherTok{=} \StringTok{"red"}\NormalTok{, }\StringTok{"Forecast"} \OtherTok{=} \StringTok{"blue"}\NormalTok{)) }\SpecialCharTok{+}
-  \FunctionTok{theme\_classic}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
 
 \includegraphics{project_files/figure-pdf/unnamed-chunk-51-1.pdf}
 
@@ -1917,108 +1026,19 @@ must be considered in the analysis.
 The following are the results obtained when performing the same grey
 forecasting analysis for Ankara.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(greyforecasting)}
-\FunctionTok{library}\NormalTok{(Metrics)}
-\FunctionTok{library}\NormalTok{(readxl)}
-\FunctionTok{library}\NormalTok{(tidyverse)}
-\NormalTok{ankara }\OtherTok{\textless{}{-}}\NormalTok{ ts\_province }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(Province }\SpecialCharTok{==} \StringTok{"Ankara"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{arrange}\NormalTok{(Year)}
-\NormalTok{ankara\_waste }\OtherTok{\textless{}{-}}\NormalTok{ ankara}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{Waste amount (1000 ton)}\StringTok{\textasciigrave{}}
-
-\CommentTok{\# AutoML greyforecasting function}
-\NormalTok{fit\_and\_forecast }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(model\_func, data, }\AttributeTok{forecast\_steps =} \DecValTok{5}\NormalTok{) \{}
-\NormalTok{  model }\OtherTok{\textless{}{-}} \FunctionTok{model\_func}\NormalTok{(data)}
-\NormalTok{  fitted\_values }\OtherTok{\textless{}{-}}\NormalTok{ model}\SpecialCharTok{$}\NormalTok{fitted}
-\NormalTok{  forecast\_values }\OtherTok{\textless{}{-}} \FunctionTok{numeric}\NormalTok{(forecast\_steps)}
-  
-  \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{forecast\_steps) \{}
-\NormalTok{    extended\_data }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(data, forecast\_values[}\DecValTok{1}\SpecialCharTok{:}\NormalTok{(i}\DecValTok{{-}1}\NormalTok{)])}
-\NormalTok{    forecast\_model }\OtherTok{\textless{}{-}} \FunctionTok{model\_func}\NormalTok{(extended\_data)}
-\NormalTok{    forecast\_values[i] }\OtherTok{\textless{}{-}} \FunctionTok{tail}\NormalTok{(forecast\_model}\SpecialCharTok{$}\NormalTok{fitted, }\DecValTok{1}\NormalTok{)}
-\NormalTok{  \}}
-  
-  \FunctionTok{list}\NormalTok{(}\AttributeTok{model =}\NormalTok{ model, }\AttributeTok{fitted =}\NormalTok{ fitted\_values, }\AttributeTok{forecast =}\NormalTok{ forecast\_values)}
-\NormalTok{\}}
-
-\NormalTok{models }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(}
-  \AttributeTok{gm =}\NormalTok{ gm,}
-  \AttributeTok{gm\_1 =}\NormalTok{ gm\_1,}
-  \AttributeTok{gm\_2 =}\NormalTok{ gm\_2,}
-  \AttributeTok{dgm =}\NormalTok{ dgm,}
-  \AttributeTok{verhulst =}\NormalTok{ verhulst,}
-  \AttributeTok{pgm =}\NormalTok{ pgm}
-\NormalTok{)}
-
-\NormalTok{results }\OtherTok{\textless{}{-}} \FunctionTok{lapply}\NormalTok{(models, }\ControlFlowTok{function}\NormalTok{(model\_func) \{}
-\NormalTok{  result }\OtherTok{\textless{}{-}} \FunctionTok{fit\_and\_forecast}\NormalTok{(model\_func, ankara\_waste, }\AttributeTok{forecast\_steps =} \DecValTok{5}\NormalTok{)}
-\NormalTok{  accuracy }\OtherTok{\textless{}{-}} \FunctionTok{rmse}\NormalTok{(}\FunctionTok{tail}\NormalTok{(ankara\_waste, }\FunctionTok{min}\NormalTok{(}\DecValTok{5}\NormalTok{, }\FunctionTok{length}\NormalTok{(ankara\_waste))), result}\SpecialCharTok{$}\NormalTok{forecast)}
-  \FunctionTok{list}\NormalTok{(}\AttributeTok{model =}\NormalTok{ result}\SpecialCharTok{$}\NormalTok{model, }\AttributeTok{fitted =}\NormalTok{ result}\SpecialCharTok{$}\NormalTok{fitted, }\AttributeTok{forecast =}\NormalTok{ result}\SpecialCharTok{$}\NormalTok{forecast, }\AttributeTok{accuracy =}\NormalTok{ accuracy)}
-\NormalTok{\})}
-
-\NormalTok{best\_model\_index }\OtherTok{\textless{}{-}} \FunctionTok{which.min}\NormalTok{(}\FunctionTok{sapply}\NormalTok{(results, }\ControlFlowTok{function}\NormalTok{(x) x}\SpecialCharTok{$}\NormalTok{accuracy))}
-\NormalTok{best\_model\_name }\OtherTok{\textless{}{-}} \FunctionTok{names}\NormalTok{(results)[best\_model\_index]}
-\NormalTok{best\_model }\OtherTok{\textless{}{-}}\NormalTok{ results[[best\_model\_index]]}
-
-\FunctionTok{cat}\NormalTok{(}\StringTok{"The best model is:"}\NormalTok{, best\_model\_name, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 The best model is: dgm 
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{cat}\NormalTok{(}\StringTok{"Best model RMSE:"}\NormalTok{, best\_model}\SpecialCharTok{$}\NormalTok{accuracy, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 Best model RMSE: 290.0232 
 \end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{print}\NormalTok{(best\_model}\SpecialCharTok{$}\NormalTok{forecast)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 [1] 1884.965 1933.066 1861.282 1907.419 1836.855
 \end{verbatim}
 
 The graph:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Prepare data for plotting}
-\NormalTok{years }\OtherTok{\textless{}{-}}\NormalTok{ ankara}\SpecialCharTok{$}\NormalTok{Year}
-\NormalTok{forecast\_years }\OtherTok{\textless{}{-}}\NormalTok{ (}\FunctionTok{max}\NormalTok{(years) }\SpecialCharTok{+} \DecValTok{1}\NormalTok{)}\SpecialCharTok{:}\NormalTok{(}\FunctionTok{max}\NormalTok{(years) }\SpecialCharTok{+} \FunctionTok{length}\NormalTok{(best\_model}\SpecialCharTok{$}\NormalTok{forecast))}
-
-\NormalTok{plot\_data }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
-  \AttributeTok{Year =} \FunctionTok{c}\NormalTok{(years, forecast\_years),}
-  \AttributeTok{Value =} \FunctionTok{c}\NormalTok{(ankara\_waste, best\_model}\SpecialCharTok{$}\NormalTok{forecast),}
-  \AttributeTok{Type =} \FunctionTok{c}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\StringTok{"Actual"}\NormalTok{, }\FunctionTok{length}\NormalTok{(ankara\_waste)), }\FunctionTok{rep}\NormalTok{(}\StringTok{"Forecast"}\NormalTok{, }\FunctionTok{length}\NormalTok{(best\_model}\SpecialCharTok{$}\NormalTok{forecast)))}
-\NormalTok{)}
-\NormalTok{fitted\_data }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
-  \AttributeTok{Year =}\NormalTok{ years,}
-  \AttributeTok{Value =}\NormalTok{ best\_model}\SpecialCharTok{$}\NormalTok{fitted,}
-  \AttributeTok{Type =} \StringTok{"Fitted"}
-\NormalTok{)}
-
-\NormalTok{plot\_data }\OtherTok{\textless{}{-}} \FunctionTok{rbind}\NormalTok{(plot\_data, fitted\_data)}
-
-\FunctionTok{ggplot}\NormalTok{(plot\_data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Year, }\AttributeTok{y =}\NormalTok{ Value, }\AttributeTok{color =}\NormalTok{ Type)) }\SpecialCharTok{+}
-  \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+}
-  \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+}
-  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Grey Model Fitting and Forecast for Ankara"}\NormalTok{,}
-       \AttributeTok{x =} \StringTok{"Year"}\NormalTok{,}
-       \AttributeTok{y =} \StringTok{"Amount of Municipal Waste Collected (Thousand tonnes/year)"}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{scale\_color\_manual}\NormalTok{(}\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\StringTok{"Actual"} \OtherTok{=} \StringTok{"green"}\NormalTok{, }\StringTok{"Fitted"} \OtherTok{=} \StringTok{"red"}\NormalTok{, }\StringTok{"Forecast"} \OtherTok{=} \StringTok{"blue"}\NormalTok{)) }\SpecialCharTok{+}
-  \FunctionTok{theme\_classic}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
 
 \includegraphics{project_files/figure-pdf/unnamed-chunk-53-1.pdf}
 
