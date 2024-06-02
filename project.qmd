@@ -7,9 +7,6 @@ format:
     code-fold: true
     embed-resources: true
   docx:
-    colorlinks: true
-    papersize: a4
-    fontsize: 11pt
     margin-left: 2cm
     margin-right: 2cm
     margin-top: 2cm
