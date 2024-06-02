@@ -47,7 +47,8 @@ format:
       light: minty
       dark: superhero
     css: styles.css
-
+execute:
+  echo: false
 
 editor: visual
 
