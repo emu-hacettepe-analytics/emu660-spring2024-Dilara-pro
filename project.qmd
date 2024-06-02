@@ -6,7 +6,7 @@ format:
   html:
     code-fold: true
     embed-resources: true
-  pdf:
+  docx:
     colorlinks: true
     papersize: a4
     fontsize: 11pt
